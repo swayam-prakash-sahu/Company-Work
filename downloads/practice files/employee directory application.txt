@@ -1,0 +1,43 @@
+https://www.youtube.com/watch?v=jWnw9afYzTM
+
+https://www.youtube.com/watch?v=dbbiwVIT88U
+
+
+https://www.youtube.com/watch?v=OLBmtRFFwcQ
+
+https://www.youtube.com/watch?v=PQF2x2iFUag
+
+-----------
+https://www.youtube.com/playlist?list=PLX4n-znUpc2b19AoYa4BMuhGuRnZItJK_
+
+CRUD
+
+https://youtu.be/T-e554Zt3n4?si=BnTLDACj_Rni_JnD
+
+https://www.youtube.com/watch?v=dNWl-vdZRfQ
+
+web API
+
+https://www.youtube.com/watch?v=UdTAyjVGkg4
+
+
+ASP.NET Core MVC Login and Registration
+
+deploy and host ASP.NET CORE Application on IIS
+https://www.youtube.com/watch?v=Q_A_t7KS5Ss
+
+--------
+https://www.youtube.com/watch?v=_qIYBgWTlTo
+
+Asp.Net Core Web API - CRUD operations in REST API using Entity Framework Core and SQL Server
+https://www.youtube.com/watch?v=Fp6s89A136Q
+
+bootswatch
+
+https://github.com/rohitpatil1997/Employee-Management-System
+==========
+https://github.com/CodAffection/Asp.Net-Core-MVC-Identity---Complete-User-Authentication-System/tree/main/AuthSystem
+
+https://github.com/Nehanthworld/Asp.Net-Core-Web-API-Tutorial/tree/master/CollegeApp
+
+https://binarybytez.com/asp-net-core-web-api-project/

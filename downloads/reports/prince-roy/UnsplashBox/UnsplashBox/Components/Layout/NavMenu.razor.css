@@ -1,0 +1,29 @@
+﻿.navMenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+.navLinks li {
+  list-style-type: none;
+}
+.navLinks a {
+  color: #6C727F;
+  text-decoration: none;
+}
+
+.active {
+  color: currentColor;
+  background-color: grey;
+  padding: 0.4rem 0.95rem;
+  background-color: pink;
+  border-radius: 5px;
+}

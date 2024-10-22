@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+</head>
+<style>
+    *{
+        background-color: antiquewhite;
+
+    }
+    </style>
+    
+<body>
+<!--  onclick -->
+
+    <h2>The onclick Attribute</h2>
+    <button onclick="document.getElementById('E1').innerHTML=Date()">SHOW TIME</button>
+    <p id="E1"></p>
+
+<!--  alert -->    
+    <button type="button"
+            onclick="hiThere()"
+            style="margin-left: 50%;">
+            Click me event
+    </button>
+
+<!--  onmouseover --> 
+    <div id="hover1"
+         onmouseover="hov()"
+         style="background-color:green;
+                height:200px;
+                width:200px;">
+    </div>
+
+<!--  onmouseout -->     
+    <div id="hover2" onmouseout="out()" style="background-color:green; height:200px; width:200px; margin-top: 20px;">
+    </div>
+
+<!--  onchange -->  
+    <input onchange="alert(this.value)"
+           type="number"
+           style="margin-left: 45%;">
+
+<!--  onload -->
+    <section class="E3" style="margin: 50px;">     
+           <img onload="alert('Image completely loaded')"
+           alt="tech image"
+           src="https://source.unsplash.com/featured?technology" width="300"> 
+
+    </section>       
+    
+<!--  focusevent -->
+<section style="margin: 20px ;">
+    <h2> Enter something here</h2>
+    <input type="text"  placeholder="focus event" id="input1" onfocus="focusevent()"/>
+</section>
+
+<!--  keydownevent -->
+
+    <section style="margin: 20px;">
+    <input type="text" placeholder="keydown press to execute" id="input1" onkeydown="keydownevent()"/>  
+    </section>
+
+<!--  keyupevent -->
+
+    <section style="margin: 20px;">
+        <input type="text" placeholder="keyup release to execute" id="input2" onkeyup="keyupevent()"/>  
+    </section>
+
+</body>
+
+
+<script src=new.js></script>
+<script src=events.js></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HTMLTableRecords_MVC.props" />
+</Project>

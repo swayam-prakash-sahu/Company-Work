@@ -1,0 +1,203 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EmployeeDirectoryWebApp
+build_property.RootNamespace = EmployeeDirectoryWebApp
+build_property.ProjectDir = C:\Users\SwayamPrakashSahu\source\repos\EmployeeDirectoryWebApp\EmployeeDirectoryWebApp\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\SwayamPrakashSahu\source\repos\EmployeeDirectoryWebApp\EmployeeDirectoryWebApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Access/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Access/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNzXFNpZ251cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/CombinedFields/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tYmluZWRGaWVsZHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/ContactInformations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/ContactInformations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/ContactInformations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/ContactInformations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/ContactInformations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdEluZm9ybWF0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Departments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Departments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Departments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Departments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Departments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Designations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduYXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Designations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduYXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Designations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduYXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Designations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduYXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Designations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/EmployeeProfiles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVQcm9maWxlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/EmployeeProfiles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVQcm9maWxlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/EmployeeProfiles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVQcm9maWxlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/EmployeeProfiles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVQcm9maWxlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/EmployeeProfiles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVQcm9maWxlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Managers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Managers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Managers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Managers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Managers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_ContactInformations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db250YWN0SW5mb3JtYXRpb25zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_Department.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EZXBhcnRtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_Designations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9EZXNpZ25hdGlvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_EmployeeProfiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FbXBsb3llZVByb2ZpbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/UserAuthentications/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/UserAuthentications/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/UserAuthentications/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/UserAuthentications/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/UserAuthentications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckF1dGhlbnRpY2F0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SwayamPrakashSahu/source/repos/EmployeeDirectoryWebApp/EmployeeDirectoryWebApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zwcmpk9ciz

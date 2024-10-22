@@ -1,0 +1,82 @@
+﻿@model EmployeeDirectoryWebApp.Models.Department
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Department</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DeptId" class="control-label"></label>
+                <input asp-for="DeptId" class="form-control" />
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentName" class="control-label"></label>
+                <input asp-for="DepartmentName" class="form-control" />
+                <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedDate" class="control-label"></label>
+                <input asp-for="UpdatedDate" class="form-control" />
+                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="button" value="Create" class="btn btn-primary" onclick="addDept()"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    function addDept(){
+        
+        var settings = {
+            "url": "https://localhost:7060/api/DepartmentsApi",
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "data": JSON.stringify({
+                "deptId": $("#DeptId").val(),
+                "departmentName": $("#DepartmentName").val() ,
+                "createdDate": ($("#CreatedDate").val() == "") ? null : $("#CreatedDate").val(),
+                "createdBy": null,
+                "updatedDate": null,
+                "updatedBy": null,
+                "employeeProfiles": []
+            }),
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            window.location.href = "https://localhost:7060/Departments/Index";
+        });
+    }
+</script>

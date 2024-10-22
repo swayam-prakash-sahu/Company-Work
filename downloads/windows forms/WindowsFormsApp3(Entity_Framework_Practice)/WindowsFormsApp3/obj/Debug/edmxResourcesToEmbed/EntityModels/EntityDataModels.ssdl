@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrainingDBContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DEPT">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="int" Nullable="false" />
+    <Property Name="DeptName" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" Nullable="false" />
+    <Property Name="EmapName" Type="varchar" MaxLength="100" />
+    <Property Name="EmpSalary" Type="int" />
+    <Property Name="DeptID" Type="int" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__DeptID__3C69FB99">
+    <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPT">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrainingDBContextStoreContainer">
+    <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EMPLOYEE__DeptID__3C69FB99" Association="Self.FK__EMPLOYEE__DeptID__3C69FB99">
+      <End Role="DEPT" EntitySet="DEPT" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

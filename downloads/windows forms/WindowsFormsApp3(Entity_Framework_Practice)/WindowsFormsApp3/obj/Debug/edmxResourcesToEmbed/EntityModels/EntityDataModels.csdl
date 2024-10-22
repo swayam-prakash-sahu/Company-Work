@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrainingDBContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="DEPT">
+    <Key>
+      <PropertyRef Name="DeptID" />
+    </Key>
+    <Property Name="DeptID" Type="Int32" Nullable="false" />
+    <Property Name="DeptName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPLOYEEs" Relationship="Self.FK__EMPLOYEE__DeptID__3C69FB99" FromRole="DEPT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Int32" Nullable="false" />
+    <Property Name="EmapName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="EmpSalary" Type="Int32" />
+    <Property Name="DeptID" Type="Int32" />
+    <NavigationProperty Name="DEPT" Relationship="Self.FK__EMPLOYEE__DeptID__3C69FB99" FromRole="EMPLOYEE" ToRole="DEPT" />
+  </EntityType>
+  <Association Name="FK__EMPLOYEE__DeptID__3C69FB99">
+    <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEPT">
+        <PropertyRef Name="DeptID" />
+      </Principal>
+      <Dependent Role="EMPLOYEE">
+        <PropertyRef Name="DeptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TrainingDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DEPTs" EntityType="Self.DEPT" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <AssociationSet Name="FK__EMPLOYEE__DeptID__3C69FB99" Association="Self.FK__EMPLOYEE__DeptID__3C69FB99">
+      <End Role="DEPT" EntitySet="DEPTs" />
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

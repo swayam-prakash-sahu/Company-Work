@@ -1,0 +1,25 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    var observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+            if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                mutation.addedNodes.forEach((node) => {
+                    if (node.nodeType === 1 && node.tagName === 'INPUT') {
+                        // Exclude password and username inputs
+                        if (!node.id || (node.id !== 'password' && node.id !== 'username')) {
+                            node.classList.remove('error-animation');
+                        }
+                    }
+                });
+            }
+        });
+
+        document.querySelectorAll('input.input-validation-error').forEach(input =>
+            input.classList.add('error-animation'));
+    });
+
+    var form = document.querySelector('form');
+    observer.observe(form, { subtree: true, childList: true });
+</script>

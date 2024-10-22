@@ -1,0 +1,65 @@
+﻿@model FitKitWebApp.Models.UserDetails;
+
+@section Styles {
+    <link href="~/Content/UserDetails.styles.css" type="text/css" rel="stylesheet" />
+}
+
+@{
+    var genders = new List<SelectListItem>
+    {
+    new SelectListItem{Value="Male", Text="Male"},
+    new SelectListItem{Value="Female", Text="Female"},
+    };
+
+    var fitnessGoals = new List<SelectListItem>
+    {
+        new SelectListItem{Value="Weight Loss", Text="Weight Loss"},
+        new SelectListItem{Value="Muscle Gain", Text="Muscle Gain"},
+        new SelectListItem{Value="Cardiovascular Endurance", Text="Cardiovascular Endurance"},
+        new SelectListItem{Value="Flexibility and Mobility", Text="Flexibility and Mobility"},
+        new SelectListItem{Value="Performance Goals", Text="Performance Goals"},
+        new SelectListItem{Value="Overall Health and Wellness", Text="Overall Health and Wellness"},
+
+    };
+}
+
+<div class="details-container">
+    <h2>@TempData["Name"], One Step More!</h2>
+    <form method="post" class="form-container" asp-action="Index">
+        <div class="input-container">
+            <label asp-for="Age" class="label"></label>
+            <input asp-for="Age" type="number" class="input-tag" placeholder="Enter your Age here" />
+            <span asp-validation-for="Age"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Gender" class="label"></label>
+            <select asp-for="Gender" asp-items="@genders">
+                <option value="">Select Gender</option>
+            </select>
+            <span asp-validation-for="Gender"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Weight" class="label"></label>
+            <input asp-for="Weight" type="number" class="input-tag" placeholder="Enter your Weight here" />
+            <span asp-validation-for="Weight"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Height" class="label"></label>
+            <input asp-for="Height" type="number" class="input-tag" placeholder="Enter your Height here" />
+            <span asp-validation-for="Height"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="FitnessGoals" class="label"></label>
+            <select asp-for="FitnessGoals" asp-items="@fitnessGoals">
+                <option value="">Select fitness goals</option>
+            </select>
+            <span asp-validation-for="FitnessGoals"></span>
+        </div>
+
+        <input type="submit" class="submit-btn" value="Submit" />
+    </form>
+</div>

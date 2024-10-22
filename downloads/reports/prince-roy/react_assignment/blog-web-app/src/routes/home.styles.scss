@@ -1,0 +1,55 @@
+header {
+  background-color: rgb(253, 250, 255);
+  height: 20rem;
+  position: relative;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  color: rgb(23, 17, 51);
+  display: grid;
+  text-align: center;
+
+  @media (min-width: 45rem) {
+    height: 14rem;
+  }
+
+  h1 {
+    align-self: normal;
+  }
+
+  p {
+    color: rgb(102, 112, 133);
+    font-size: 2rem;
+    font-weight: 700;
+    align-self: baseline;
+  }
+
+  button {
+    border: 2px solid rgb(57, 57, 57);
+    outline: 3px solid transparent;
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: rgb(57, 57, 57);
+    background-color: rgb(251, 237, 255);
+    margin-block-start: 1rem;
+
+    &:hover {
+      color: rgb(251, 237, 255);
+      background-color: rgb(23, 17, 51);
+    }
+  }
+}
+
+.blogs-container {
+  min-height: 100vh;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+  background-color: rgb(251, 237, 255);
+}

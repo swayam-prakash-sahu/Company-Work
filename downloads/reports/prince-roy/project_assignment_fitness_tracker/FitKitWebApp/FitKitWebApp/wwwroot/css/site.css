@@ -1,0 +1,62 @@
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+}
+
+input {
+    all: unset;
+}
+
+main {
+    min-height: 100vh;
+}
+
+select{
+    all: unset;
+}
+
+option{
+    all: unset;
+}
+
+.container {
+    min-height: 100vh;
+    background-color: #FAFAFA;
+    display: grid;
+    grid-template-columns: min-content auto auto;
+}
+
+.error-animation {
+    animation-name: shake;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+    animation-fill-mode: forwards;
+    outline: 3px solid #fb5656;
+}
+
+@keyframes shake {
+    0% {
+        margin-left: 0;
+    }
+
+    25% {
+        margin-left: 0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    75% {
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    100% {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

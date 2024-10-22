@@ -1,0 +1,22 @@
+﻿.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/hero-left.png"), url("images/hero-right.png");
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: left -50vw center, right -50vw center;
+
+    @media(min-width: 1024px) {
+        background-size: 30%;
+        background-position: left -2vw center, right -2vw center;
+    }
+
+    p {
+        font-size: 0.75rem;
+        font-weight: 300;
+    }
+}

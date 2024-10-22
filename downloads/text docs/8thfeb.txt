@@ -1,0 +1,450 @@
+HTML AND CSS TRAINING BY SHIVA
+SELF LEARNT GIT COMMANDS
+Working on Assignment
+
+=================
+WEEK 1(5-FEB-2024 to 9-FEB-2024)
+
+DAY - 2 (Feb 5, 2024)	
+1. Onboarding
+2. Introduction Session 
+3. Needful Software Download 
+4. Group Building and seat allocation
+5. Group meeting
+
+DAY - 2 (Feb 6, 2024)	
+
+1.Self-Practice 
+2.Discussions with team
+3.Readiness evaluation 
+4.CEO Interaction with Interns.
+
+DAY - 3 (Feb 7, 2024)		
+
+1.Training on HTML and CSS from Shiva
+2.HTML Self practice
+3.Introductory session with Rameswaran
+4.Revised basic git commands
+5.Going through C# documentation
+6.Self learning basics of C# - variables, methods, members, types and properties
+
+DAY - 4 (Feb 8, 2024)		
+
+1. Revision of basic concepts of HTML CSS
+2. Training by shiv on html and CSS(Selectors, Pseudo elements, Pseudo class, Box Model CSS)
+3. Training by Shiv on concepts like (z-index, opacity, media-queries) and External CSS
+4. Revision of concepts by self 
+5. Project assignment on HTML and CSS
+
+DAY - 5 (Feb 9, 2024)	
+
+1. Introduction to JavaScript
+2. DOM API in JavaScript
+3. Assignment on implementation of concepts covered in training.
+4. Going through concepts of JavaScript
+
+===============
+week-2
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone     Clone a repository into a new directory
+   init      Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add       Add file contents to the index
+   mv        Move or rename a file, a directory, or a symlink
+   restore   Restore working tree files
+   rm        Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect    Use binary search to find the commit that introduced a bug
+   diff      Show changes between commits, commit and working tree, etc
+   grep      Print lines matching a pattern
+   log       Show commit logs
+   show      Show various types of objects
+   status    Show the working tree status
+
+grow, mark and tweak your common history
+   branch    List, create, or delete branches
+   commit    Record changes to the repository
+   merge     Join two or more development histories together
+   rebase    Reapply commits on top of another base tip
+   reset     Reset current HEAD to the specified state
+   switch    Switch branches
+   tag       Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch     Download objects and refs from another repository
+   pull      Fetch from and integrate with another repository or a local branch
+   push      Update remote refs along with associated objects
+
+=========================
+
+Feb 12, 2024	
+
+1. Software Installation(Visual Studio 2022 Community Edition,
+SQL Server 2022  Express Edition,
+SQL Server Management Studio,
+Git for Windows and
+Node Js)
+2. Introduction to DBMS, RDBMS, Data Models and Database Design.
+3. DOM methods Implementation in Projects
+4. Git commands practice
+
+Feb 13, 2024	
+
+1. Primitive and Non - Primitive data types.
+2. Debugging in JavaScript
+3. Dev tools, shallow copy and deep copy
+4. Callbacks in JavaScript
+5. Implement map and filter
+
+Feb 14, 2024	
+	
+
+1. Array Methods (shift, unshift, slice etc.)training by Siva
+2. Hoisting in Javascript(var, let, const, function declaration etc.).
+3. Working of Javascript.
+4. Implementing by building projects
+
+Feb 15, 2024	
+
+1. How JavaScript works, Execution call stack
+2. Events in JavaScript
+3. Training on testing(Introduction to JIRA and AZURE DEV TOOLS).
+4. what is SQL, create table, alter table, rename columns, modify column, delete columns, rename table, drop table, null value
+5. Interaction with AVP
+
+Feb 16, 2024	
+
+1. AJAX call
+2. Revision on Execution Context with examples.
+3. Training on JavaScript Concepts(Closures,  AJAX and XHR)
+4. Working of Websites and their underlying principles(fetch data with the help of APIs , status codes, HTTP/HTTPS, Hosting, scaling etc.) and concept of load balancer.
+5. Revision of SQL queries (self-practice).
+
+
+https://www.geeksforgeeks.org/7-javascript-concepts-that-every-developer-must-know/
+
+
+HTML AND CSS TRAINING BY SHIVA
+SELF LEARNT GIT COMMANDS
+Working on Assignment
+
+=================
+WEEK 1(5-FEB-2024 to 11-FEB-2024)
+
+DAY - 1 (Feb 5, 2024)	
+
+1. Onboarding
+2. Introduction Session 
+3. Needful Software Download 
+4. Group Building and Seat allocation
+5. Group meeting
+
+DAY - 2 (Feb 6, 2024)	
+
+1.Self-Practice 
+2.Discussions with team
+3.Readiness evaluation 
+4.CEO Interaction with Interns.
+
+DAY - 3 (Feb 7, 2024)		
+
+1.Training on HTML and CSS from Shiva
+2.HTML Self practice
+3.Introductory session with Rameswaran
+4.Revised basic git commands
+5.Going through C# documentation
+6.Self learning basics of C# - variables, methods, members, types and properties
+
+DAY - 4 (Feb 8, 2024)		
+
+1. Revision of basic concepts of HTML CSS
+2. Training by shiv on html and CSS(Selectors, Pseudo elements, Pseudo class, Box Model CSS)
+3. Training by Shiv on concepts like (z-index, opacity, media-queries) and External CSS
+4. Revision of concepts by self 
+5. Project assignment on HTML and CSS
+
+DAY - 5 (Feb 9, 2024)	
+
+1. Introduction to JavaScript
+2. DOM API in JavaScript
+3. Assignment on implementation of concepts covered in training.
+4. Going through concepts of JavaScript
+
+https://learnsql.com/blog/introducing-sql-set-operators-union-union-minus-intersect/
+
+==============
+
+1. Evaluation on C# concepts
+2. SQL practice on SSMS(Aggregation)
+3. self learning(value and referance types, collections, arrays, arraylist, jagged arrays, param arrays, hashtable)
+
+Mar 5, 2024	
+
+
+1. Self learning JavaScript ( expressions, data structures and data types, Classes, Variables and functions)
+
+2. Training by Suman on method overloading, exception handling(try, catch, finally and throw), Constructors and Destructors, Access modifiers(public, private, protected and internal), Properties, classes and objects
+
+Mar 6, 2024
+	
+1. SQL Practice
+2. WinForms Implementation
+3. Self Practice method overloading, Constructors and Destructors, Access modifiers, Properties, classes and objects
+4. JavaScript concepts revision
+5. SASS self practice
+
+Mar 7, 2024	
+
+1. c# basic formatting
+2. escape sequences
+3. concatenation, interpolation and strings in c#
+4. Self learning API POSTMAN 
+5. javascript(Lexical Structure,Expressions,Data Types,Classes,Variables)
+
+Mar 8, 2024	
+
+1. c# (Arrays, Control variable scope and logic using code blocks)
+2. Evaluation on c# and sql
+3. Javascript(this, operator , Arrow Functions, Loops, Scopes, Arrays)
+
+=================================
+
+Mar 11, 2024
+
+1. Self Learning C# concepts and completing Certification course modules.
+2. Training by Suman on C#(Inheritance, Interfaces, DataTable etc.)
+3. Learnt about Winforms
+4. SQL practice questions solved for AdventureDB.
+
+Mar 12, 2024	
+
+1. Training on windows forms by Suman(labels, TextBox control, buttons - RadioButton control in a WinForms application etc)
+2. Completing freecodecamp C# certification(Write Your First Code Using C#, Create and Run Simple C# Console Applications )
+3. Scores discussion with Megha.
+
+Mar 13, 2024	
+
+1. Training on Windows forms(DataGridView control used for in WinForms development, Combo Box)
+2. Completing freecodecamp C# certification (Add Logic to C# Console Applications, Work with Variable Data in C# Console Applications)
+3. Javascript Concepts revision closures and callbacks
+
+Mar 14, 2024	
+
+1. Training by Suman on windows form (Timer control work in Windows Forms, TreeView control in a Windows Forms application)
+2. Completing freecodecamp C# certification (Create Methods in C# Console Applications, Debug C# Console Applications)
+3. Javascript concepts practice (Template Literals, Strict Mode)
+
+Mar 15, 2024	
+
+1. .NET and C# evaluation(winforms, inheritance, enums, Dataset and DataTable, Sealed class, abstract class and interfaces, Entity Frameworks)
+2. Self Learning C# and Windows forms concepts
+3. Learning 
+
+---------------
+
+On the first working day, sessions on ASP.NET CORE started. 
+Topics such as ASP .NET Core Overview, MVC Architecture, Basics of HTML, Razor view engine and it's controls like- Dropdown and DropdownFor, Checkbox and CheckboxFor, RadioButon and RadioButonFor, TextBox and TextArea, Lables, Display, Password, ListBox, ActionLink, BeginForm and many more controls, Creating Controller, Creating Model and Model Binding were taught throughout the week.
+
+I practised the taught topics and uploaded my codes on GitHub for evaluation. 
+
+I made a project named "Student Portal" implementing the CRUD operations in ASP.NET CORE MVC.
+
+On the last working day, we gave a ASP.NET CORE evaluation test.
+
+
+C#
+Sealed class
+Indexers
+Delegates
+Lambda Functions
+Abstract class and abstraction
+Explore more WinForm elements
+
+
+ASP .NET Core MVC
+
+
+Map, MapGet, MapPost, MapPut	 	 	 	 	 	 	 
+							
+
+--------------------------------------------------------------------------------------------
+WEEK 7(18-MAR-2024 to 24-MAR-2024)
+
+
+DAY - 1 (Mar 18, 2024)
+
+1. Implementation of  winform CRUD operation application .
+2. Training on asp.net core MVC - Introduction to core MVC, Creating MVC project, handling of mvc controls with HTML .
+3. Learnt about LINQ queries
+4. Practiced how to implement Database first approach and Code first approach
+
+DAY - 2 (Mar 19, 2024)
+
+1. Self-Practice of controller, view and model of ASP.NET MVC.
+2. Training Session ASP.NET MVC on various helper methods in HTML , how to pass value from controller to view .
+
+DAY - 3 (Mar 20, 2024)
+
+1. Learnt Dropdown and DropdownFor, Checkbox and CheckboxFor, RadioButon and RadioButonFor, TextBox and TextArea, Lables, Display, Password, ListBox
+2. Understanding Directory Structure and Workflow(MVC Architecture)
+3. Training		 	 
+
+DAY - 4 (Mar 21, 2024)
+
+1. learnt about Model Binding 
+2. Routing concepts - Convention Based routing, Attribute Based Routing
+3. Applying CSS to the Razor controls like style, class etc	 
+
+DAY - 5 (Mar 22, 2024)
+
+1. Learnt about Controllers, Action Methods, View , Razor and Razor Engine
+2. Practiced crud operation using Entity Framework in ASP.NET MVC
+3. Evaluation on ASP.NET MVC
+
+
+==========
+
+WEEK 8 (25-MAR-2024 to 31-MAR-2024)
+
+DAY - 1 (Mar 25, 2024)
+
+1. Training on ASP.NET MVC
+2. Self Practice concepts of ASP.NET MVC like Scaffolding, Action Selectors(Action Name and Action Verbs), Action Filters.
+3. Self Learning Bootstrap
+
+DAY - 2 (Mar 26, 2024)	
+
+1. Training on ASP.NET MVC
+2. Self Practice concepts in ASP.NET MVC TempData, ViewData and ViewBag, Model Binding, Validations from view and Model
+3. Self Learning Bootstrap
+
+DAY - 3 (Mar 27, 2024)
+
+1. Training on ASP.NET MVC
+2. Working on Project Assignment step -1 Database Design
+
+DAY - 4 (Mar 28, 2024)	
+
+1. Training on ASP.NET MVC
+2. Completed step-1 of Project Assignment Database Design
+3. Learnt jQuery concepts
+
+DAY - 5 (Mar 29, 2024)	
+
+1. Self Practice on ASP.NET MVC concepts Like AJAX calls, HTML Helpers
+2. Self Practice ASP.NET Web API Concepts like Postman, Swagger, Routing, Parameter Binding and Testing API
+3. Working on Step 2 of Project Assignment(Entity Framework and API)
+4. Evaluation Week-8
+
+
+===================
+WEEK 9 (01-APRIL-2024 to 07-APRIL-2024)
+
+Apr 1, 2024	
+
+1. React Training(React Hooks-useState, Virtual DOM, Lists, Styles)
+2. Working on Assignment Project
+
+Apr 2, 2024	
+
+1. React Training
+2. Self-Learning React concepts(Components Functional and Class, React Keys)
+3. Working on Assignment Project
+
+Apr 3, 2024	
+
+1. React Training(Conditionally rendering components in React, Creating and using components in react, Passing in props to components, Using state and props to manipulate components, Todoapp project building)
+2. Self Learning React concepts(Rendering and Conditional rendering)
+3. Practicing Bootstrap
+4. Working on Assignment Project
+
+Apr 4, 2024	
+
+1. React Training(Building Todo Application)
+2. Self-Learning React concepts like (React Hooks)
+3. Working on Assignment Project
+
+Apr 5, 2024	
+
+1. React Evaluation week 9
+2. Self Learning React concepts
+3. Self Practing MVC concepts
+4. Working on project assignment
+
+===============================================
+WEEK 10 (08-APRIL-2024 to 14-APRIL-2024)
+
+
+Apr 8, 2024
+
+1. React training (useState, useEffect and useMemo)
+2. Going through React Concepts.
+3. Working on Project Assignment.
+
+Apr 10, 2024	
+
+1. Working on assignment Project. 
+2. Self-study on react concepts (useState, useEffect and useMemo). 
+3.Self-study on MVC concepts.
+
+Apr 11, 2024	
+
+1. Working on assignment project.
+2. Self learning React Concepts.
+3. Working on building interactive react landing pages.
+
+Apr 12, 2024	
+
+1. Working on assignment project.
+2. Self learning React Concepts.
+3. Evaluation week 10
+4. Self Learning Typescript important concepts.
+
+======================================================
+
+1. Angular Training
+2. React Blog Project
+3. Self Practice Angular(Importing and using components)
+Apr 16, 2024	
+GET 2024
+GyanSys
+2024 Microsoft Practice - IDC
+GyanSys Office	
+8.00
+1. Angular Training(Services)
+2. Self Practice Angular(Component selectors, Types of selectors, Selector prefixes )
+3. Self practice Typescript
+4. Working on React Blog Project
+Apr 17, 2024	
+GET 2024
+GyanSys
+2024 Microsoft Practice - IDC
+GyanSys Office	
+8.00
+1. Angular Training
+2. Self practice React concepts
+3. Self practice Angular concepts(Styling components)
+Apr 18, 2024	
+GET 2024
+GyanSys
+2024 Microsoft Practice - IDC
+GyanSys Office	
+8.00
+1. Angular Training
+2. Self practice React concepts
+3. Self practice Angular concepts(Services and Directives, Accepting data with input properties)
+Apr 19, 2024	
+GET 2024
+GyanSys
+2024 Microsoft Practice - IDC
+GyanSys Office	
+8.00
+1. Self practice typescript concepts
+2. Self practice React concepts
+3. Self practice Angular concepts(Custom events with outputs, Component Lifecycle)
+4. Working on Angular assignment(Task manager)

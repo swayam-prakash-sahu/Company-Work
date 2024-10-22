@@ -1,0 +1,34 @@
+prog.cs
+
+
+
+
+using System;
+
+namespace MyApplication
+{
+class Program
+{
+static void Main(string[] args)
+{
+Gyansys myObj = new Gyansys();
+Console.WriteLine(myObj.team);
+}
+}
+}
+
+
+
+
+prog2.cs
+
+
+using System;
+
+namespace MyApplication
+{
+class Gyansys
+{
+public string team = "Welcome to the Microsoft Team";
+}
+}

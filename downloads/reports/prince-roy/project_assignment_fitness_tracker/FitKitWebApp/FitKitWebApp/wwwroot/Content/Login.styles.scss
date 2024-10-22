@@ -1,0 +1,51 @@
+﻿@use 'mixin' as m;
+
+.login-page-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(#7C838A, 0.2);
+}
+
+.form-container {
+    width: min(90%, 550px);
+    display: grid;
+    gap: 1rem;
+    color: #7C838A;
+    background-color: white;
+    padding-block: 3rem 2rem;
+    padding-inline: 2rem;
+    border-radius: 8px;
+    box-shadow: 1rem 1rem 1rem -1rem #7C838A;
+
+    @media(min-width: 64rem) {
+        padding-inline: 2.8rem;
+    }
+
+
+    .input-container {
+        display: grid;
+        gap: 0.2rem;
+    }
+
+    input[name="FirstName"], input[name="LastName"] {
+        text-transform: capitalize;
+    }
+
+    .input-tag {
+        border: none;
+        border-radius: 12px;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        background-color: rgba(#B0BAC3, 0.4);
+
+        &::placeholder {
+            font-family: "Manrope", sans-serif;
+        }
+    }
+}
+
+.login-btn{
+    @include m.btn-orange;
+}

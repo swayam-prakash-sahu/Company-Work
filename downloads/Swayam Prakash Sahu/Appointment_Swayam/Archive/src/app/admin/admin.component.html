@@ -1,0 +1,31 @@
+<div class="container">
+    <h2 class="head">Appointments Table</h2>
+    <div class="admin-panel">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Appointment ID</th>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Time Slot</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let appointment of appointments">
+                        <td>{{ appointment.appointment_id }}</td>
+                        <td>{{ appointment.userid }}</td>
+                        <td>{{ appointment.username }}</td>
+                        <td>{{ appointment.email }}</td>
+                        <td>{{ appointment.dated }}</td>
+                        <td>{{ appointment.timeslot }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button class="btn btn-danger tail mx-2" type="button" (click)="logout()">Logout</button>
+    <button class="btn btn-secondary tail" routerLink="/form" routerLinkActive="active">Verify User</button>
+</div>

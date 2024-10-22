@@ -1,0 +1,31 @@
+Back End Development and APIs
+
+avaScript can also be used on the back end, or server, to build entire web applications.
+
+Today, one of the popular ways to build applications is through microservices, which are small, modular applications that work together to form a larger whole.
+---
+back end apps with Node.js and npm
+
+build web applications with the Express framework, and build a People Finder microservice with MongoDB and the Mongoose library.
+
+Managing Packages with NPM
+
+npm (Node Package Manager), is a command line tool to install, create, and share packages of JavaScript code written for Node.js. 
+
+There are many open source packages available on npm, so before starting a project, take some time to explore so you don't end up recreating the wheel for things like working with dates or fetching data from an API.
+---
+Basic Node and Express
+
+Node.js is a JavaScript runtime that allows developers to write backend (server-side) programs in JavaScript.
+
+Node.js comes with a handful of built-in modules — small, independent programs — that help with this. Some of the core modules include HTTP, which acts like a server, and File System, a module to read and modify files.
+---
+MongoDB and Mongoose
+
+MongoDB is a database application that stores JSON documents (or records) that you can use in your application.
+
+Unlike SQL, another type of database, MongoDB is a non-relational or "NoSQL" database.
+
+This means MongoDB stores all associated data within one record, instead of storing it across many preset tables as in a SQL database.
+
+Mongoose is a popular npm package for interacting with MongoDB. With Mongoose, you can use plain JavaScript objects instead of JSON, which makes it easier to work with MongoDB. Also, it allows you to create blueprints for your documents called schemas, so you don't accidentally save the wrong type of data and cause bugs later.

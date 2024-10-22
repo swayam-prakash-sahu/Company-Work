@@ -1,0 +1,61 @@
+<!-- 
+<div class="container">
+  <h1 class="mb-4">Doctor Appointment</h1>
+  <form (submit)="scheduleAppointment()">
+    <div class="form-group">
+      <label for="date">Select Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" required>
+    </div>
+    <div class="form-group">
+      <label for="timeSlot">Select Time Slot:</label>
+      <select class="form-control" id="timeSlot" name="timeSlot" [(ngModel)]="selectedTimeSlot" required>
+        <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+  </form>
+</div> -->
+
+
+<div class="container">
+  <div class="box">
+    <h2 class="welcome-text">Welcome {{ receivedData }}</h2>
+    <button class="btn btn-danger logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+<div class="container">
+  <h2>Book Appointment</h2>
+  <form action="#" method="post">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact Number:</label>
+      <input type="tel" class="form-control" id="contact" name="contact" pattern="[0-9]{10}" [(ngModel)]="contact" required>
+    </div>
+    <div class="form-group">
+      <label for="date">Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="dated" required>
+    </div>
+    <div class="form-group">
+      <label for="time">Time Slot:</label>
+      <select class="form-control" id="time" name="time" [(ngModel)]="timeslot" required>
+        <option value="" disabled selected>Select a time slot</option>
+        <option value="09:00">9:00 AM to 10:00 AM</option>
+        <option value="10:00">10:00 AM to 11:00 AM</option>
+        <option value="11:00">11:00 AM to 12:00 PM</option>
+        <option value="12:00">12:00 PM to 1:00 PM</option>
+        <option value="13:00">1:00 PM to 2:00 PM</option>
+        <option value="14:00">2:00 PM to 3:00 PM</option>
+        <option value="15:00">3:00 PM to 4:00 PM</option>
+        <option value="16:00">4:00 PM to 5:00 PM</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="onSubmit()" >Book Appointment</button>
+  </form>
+</div>

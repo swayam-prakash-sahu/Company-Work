@@ -1,0 +1,50 @@
+﻿@use 'mixin' as m;
+
+
+.details-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: min(90%, 550px);
+    display: grid;
+    gap: 1rem;
+    color: #7C838A;
+
+    @include m.input-styles;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        color: #7C838A;
+        font-family: "Manrope", sans-serif;
+        background-image: url('~/images/down.png');
+        border: none;
+        border-radius: 12px;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        background-color: rgba(#B0BAC3, 0.4);
+
+        &:hover, &:focus {
+            outline: 2px solid rgba(#000000, 0.6);
+        }
+
+        option {
+        }
+    }
+}
+
+.submit-btn {
+    @include m.btn-orange;
+}

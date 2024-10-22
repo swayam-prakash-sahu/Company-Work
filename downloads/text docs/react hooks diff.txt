@@ -1,0 +1,35 @@
+Certainly! Let’s delve into the differences between useMemo, useEffect, and useState in React, and understand when to use each one.
+
+useState:
+Purpose: useState is primarily used for managing state within functional components. It allows you to declare and update state variables.
+Behavior:
+When you call useState, it returns an array with two elements: the current state value and a function to update that state.
+It triggers a re-render when you invoke the update function.
+It doesn’t have any dependencies like useMemo or useEffect.
+Use Case:
+Use useState when you need to manage component-specific state that affects rendering and reactivity.
+
+useMemo:
+Purpose: useMemo is used for memoization, which means caching the result of a computationally expensive function to avoid unnecessary re-computations.
+Behavior:
+It runs during the render phase of the component.
+It recalculates a value only if the elements in its dependency array change.
+If the dependency array is empty, it recalculates only once (similar to a constant).
+Use Case:
+Use useMemo when you have a costly function that you want to memoize, especially when the function’s result doesn’t change unless its dependencies change.
+useEffect:
+Purpose: useEffect is used for handling side effects (e.g., data fetching, subscriptions, DOM manipulation) in functional components.
+Behavior:
+It runs after each render.
+If you provide a dependency array, it runs only when the dependencies change.
+If the dependency array is empty, it runs once during initial mount (and unmount if you return a cleanup function).
+Use Case:
+Use useEffect when you need to perform actions after rendering, such as fetching data, updating the DOM, or managing subscriptions.
+In summary:
+
+useState for managing component-specific state.
+useMemo for memoizing expensive computations.
+useEffect for handling side effects and controlling updates.
+Remember that these hooks serve distinct purposes, and understanding their differences helps you write effective React components. 🚀🌟
+
+For more details, you can always refer to the Hooks API Reference. 😊

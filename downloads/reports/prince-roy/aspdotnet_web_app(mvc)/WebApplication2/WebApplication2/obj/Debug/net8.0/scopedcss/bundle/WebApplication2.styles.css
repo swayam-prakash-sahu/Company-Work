@@ -1,0 +1,81 @@
+@import '_content/Microsoft.AspNetCore.Components.QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css';
+
+/* _content/WebApplication2/Views/Home/Index.cshtml.rz.scp.css */
+.home-container[b-mtbovxntcd] {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-image: url("images/hero-left.png"), url("images/hero-right.png");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: left -50vw center, right -50vw center;
+}
+@media (min-width: 1024px) {
+  .home-container[b-mtbovxntcd] {
+    background-size: 30%;
+    background-position: left -2vw center, right -2vw center;
+  }
+}
+.home-container p[b-mtbovxntcd] {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+/* _content/WebApplication2/Views/Shared/_FormInput.cshtml.rz.scp.css */
+@charset "UTF-8";
+﻿﻿form[b-w0i8mwvigx] {
+  width: min(55%, 600px);
+}
+
+input[b-w0i8mwvigx] {
+  width: 100%;
+  padding-inline: 0.8rem;
+  padding-block: 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background-image: url("images/Search.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  box-shadow: 0 1rem 1rem -1rem #E5E7EB;
+}
+input[b-w0i8mwvigx]::-webkit-input-placeholder {
+  color: #6C727F;
+}
+input:focus[b-w0i8mwvigx] {
+  outline: none;
+}
+/* _content/WebApplication2/Views/Shared/_Layout.cshtml.rz.scp.css */
+.nav-container[b-amt9qciysm] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+}
+
+.nav-links-container[b-amt9qciysm] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  color: currentColor;
+}
+.nav-links-container li[b-amt9qciysm] {
+  list-style-type: none;
+  font-weight: 500;
+}
+.nav-links-container a[b-amt9qciysm] {
+  color: grey;
+  text-decoration: none;
+}
+
+.active[b-amt9qciysm] {
+  color: black;
+  background-color: #E5E7EB;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+  border-radius: 5px;
+}

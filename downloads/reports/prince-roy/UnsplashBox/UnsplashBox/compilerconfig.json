@@ -1,0 +1,26 @@
+﻿[
+  {
+    "outputFile": "Components/Pages/Collections.razor.css",
+    "inputFile": "Components/Pages/Collections.razor.scss"
+  },
+  {
+    "outputFile": "Components/Layout/NavMenu.razor.css",
+    "inputFile": "Components/Layout/NavMenu.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Home.razor.css",
+    "inputFile": "Components/Pages/Home.razor.scss"
+  },
+  {
+    "outputFile": "Components/Layout/MainLayout.razor.css",
+    "inputFile": "Components/Layout/MainLayout.razor.scss"
+  },
+  {
+    "outputFile": "Components/Shared/Input.razor.css",
+    "inputFile": "Components/Shared/Input.razor.scss"
+  },
+  {
+    "outputFile": "Components/Pages/Search.razor.css",
+    "inputFile": "Components/Pages/Search.razor.scss"
+  }
+]

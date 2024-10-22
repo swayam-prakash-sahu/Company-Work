@@ -1,0 +1,58 @@
+.modal-container {
+  border: 1.5px solid rgb(193, 193, 193);
+  border-radius: 12px;
+  margin-block: 2rem;
+  margin-inline: 2rem;
+  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  background: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+label {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 70%;
+}
+
+input,
+textarea {
+  display: block;
+  font-size: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  border: 2px solid rgb(193, 193, 193);
+  font-family: 'Inter', sans-serif;
+}
+
+textarea {
+  min-height: 30vh;
+}
+
+button {
+  border: 1px solid black;
+  outline: 3px solid transparent;
+  letter-spacing: 1.5px;
+  padding-block: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(251, 237, 255);
+
+  &:hover {
+    color: rgb(251, 237, 255);
+    background-color: rgb(23, 17, 51);
+  }
+}

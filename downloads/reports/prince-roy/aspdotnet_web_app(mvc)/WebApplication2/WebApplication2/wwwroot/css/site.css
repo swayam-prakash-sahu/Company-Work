@@ -1,0 +1,26 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Be Vietnam Pro", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    color: #121826;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+form{
+    all: unset;
+    width: min(55%, 500px);
+}

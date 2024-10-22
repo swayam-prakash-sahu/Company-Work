@@ -1,0 +1,53 @@
+single Inheritance
+
+using System;  
+   public class Intern  
+    {  
+       public float salary = 30000;  
+   }  
+   public class Programmer: Intern  
+   {  
+       public float bonus = 10000;  
+   }  
+   class SingleInheritance{  
+       public static void Main(string[] args)  
+        {  
+           Programmer p1 = new Programmer();  
+              
+          Console.WriteLine("Stipend: " + p1.salary);  
+          Console.WriteLine("Bonus: " + p1.bonus);  
+  
+        }  
+    }  
+
+-------------------------------
+Multi Level Inheritance
+
+
+using System;  
+   public class Company  
+    {  
+       public void task() { Console.WriteLine("task"); }  
+   }  
+   public class Employee: Company  
+   {  
+       public void work() { Console.WriteLine("work"); }  
+   }  
+   public class Intern : Employee  
+   {  
+       public void practice() { Console.WriteLine("practice"); }  
+   }  
+   class TestInheritance2{  
+       public static void Main(string[] args)  
+        {  
+            Intern d1 = new Intern();  
+            d1.task();  
+            d1.work();  
+            d1.practice();  
+        }  
+    }  
+
+------------------------------------
+https://1bestcsharp.blogspot.com/2015/03/c-how-to-get-average-max-min-of-column-in-the-datagridview-in-csharp.html
+
+https://www.c-sharpcorner.com/UploadFile/0c1bb2/types-of-inheritance-in-C-Sharp/

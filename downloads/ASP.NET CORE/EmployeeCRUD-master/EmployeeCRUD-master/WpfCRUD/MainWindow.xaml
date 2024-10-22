@@ -1,0 +1,76 @@
+﻿<Window x:Class="WpfCRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfCRUD"
+        mc:Ignorable="d"
+        Title="WPF Demo" Height="500" Width="600">
+
+    <StackPanel Orientation ="vertical" Margin="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="left" TextWrapping="Wrap" 
+                        VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Text="{Binding Path=Message}" Foreground="Red"/>
+
+            <Label x:Name="label" Content="Emp ID" HorizontalAlignment="Left"
+                    Grid.Column="0" Grid.Row="1"/>
+            <TextBox x:Name="textBox" Grid.Column="1" Grid.Row="1"
+                        HorizontalAlignment="Left" Height="23"  Width="100" Text="{Binding Path=CurrentEmployee.ID, Mode=TwoWay}"/>
+            <Label x:Name="label2" Content="Name" HorizontalAlignment="Left"
+                    Grid.Column="0" Grid.Row="2"/>
+            <TextBox x:Name="textBox2" Grid.Column="1" Grid.Row="2"
+                        HorizontalAlignment="Left" Height="23" Width="400" Text="{Binding Path=CurrentEmployee.Name, Mode=TwoWay}"/>
+            <Label x:Name="label3" Content="Address" HorizontalAlignment="Left"
+                    Grid.Column="0" Grid.Row="3"/>
+            <TextBox x:Name="textBox3" Grid.Column="1" Grid.Row="3"
+                        HorizontalAlignment="Left" Height="23" Width="400" Text="{Binding Path=CurrentEmployee.Address, Mode=TwoWay}"/>
+
+        </Grid>
+        <StackPanel  Height="40" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnsave" Content="Save" Width="75" Margin="5" Command="{Binding Path=SaveCommand}"/>
+            <Button x:Name="btncancel" Content="Cancel" Width="75" Margin="5"/>
+
+        </StackPanel>
+
+        <StackPanel Height="300">
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="False"  CanUserAddRows="False" ItemsSource="{Binding Path=EmpList, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="75"  Binding="{Binding Path=ID}"/>
+                    <DataGridTextColumn Header="Name" Width="150"  Binding="{Binding Path=Name}"/>
+                    <DataGridTextColumn Header="Address" Width="150"  Binding="{Binding Path=Address}"/>
+
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  x:Name="btnedit" Content="Edit"  CommandParameter="{Binding Path=ID}" Command="{Binding Path=DataContext.EditCommand,RelativeSource={RelativeSource FindAncestor,
+                                                AncestorType=Window}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  x:Name="btndelete" Content="Delete" CommandParameter="{Binding Path=ID}" Command="{Binding Path=DataContext.DeleteCommand,RelativeSource={RelativeSource FindAncestor,
+                                                AncestorType=Window}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </StackPanel>
+    </StackPanel>
+
+
+</Window>

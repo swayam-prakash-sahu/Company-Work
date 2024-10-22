@@ -1,0 +1,32 @@
+﻿.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+}
+
+.nav-links-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  color: currentColor;
+}
+.nav-links-container li {
+  list-style-type: none;
+  font-weight: 500;
+}
+.nav-links-container a {
+  color: grey;
+  text-decoration: none;
+}
+
+.active {
+  color: black;
+  background-color: #E5E7EB;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+  border-radius: 5px;
+}

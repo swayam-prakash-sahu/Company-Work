@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to HTML </title>
+	<style>
+		#ecma-script {
+			color:red;
+		}
+		.topics {
+			color: violet;
+		}
+		div p {
+			border: 1px solid;
+		}
+		div > p {
+			background-color: grey;
+		}
+		#practice + span {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<header id="header">
+		<h1>Welcome to Programming</h1>
+		<ul>
+			<li>Home</li>
+			<li>About</li>
+			<li>Contact US</li>
+			<li>Portfolio</li>
+		</ul>
+	</header>
+	<main>
+		<section>
+			<h2>HTML</h2>
+			<form>
+				<label>Name</label>
+				<input type="text" name="firstName" id="firstname" />
+				<label>Password</label>
+				<input type="password" name="password" />
+				<label>DOB</label>
+				<input type="date" name="dob" />
+				<label>Gender</label>
+				<input type="radio" name="gender" />Male
+				<input type="radio" name="gender" />Female
+				<input type="checkbox" name="terms" /> Agree to terms
+			</form>
+		</section>
+		<section>
+			<h2>CSS</h2>
+			<div> CSS - Cascading Style Sheet</div>
+			<div> Inline and block elements</div>
+			<span> Style your document </span> 
+			<span> And add colors to it</span>
+		</section>
+		<section>
+			<h2>JavaScript</h2>
+			<div style="color:blue" id="syllabus">
+				<h2>Syllabus</h2>
+				<p id="ecma-script">ECMA Script</p>
+				<span><p class='topics'>Data Types</p></span>
+				<p class='topics'>If Statement</p>
+				<p class='topics'>Loops</p>
+			</div>
+
+			<div id="practice">
+				
+			</div>
+			<span> Practice JS</span>
+			<span> Practice CSS</span>
+			<span> Practice HTML</span>
+		</section>
+	</main>
+	<footer>
+		<div> Copyright @ GyanSys
+	</footer>
+</body>
+</html>

@@ -1,0 +1,279 @@
+
+
+GET Evaluation Week 7
+Points:
+-/200
+Will be reviewed
+
+1.Explain the key features of ASP .NET Core.
+Key features of ASP.NET CORE are that
+
+1. cross platform
+2. open source
+3. free to use
+4. we can build web, mobile and desktop applications 
+
+Will be reviewed
+
+2.Differentiate between ASP .NET Core and traditional ASP .NET.
+Both the frameworks are developed by Microsoft for developing web apps
+
+1. ASP .NET Core runs on windows, Linux and mac OS were as traditional ASP .NET runs only on windows OS.
+
+2. ASP.NET Core is modular and lightweight where as traditional ASP .NET is monolithic and is not lightweight like the Core.
+
+3. ASP.NET Core is faster, providing better scalability due to the kestrel web server compared to traditional ASP .NET 
+
+4. ASP .NET Core is open source where as traditional ASP .NET is not
+
+5.  ASP.NET Core supports for modern practices like docker containers whereas traditional ASP .NET also supports them but are not capable of seamless integration.
+Will be reviewed
+3.Describe the components of the MVC architecture.
+MVC is an architectural pattern separates an application into 3 components,
+
+1. Model
+
+it represents the applications data and business logic
+
+helps in encapsulating the data and behaviour of the application
+
+consists of classes or objects that represent entities, as well as logic for manipulating data.
+
+2. View
+
+it is responsible for presenting the application's UI
+
+dispalys the data from the model to the user
+
+Views are composed of HTML, CSS and JavaScript (for interactive apps)
+
+3. Controller
+
+Controller acts as an intermediary between the Model and the view.
+
+handles the user input , processes requests and updates the model
+
+Controllers contain methods(called action methods) that handles user interactions or HTTP/HTTPS requests.
+
+it also handle authentication and authorization etc
+
+Will be reviewed
+4.Explain the role of Model, View, and Controller in MVC.
+role of Model, View, and Controller in MVC is
+
+1. Model
+
+it represents the applications data and business logic
+
+helps in encapsulating the data and behaviour of the application
+
+consists of classes or objects that represent entities, as well as logic for manipulating data.
+
+2. View
+
+it is responsible for presenting the application's UI
+
+dispalys the data from the model to the user
+
+Views are composed of HTML, CSS and JavaScript (for interactive apps)
+
+3. Controller
+
+Controller acts as an intermediary between the Model and the view.
+
+handles the user input , processes requests and updates the model
+
+Controllers contain methods(called action methods) that handles user interactions or HTTP/HTTPS requests.
+
+it also handle authentication and authorization etc
+----------------------------------------------------------------------------------------------------------
+1. the view and controller are decoupled that means, changes made to one component does not affect other directly.
+
+2. model serves as the backbone
+
+separation of all three makes it easier to maintain and test the applications.
+Will be reviewed
+5.What are the different types of HTML elements?
+text content elements - <p>, <h1>to<h6>, 
+
+inline elements - <a>, <img>, <br>
+
+block level elements - <div>, <ul>,<ol>,<header>,<footer> etc
+
+table elements - <table>, <tr>, <td>, <tbody> etc
+
+others inlcude - <span>,<button>, <href>, <label>, <meta>, <link> etc
+Will be reviewed
+6.How do you create a hyperlink in HTML?
+For creating a hyperlink in HTML, we can use the anchor tag <a>
+
+<a href="URL to redirect">text area to dispaly</a>
+
+href : specifies the destination URL
+Will be reviewed
+
+7.Explain the purpose of the Dropdown and DropdownFor controls in Razor views.
+
+purpose of the Dropdown and DropdownFor controls in Razor views 
+
+they are used to render the dropdown lists in HTML forms
+
+1. Dropdown
+
+this control allows to render a dropdown list without directly binding it to the model property.
+
+allows to manually specify the list of options and select one of them.
+
+2. DropdownFor
+
+this control allows us to render a dropdown list that is bound to a model property.
+
+it automatically generates the options based on the data provided by the model, 
+and choose value according to the property's value.
+Will be reviewed
+
+8.How do you use the TextBox and TextArea controls in a Razor view?
+TextBox and TextArea controls in a Razor view are used to render text input fields.
+use to collect user input .
+
+TextBox:
+
+used to render single line of text input field
+
+used for short or limited length input.
+
+@Html.TextBox("text")
+
+ TextArea 
+
+used to render multi line text input field
+
+user able to enter longer blocks of text 
+
+@Html.TextArea("text")
+Will be reviewed
+9.Describe the different ways to apply CSS styles to Razor controls.
+Different ways to apply CSS styles to Razor controls are 
+
+1. Inline 
+
+apply styles directly to Razor controls  using style attribute
+
+2. External
+
+can add external CSS by adding appropriate classes and IDs to Razor control.
+
+3.Internal
+
+style tags can be directly applied within Razor view 
+Will be reviewed
+
+10.What is routing in ASP .NET Core?
+routing is the method / process of directing/mapping our HTTP requests to the controller.
+
+helps in directing the requests to the appropriate controllers and action methods.
+
+it implements RESTful APIs in an effective way.
+
+determines which controller should handle a particular request based on the URL and route parameters.
+
+Will be reviewed
+11.How do you apply a CSS class to a Razor control?
+@class in is used to apply CSS class
+
+1. using HTML Helper
+
+ HTML Helper are used to generate HTML elements.
+
+2. Inline style
+
+we can directly apply style to the control
+
+Will be reviewed
+12.How do you define routes in an ASP .NET Core application?
+Routes in an ASP .NET Core application
+
+routes are defined in the app.MapControllerRoute() method in Program.cs file
+
+by defining routes in ASP .NET Core Application, we can control how incoming requests are mapped to controller or Razor pages.
+
+Will be reviewed
+
+13.Explain the role of a controller in the MVC pattern.
+role of a controller in the MVC pattern is that
+
+Controller acts as an intermediary between the Model and the view.
+
+handles the user input , processes requests and updates the model
+
+Controllers contain methods(called action methods) that handles user interactions or HTTP/HTTPS requests.
+
+Will be reviewed
+14.What is a model in ASP .NET Core?
+Model in ASP .NET Core
+
+it represents the applications data and business logic
+
+helps in encapsulating the data and behaviour of the application
+
+consists of classes or objects that represent entities, as well as logic for manipulating data.
+
+Will be reviewed
+15.How do you define properties in a model class?
+we can define properties in a model class to represent the data structure of application.
+
+to define properties
+
+1. first we need to declare it
+
+2. specify the data type(int, string etc)
+
+defining properties allows to represent the structure and attributes of data
+
+Will be reviewed
+16.Describe the concept of model binding in ASP .NET Core.
+Concept of model binding in ASP .NET Core
+
+mapping of http request and action methods in controllers to properties of model classes
+
+helps in transferring data from server side to client side
+
+client request -> action methods
+
+Will be reviewed
+
+17.How does model binding work in the context of form submissions?
+model binding work in the context of form submissions
+
+model binding connects form field values to action method's parameters/ properties based on their names match fields to corresponding properties. 
+
+simplifies handling of form data
+
+retrieves data from different sources, provides them to the controller.
+
+Will be reviewed
+18.What is the purpose of a dropdown list in web forms?
+purpose of a dropdown list in web forms is to
+
+to provide users with a selection of pre defined options from which users can select one option.
+
+it is used to select one option from a list of options.
+
+helps in conserving space in the UI
+
+Will be reviewed
+19.Describe the role of checkboxes in web forms.
+checkboxes in web forms allow users to have two choices, indicating a certain option is selected or not.
+
+they are widely used is forms
+
+users can select multiple options
+Will be reviewed
+20.What is the purpose of radio buttons in web forms?
+radio buttons in web forms allow users to select one option from a list of choices.
+
+in radio buttons users can select only one option at a time
+
+display using tiny circular spaces
+
+usually used for questions with only one ans like gender yes/no

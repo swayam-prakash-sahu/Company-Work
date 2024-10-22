@@ -1,0 +1,514 @@
+A code block is one or more C# statements that define an execution path.
+
+bool flag = true;
+int value;
+
+if (flag)
+{
+    Console.WriteLine($"Inside the code block: {value}");
+}
+
+value = 10;
+Console.WriteLine($"Outside the code block: {value}");
+
+=============================================================
+
+A switch statement is a C# selection statement that provides an alternative to an if-elseif-else branching construct. The switch statement provides advantages over an if-elseif-else construct when evaluating a single value against a list of known matching values.
+
+switch (fruit)
+{
+    case "apple":
+        Console.WriteLine($"App will display information for apple.");
+        break;
+
+    case "banana":
+        Console.WriteLine($"App will display information for banana.");
+        break;
+
+    case "cherry":
+        Console.WriteLine($"App will display information for cherry.");
+        break;
+}
+
+======================
+
+int employeeLevel = 200;
+string employeeName = "John Smith";
+
+string title = "";
+
+switch (employeeLevel)
+{
+    case 100:
+        title = "Junior Associate";
+        break;
+    case 200:
+        title = "Senior Associate";
+        break;
+    case 300:
+        title = "Manager";
+        break;
+    case 400:
+        title = "Senior Manager";
+        break;
+    default:
+        title = "Associate";
+        break;
+}
+
+Console.WriteLine($"{employeeName}, {title}");
+
+=======================
+
+// SKU = Stock Keeping Unit. 
+// SKU value format: <product #>-<2-letter color code>-<size code>
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+if (product[0] == "01")
+{
+    type = "Sweat shirt";
+} else if (product[0] == "02")
+{
+    type = "T-Shirt";
+} else if (product[0] == "03")
+{
+    type = "Sweat pants";
+}
+else
+{
+    type = "Other";
+}
+
+if (product[1] == "BL")
+{
+    color = "Black";
+} else if (product[1] == "MN")
+{
+    color = "Maroon";
+} else
+{
+    color = "White";
+}
+
+if (product[2] == "S")
+{
+    size = "Small";
+} else if (product[2] == "M")
+{
+    size = "Medium";
+} else if (product[2] == "L")
+{
+    size = "Large";
+} else
+{
+    size = "One Size Fits All";
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
+
+==============
+
+// SKU = Stock Keeping Unit
+string sku = "01-MN-L";
+
+string[] product = sku.Split('-');
+
+string type = "";
+string color = "";
+string size = "";
+
+switch (product[0])
+{
+    case "01":
+        type = "Sweat shirt";
+        break;
+    case "02":
+        type = "T-Shirt";
+        break;
+    case "03":
+        type = "Sweat pants";
+        break;
+    default:
+        type = "Other";
+        break;
+}
+
+switch (product[1])
+{
+    case "BL":
+        color = "Black";
+        break;
+    case "MN":
+        color = "Maroon";
+        break;
+    default:
+        color = "White";
+        break;
+}
+
+switch (product[2])
+{
+    case "S":
+        size = "Small";
+        break;
+    case "M":
+        size = "Medium";
+        break;
+    case "L":
+        size = "Large";
+        break;
+    default:
+        size = "One Size Fits All";
+        break;
+}
+
+Console.WriteLine($"Product: {size} {color} {type}");
+
+==================
+
+Iterate through a code block using for statement in C#
+
+
+What is the for statement?
+
+The for statement iterates through a code block a specific number of times. This level of control makes the for statement unique among the other iteration statements. The foreach statement iterates through a block of code once for each item in a sequence of data like an array or collection. The while statement iterates through a block of code until a condition is met.
+
+
+for (int i = 10; i >= 0; i--)
+{
+    Console.WriteLine(i);
+}
+
+=====
+
+string[] names = { "Alex", "Eddie", "David", "Michael" };
+for (int i = names.Length - 1; i >= 0; i--)
+{
+    Console.WriteLine(names[i]);
+}
+===================
+string[] names = { "Alex", "Eddie", "David", "Michael" };
+foreach (var name in names)
+{
+    // Can't do this:
+    if (name == "David") name = "Sammy";
+}
+
+===============
+
+string[] names = { "Alex", "Eddie", "David", "Michael" };
+
+for (int i = 0; i < names.Length; i++)
+{
+    if (names[i] == "David")
+    {
+        names[i] = "Sammy";
+    }
+}
+
+foreach (var name in names)
+{
+    Console.WriteLine(name);
+}
+
+===================
+FizzBuzz challenge
+FizzBuzz is a popular coding challenge and interview question. It exercises your understanding of the for statement, the if statement, the % remainder operator, and your command of basic logic.
+
+Here are the FizzBuzz rules that you need to implement in your code project:
+
+Output values from 1 to 100, one number per line, inside the code block of an iteration statement.
+When the current value is divisible by 3, print the term Fizz next to the number.
+When the current value is divisible by 5, print the term Buzz next to the number.
+When the current value is divisible by both 3 and 5, print the term FizzBuzz next to the number.
+
+
+for (int i = 1; i < 101; i++)
+{
+    if ((i % 3 == 0) && (i % 5 == 0))
+        Console.WriteLine($"{i} - FizzBuzz");
+    else if (i % 3 == 0)
+        Console.WriteLine($"{i} - Fizz");
+    else if (i % 5 == 0)
+        Console.WriteLine($"{i} - Buzz");
+    else
+        Console.WriteLine($"{i}");
+}
+==============================================================
+
+generating random numbers using the System.Random class and the Random.Next() method
+
+What is the do-while statement?
+
+The do-while statement executes a statement or a block of statements while a specified Boolean expression evaluates to true. Because that expression is evaluated after each execution of the loop, a do-while loop executes one or more times.
+
+A key learning for this first task is that the code block of a do-while loop will execute at least once
+
+do
+{
+    // This code executes at least one time
+} while (true);
+
+======
+
+Random random = new Random();
+int current = 0;
+
+do
+{
+    current = random.Next(1, 11);
+    Console.WriteLine(current);
+} while (current != 7);
+
+===========================================
+
+Random random = new Random();
+int current = random.Next(1, 11);
+
+/*
+do
+{
+    current = random.Next(1, 11);
+    Console.WriteLine(current);
+} while (current != 7);
+*/
+
+while (current >= 3)
+{
+    Console.WriteLine(current);
+    current = random.Next(1, 11);
+}
+Console.WriteLine($"Last number: {current}");
+
+=============
+
+int hero = 10;
+int monster = 10;
+
+Random dice = new Random();
+
+do
+{
+    int roll = dice.Next(1, 11);
+    monster -= roll;
+    Console.WriteLine($"Monster was damaged and lost {roll} health and now has {monster} health.");
+
+    if (monster <= 0) continue;
+
+    roll = dice.Next(1, 11);
+    hero -= roll;
+    Console.WriteLine($"Hero was damaged and lost {roll} health and now has {hero} health.");
+
+} while (hero > 0 && monster > 0);
+
+Console.WriteLine(hero > monster ? "Hero wins!" : "Monster wins!");
+
+============
+
+The for statement: executes its body while a specified Boolean expression (the 'condition') evaluates to true.
+The foreach statement: enumerates the elements of a collection and executes its body for each element of the collection.
+The do-while statement: conditionally executes its body one or more times.
+The while statement: conditionally executes its body zero or more times.
+
+=================
+
+Manage user input during this challenge
+
+When using a Console.ReadLine() statement to obtain user input, it's common practice to use a nullable type string (designated string?) for the input variable and then evaluate the value entered by the user. The following code sample uses a nullable type string to capture user input. The iteration continues while the user-supplied value is null:
+
+ nullable type string (designated string?)
+
+string? readResult;
+Console.WriteLine("Enter a string:");
+do
+{
+    readResult = Console.ReadLine();
+} while (readResult == null);
+====================================
+string? readResult;
+bool validEntry = false;
+Console.WriteLine("Enter a string containing at least three characters:");
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null)
+    {
+        if (readResult.Length >= 3)
+        {
+            validEntry = true;
+        }
+        else
+        {
+            Console.WriteLine("Your input is invalid, please try again.");
+        }
+    }
+} while (validEntry == false);
+
+=========
+The int.TryParse() method can be used to convert a string value to an integer.
+
+Project 1 code
+
+string? readResult;
+string valueEntered = "";
+int numValue = 0;
+bool validNumber = false;
+
+Console.WriteLine("Enter an integer value between 5 and 10");
+
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        valueEntered = readResult;
+    }
+
+    validNumber = int.TryParse(valueEntered, out numValue);
+
+    if (validNumber == true)
+    {
+        if (numValue <= 5 || numValue >= 10)
+        {
+            validNumber = false;
+            Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
+        }
+    }
+    else 
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+} while (validNumber == false);
+
+Console.WriteLine($"Your input value ({numValue}) has been accepted.");
+
+readResult = Console.ReadLine();
+
+// capture user input in a string variable named readResult
+
+int numericValue = 0;
+bool validNumber = false;
+
+validNumber = int.TryParse(readResult, out numericValue);
+
+============
+Project 2 code
+
+string? readResult;
+string roleName = "";
+bool validEntry = false;
+
+do
+{                
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        roleName = readResult.Trim();
+    }
+
+    if (roleName.ToLower() == "administrator" || roleName.ToLower() == "manager" || roleName.ToLower() == "user") 
+    {
+        validEntry = true;
+    }
+    else
+    {
+        Console.Write($"The role name that you entered, \"{roleName}\" is not valid. ");
+    }
+
+} while (validEntry == false);
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
+===================
+Project 3 code
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+int stringsCount = myStrings.Length;
+
+string myString = "";
+int periodLocation = 0;
+
+for (int i = 0; i < stringsCount; i++)
+{
+    myString = myStrings[i];
+    periodLocation = myString.IndexOf(".");
+
+    string mySentence;
+
+    // extract sentences from each string and display them one at a time
+    while (periodLocation != -1)
+    {
+
+        // first sentence is the string value to the left of the period location
+        mySentence = myString.Remove(periodLocation);
+
+        // the remainder of myString is the string value to the right of the location
+        myString = myString.Substring(periodLocation + 1);
+
+        // remove any leading white-space from myString
+        myString = myString.TrimStart();
+
+        // update the comma location and increment the counter
+        periodLocation = myString.IndexOf(".");
+
+        Console.WriteLine(mySentence);
+    }
+ 
+    mySentence = myString.Trim();
+    Console.WriteLine(mySentence);
+}
+
+=================================
+The do-while will allow the code to check each entry by the user until they enter the special keyboard combination to exit.
+
+
+It's possible to use any of these iteration types for the conditions described, but a foreach is best suited for this scenario. The foreach is easy to implement when the number of array elements is unknown. The foreach is a good choice when the index number of the selected array element isn't important. The foreach might run faster when the selected item is used multiple times within the code block.
+
+=================
+
+Write code to display all ourAnimals array data
+
+
+In this exercise, you write the nested looping structure and selection code block that's used to display the ourAnimals array information. The detailed tasks that you complete during this exercise are:
+
+Outer loop: build the outer loop that iterates through the animals in the ourAnimals array.
+Data check: write code that checks for existing pet data and displays the pet ID if data exists for a pet.
+Inner loop: build an inner loop that displays all of the pet characteristics for pets with data assigned.
+Verification test: perform verification tests for the code that you develop in this exercise.
+
+==============
+
+string[][] jaggedArray = new string[][]
+{
+    new string[] { "one1", "two1", "three1", "four1", "five1", "six1" },
+    new string[] { "one2", "two2", "three2", "four2", "five2", "six2" },
+    new string[] { "one3", "two3", "three3", "four3", "five3", "six3" },
+    new string[] { "one4", "two4", "three4", "four4", "five4", "six4" },
+    new string[] { "one5", "two5", "three5", "four5", "five5", "six5" },
+    new string[] { "one6", "two6", "three6", "four6", "five6", "six6" },
+    new string[] { "one7", "two7", "three7", "four7", "five7", "six7" },
+    new string[] { "one8", "two8", "three8", "four8", "five8", "six8" }
+};
+
+foreach (string[] array in jaggedArray)
+{
+    foreach (string value in array)
+    {
+        Console.WriteLine(value);
+    }
+    Console.WriteLine();
+}
+===================
+
+Keeping variables scoped at the lowest necessary level enables better resource management and helps to minimize the attack profile of the application.
+
+========================
+
+Develop Branching and Looping Structures in C#

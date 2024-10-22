@@ -1,0 +1,245 @@
+Lexical grammar
+
+JavaScript source text is just a sequence of characters — in order for the interpreter to understand it, the string has to be parsed to a more structured representation. The initial step of parsing is called lexical analysis, in which the text gets scanned from left to right and is converted into a sequence of individual, atomic input elements.
+
+Some input elements are insignificant to the interpreter, and will be stripped after this step — they include white space and comments. The others, including identifiers, keywords, literals, and punctuators (mostly operators), will be used for further syntax analysis. Line terminators and multiline comments are also syntactically insignificant, but they guide the process for automatic semicolons insertion to make certain invalid token sequences become valid.
+
+Line comments  //
+Block comments  /* */
+Hashbang comments  #! (is only valid at the absolute start of a script or module)
+
+e.g.
+
+#!/usr/bin/env node
+console.log("Hello world");
+
+Identifiers(identifier is used to link a value with a name)
+Keywords(Keywords are tokens that look like identifiers but have special meanings in JavaScript)
+
+Reserved word             (break,case,catch,class,const,continue,debugger,default,delete,do,else,export,extends,false,finally,for,function,if,import,in,instanceof,new,null,return,super,switch,this,throw,true,try,typeof,var,void,while,with)
+
+part 2
+
+Expressions 
+1. this
+The this keyword refers to a special property of an execution context.
+
+2. Literals(Basic null, boolean, number, and string literals.)
+
+3. [] (Array initializer/literal syntax.)
+
+4. {} (Object initializer/literal syntax.)
+
+5. function (The function keyword defines a function expression.)
+
+6. class (The class keyword defines a class expression.)
+
+7. function* (The function* keyword defines a generator function expression.)
+
+8. async function (The async function defines an async function expression.)
+
+9. async function* (The async function* keywords define an async generator function expression.)
+
+10. /ab+c/i (Regular expression literal syntax.)
+
+11. Property accessors
+Member operators provide access to a property or method of an object (object.property and object["property"]).
+
+12. ?. (The optional chaining operator returns undefined instead of causing an error if a reference is nullish (null or undefined).)
+
+13. new (The new operator creates an instance of a constructor.)
+
+14. super (The super keyword calls the parent constructor or allows accessing properties of the parent object.)
+
+Unary operators (A unary operation is an operation with only one operand.)
+
+15. typeof (The typeof operator determines the type of a given object.)
+
+16. delete (The delete operator deletes a property from an object.)
+
+17. void (The void operator evaluates an expression and discards its return value.)
+
+18. await (Pause and resume an async function and wait for the promise's fulfillment/rejection.)
+
+19. ~ (Bitwise NOT operator.)
+
+20. ! (Logical NOT operator.)
+
+Relational operators (A comparison operator compares its operands and returns a boolean value based on whether the comparison is true.)
+
+(< ,> ,<=,>=,instanceof,in)
+
+
+Equality operators
+
+==
+Equality operator.
+
+!=
+Inequality operator.
+
+===
+Strict equality operator.
+
+!==
+Strict inequality operator.
+
+Bitwise shift operators (<<,>>,>>>)
+
+Binary bitwise operators (&,|,^)
+
+Binary logical operators (&&,||,??)
+
+Conditional (ternary) operator ((condition ? ifTrue : ifFalse))
+
+conditional operator returns one of two values based on the logical value of the condition.
+
+
+Assignment operators (An assignment operator assigns a value to its left operand based on the value of its right operand.)
+
+(=,*=,/=,%=,+=,-=,??=)
+
+
+part 3
+JavaScript data types and data structures
+
+
+JavaScript is a dynamic language with dynamic types. Variables in JavaScript are not directly associated with any particular value type, and any variable can be assigned (and re-assigned) values of all types
+
+JavaScript is also a weakly typed language, which means it allows implicit type conversion when an operation involves mismatched types, instead of throwing type errors.
+
+Primitive values (Null,Undefined,Boolean,Number,String)
+
+
+Objects
+In computer science, an object is a value in memory which is possibly referenced by an identifier. In JavaScript, objects are the only mutable values. Functions are, in fact, also objects with the additional capability of being callable.
+
+Accessor property
+Associates a key with one of two accessor functions (get and set) to retrieve or store a value.
+
+
+part 4
+Classes
+
+Class body
+The body of a class is the part that is in curly braces {}. This is where you define class members, such as methods or constructor.
+
+The body of a class is executed in strict mode even without the "use strict" directive.
+
+A class element can be characterized by three aspects:
+
+Kind: Getter, setter, method, or field
+Location: Static or instance
+Visibility: Public or private
+
+
+Constructor
+The constructor method is a special method for creating and initializing an object created with a class. There can only be one special method with the name "constructor" in a class — a SyntaxError is thrown if the class contains more than one occurrence of a constructor method.
+
+A constructor can use the super keyword to call the constructor of the super class.
+
+Inheritance
+The extends keyword is used in class declarations or class expressions to create a class as a child of another constructor (either a class or a function).
+
+Static methods and fields
+The static keyword defines a static method or field for a class.
+
+Binding this with instance and static methods
+When a static or instance method is called without a value for this, such as by assigning the method to a variable and then calling it, the this value will be undefined inside the method. This behavior is the same even if the "use strict" directive isn't present, because code within the class body is always executed in strict mode.
+
+Part -5 
+
+variables(A variable is a container for a value, like a number we might use in a sum, or a string that we might use as part of a sentence.)
+
+Declaring a variable
+Initializing a variable
+Updating a variable
+
+Variable types
+
+Numbers
+Strings
+Booleans
+Arrays
+Objects  let dog = { name: "Spot", breed: "Dalmatian" };
+
+Dynamic typing
+JavaScript is a "dynamically typed language", which means that, unlike some other languages, you don't need to specify what data type a variable will contain (numbers, strings, arrays, etc.).
+
+When to use const and when to use let
+
+part-6
+Functions
+
+Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.
+
+
+Defining functions
+
+Function declarations
+A function definition consists of the function keyword, followed by:
+
+The name of the function.
+A list of parameters to the function, enclosed in parentheses and separated by commas.
+The JavaScript statements that define the function, enclosed in curly braces, { /* … */ }.
+
+A method is a function that is a property of an object.
+
+Calling functions
+
+Functions must be in scope when they are called, but the function declaration can be hoisted (appear below the call in the code). The scope of a function declaration is the function in which it is declared (or the entire program, if it is declared at the top level).
+
+Function hoisting
+
+Function scope
+
+Variables defined inside a function cannot be accessed from anywhere outside the function, because the variable is defined only in the scope of the function. However, a function can access all variables and functions defined inside the scope in which it is defined.
+
+In other words, a function defined in the global scope can access all variables defined in the global scope. A function defined inside another function can also access all variables defined in its parent function, and any other variables to which the parent function has access.
+
+Scope and the function stack
+
+Recursion
+
+A function can refer to and call itself. 
+
+There are three ways for a function to refer to itself:
+
+1. The function's name
+2. arguments.callee
+3. An in-scope variable that refers to the function
+
+A function that calls itself is called a recursive function. In some ways, recursion is analogous to a loop. Both execute the same code multiple times, and both require a condition (to avoid an infinite loop, or rather, infinite recursion in this case).
+
+Nested functions and closures
+You may nest a function within another function. The nested (inner) function is private to its containing (outer) function.
+
+It also forms a closure. A closure is an expression (most commonly, a function) that can have free variables together with an environment that binds those variables (that "closes" the expression).
+
+Since a nested function is a closure, this means that a nested function can "inherit" the arguments and variables of its containing function. In other words, the inner function contains the scope of the outer function.
+
+To summarize:
+
+The inner function can be accessed only from statements in the outer function.
+The inner function forms a closure: the inner function can use the arguments and variables of the outer function, while the outer function cannot use the arguments and variables of the inner function.
+
+Preservation of variables
+
+Notice how x is preserved when inside is returned. A closure must preserve the arguments and variables in all scopes it references. Since each call provides potentially different arguments, a new closure is created for each call to outside. The memory can be freed only when the returned inside is no longer accessible.
+
+This is not different from storing references in other objects, but is often less obvious because one does not set the references directly and cannot inspect them.
+
+
+Arrow functions
+
+An arrow function expression (also called a fat arrow to distinguish from a hypothetical -> syntax in future JavaScript) has a shorter syntax compared to function expressions and does not have its own this, arguments, super, or new.target. Arrow functions are always anonymous.
+
+Two factors influenced the introduction of arrow functions: shorter functions and non-binding of this.
+
+
+refer
+
+https://nodejs.org/en/learn/getting-started/how-much-javascript-do-you-need-to-know-to-use-nodejs
+
+
+

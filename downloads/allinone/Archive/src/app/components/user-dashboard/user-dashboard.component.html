@@ -1,0 +1,18 @@
+<div class="card bg-dark text-white" style="border-radius: 1rem;">
+    <div class="card-body p-5 text-center">
+        <p class="text-center ">Book Your Appointment Here! <a class="btn btn-danger m-4" (click)="logout()"> logout</a>
+        </p>
+        <form (ngSubmit)="submitForm()" class="text-center card">
+
+            <div *ngFor="let slot of timeSlots">
+
+                <label>
+                    <input class="m-2" type="radio" name="timeSlot" [value]="slot" (change)="selectSlot(slot)"
+                        [(ngModel)]="selectedSlot">
+                    {{ slot }}
+                </label>
+            </div>
+            <button class="btn btn-dark m-3" type="submit">Book Now</button>
+        </form>
+    </div>
+</div>

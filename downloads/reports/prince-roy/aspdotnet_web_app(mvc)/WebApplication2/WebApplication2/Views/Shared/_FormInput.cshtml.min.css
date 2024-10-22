@@ -1,0 +1,1 @@
+﻿@charset "UTF-8";﻿﻿form{width:min(55%,600px);}input{width:100%;padding-inline:.8rem;padding-block:1rem;border:1px solid #e5e7eb;border-radius:8px;background-image:url("images/Search.svg");background-repeat:no-repeat;background-position:right .85rem center;box-shadow:0 1rem 1rem -1rem #e5e7eb;}input::-webkit-input-placeholder{color:#6c727f;}input:focus{outline:0;}

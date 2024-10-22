@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ASPDotNetCoreMVC1.props" />
+</Project>

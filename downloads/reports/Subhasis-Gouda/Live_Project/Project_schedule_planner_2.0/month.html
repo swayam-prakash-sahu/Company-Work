@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/month.css">
+</head>
+<body>
+    <div class="d2">
+        <span class="plan_table">
+            <label for="jumpToDate">Jump to Date:</label>
+            <input type="date" id="jumpToDate">
+            <button onclick="jumpToDate()">Go</button>
+            <button onclick="changeMonth(-1)">Previous Month</button>
+            <button onclick="changeMonth(1)">Next Month</button>
+            <table class="t2" border="1px" style="border-color:rgb(23, 52, 43); padding: 10px;">
+                <thead>
+                    <tr><td colspan="5" id="monthName"></td><td colspan="2" id="yearName"></td></tr>
+                    <tr>
+                        <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
+                    </tr>
+                </thead>
+                <tbody id="weekContainer"></tbody>
+            </table>
+        </span>
+    </div>
+</body><div class="d2">
+    <span class="plan_table">
+        <table class="t2" border="1px" style="border-color:rgb(23, 52, 43); padding: 10px;">
+            <thead>
+                <tr>
+                    <td colspan="7" id="monthName"></td>
+                </tr>
+                <tr>
+                    <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
+                </tr>
+            </thead>
+            <tbody id="weekContainer"></tbody>
+        </table>
+    </span>
+</div>
+<script src="js/handle_table.js">
+</script>
+</html>

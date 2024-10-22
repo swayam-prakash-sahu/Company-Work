@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+    <style>
+        * {
+            background-color: antiquewhite;
+        }
+
+        .hovering {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .hover-div {
+            background-color: green;
+            height: 200px;
+            width: 200px;
+        }
+
+        .hover-div:hover {
+            background-color: lawngreen;
+        }
+    </style>
+</head>
+<body>
+    <h2>The onclick Attribute</h2>
+    <button onclick="document.getElementById('E1').innerHTML=Date()">SHOW TIME</button>
+    <p id="E1"></p>
+
+    <!-- alert -->
+    <button type="button"
+            onclick="hiThere()"
+            style="margin-left: 50%;">
+        Click me event
+    </button>
+
+    <section class="hovering">
+        <!-- onmouseover -->
+        <div class="hover-div" onmouseover="hov()">
+        </div>
+
+        <!-- onmouseout -->
+        <div class="hover-div" onmouseout="out()">
+        </div>
+    </section>
+
+    <!-- onchange -->
+    <input onchange="alert(this.value)"
+           type="number"
+           style="margin-left: 45%;">
+
+    <!-- onload -->
+    <section class="E3" style="margin: 50px;">     
+           <img onload="alert('Image completely loaded')"
+           alt="tech image"
+           src="https://source.unsplash.com/featured?technology" width="300"> 
+    </section>       
+
+    <!-- focusevent -->
+    <section style="margin: 20px ;">
+        <h2> Enter something here</h2>
+        <input type="text"  placeholder="focus event" id="input1" onfocus="focusevent()"/>
+    </section>
+
+    <!-- keydownevent -->
+    <section style="margin: 20px;">
+        <input type="text" placeholder="keydown press to execute" id="input1" onkeydown="keydownevent()"/>  
+    </section>
+
+    <!-- keyupevent -->
+    <section style="margin: 20px;">
+        <input type="text" placeholder="keyup release to execute" id="input2" onkeyup="keyupevent()"/>  
+    </section>
+</body>
+</html>

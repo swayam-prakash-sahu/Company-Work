@@ -1,0 +1,31 @@
+.task-list {
+    margin-top: 20px;
+  }
+  
+  .task-list h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .list-group-item {
+    padding: 10px 15px;
+  }
+  
+  .list-group-item span {
+    display: inline-block;
+    width: 70%;
+  }
+  
+  .list-group-item input {
+    width: 70%;
+  }
+  
+  .list-group-item button {
+    margin-left: 10px;
+  }
+  
+  .list-group-item div {
+    width: 30%;
+    text-align: right;
+  }
+  

@@ -1,0 +1,15 @@
+This is my todo-items component
+
+<div>
+    <button (click)="toggleShowTodoItems()">{{showTodoItems ? 'Hide' : 'Show'}} todo items</button>
+</div>
+
+<ul *ngIf="showTodoItems">
+    <li *ngFor="let item of todoItems">{{item.title}} <button (click)="removeItem(item)">🗑️</button></li>
+</ul>
+
+<div class="add-todo-items">
+    <h3>Add todo item:</h3>
+    <input [(ngModel)]="todoItemToAdd">
+    <button (click)="addTodoItem()">Add</button>
+</div>

@@ -1,0 +1,499 @@
+1 FINAL TASK FOR REACT JS and DOT NET
+2
+3 Hello, this will be your final practice / assessment task.
+4 Create a blog website using react js and DotNet
+5
+6 Frontend will be created using react and backend using dotnet.
+7
+8 REACT TASK -
+9
+Website should have two pages
+10
+11
+Home page
+12
+This page should open up when user hits the route.
+13
+14
+On mount of this page you need to call your api's (GET localhost:8000/blog) route to fetch a list of all the available blogs.
+Display all the blogs in a good looking manner (Display only blog title in home page).
+15
+On click of any the blog open up a new page (/blogs/blog_id) route.
+16
+All the blogs should also have a delete icon button clicking on which you delete the blog.
+17
+18
+This page should also have a add new blog button on the top right corner.
+19
+Clicking that button should open a new modal (using react-modal npm library) which has a form to create a new blog
+20
+21
+Blog page
+22
+This page should should both the title and description of your blog.
+23
+24
+On mount of this page you need to call your (GET localhost:8000/blog/:blog_id) route to fetch this particular blog
+Display title and description of blog in this page.
+25
+This page should also have a button to allow the users to go back to home page.
+26
+27
+API TASK
+28
+Create an api using DOT NET with following details
+29
+30
+31
+32
+33
+34
+35
+API Schema
+TABLE SCHEMA
+blogs (TABLE NAME)
+id (PRIMARY KEY, UNIQUE)
+title (str)
+description (str)
+36
+37
+API ROUTES
+38
+/blog
+39
+GET
+40
+returns all the available blogs
+41
+INPUT FORMAT: NA
+42
+43
+POST
+44
+adds a new blog
+45
+46
+OUTPUT FORMAT: NA
+47
+DELETE
+48
+49
+INPUT FORMAT: blog_id
+50
+51
+OUTPUT FORMAT: [{ id: 1, title: 'blog 1', description: 'some description' }, ...]
+INPUT FORMAT: { title: 'blog', description: 'some blog description' }
+deletes the selected blog
+OUTPUT FORMAT: NA
+/blog/blog_id
+52
+GET
+53
+return blog info for given blog_id
+54
+INPUT FORMAT: blog_id (passed as a url param)
+55
+OUTPUT FORMAT: { id: 1, title: 'blog 1', description: 'some description' }
+56
+
+
+completing the above requirements build a beautiful blog web page. Make it very beautiful.
+
+
+====================================================================
+
+
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function Home() {
+const [blogs, setBlogs] = useState([]);
+
+useEffect(() => {
+const fetchBlogs = async () => {
+try {
+const response = await axios.get('http://localhost:5286/api/Blogs');
+setBlogs(response.data);
+} catch (error) {
+console.error('Error fetching data:', error);
+}
+};
+
+fetchBlogs();
+}, []);
+
+return (
+<div>
+<h1>Blog Posts</h1>
+<ul>
+{blogs.map(blog => (
+<li key={blog.id}>
+<h2>{blog.title}</h2>
+<p>{blog.description}</p>
+</li>
+))}
+</ul>
+</div>
+);
+}
+
+export default Home;
+
+
+
+-------------------------------------------------
+API endpoints
+
+
+GET - api/Blogs
+
+
+http://localhost:5286/api/Blogs
+
+
+POST - api/Blogs
+
+
+http://localhost:5286/api/Blogs
+
+
+GET - /api/Blogs/{id}
+
+
+http://localhost:5286/api/Blogs/
+
+
+PUT - /api/Blogs/{id}
+
+
+http://localhost:5286/api/Blogs/2
+
+
+DELETE - /api/Blogs/{id}
+
+
+http://localhost:5286/api/Blogs/2
+
+
+
+
+
+
+
+
+
+
+=====================================
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function Home() {
+const [blogs, setBlogs] = useState([]);
+
+useEffect(() => {
+const fetchBlogs = async () => {
+try {
+const response = await axios.get('http://localhost:5286/api/Blogs');
+setBlogs(response.data);
+} catch (error) {
+console.error('Error fetching data:', error);
+}
+};
+
+fetchBlogs();
+}, []);
+
+return (
+<div>
+<h1>Blog Posts</h1>
+<ul>
+{blogs.map(blog => (
+<li key={blog.id}>
+<h2>{blog.title}</h2>
+<p>{blog.description}</p>
+</li>
+))}
+</ul>
+</div>
+);
+}
+
+export default Home;
+
+
+
+
+
+
+=========================================================================
+This is my blog project , 
+
+
+add edit button , to edit the blog title and description.
+
+
+Apply bootstrap, css ,react to style the components and web page.
+
+
+In the home page create a add new blog button on the top right corner.
+Clicking that button should open a new modal (using react-modal npm library) which has a form to create a new blog.
+
+
+Blog page
+This page should have both the title and description of your blog.
+On mount of this page you need to call your (GET http://localhost:5286/api/Blogs/${blogId}) route to fetch this particular blog
+Display title and description of blog in this page.
+This page should also have a button to allow the users to go back to home page.
+
+
+add all the changes required in the files provided below
+
+
+
+
+BLOG PROJECT    
+
+
+
+Home.js
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import AddBlogForm from './AddBlogForm';
+
+function Home() {
+const [blogs, setBlogs] = useState([]);
+const [isLoading, setIsLoading] = useState(true);
+
+useEffect(() => {
+const fetchBlogs = async () => {
+try {
+const response = await axios.get('http://localhost:5286/api/Blogs');
+setBlogs(response.data);
+setIsLoading(false);
+} catch (error) {
+console.error('Error fetching data:', error);
+}
+};
+
+fetchBlogs();
+}, [blogs]);
+
+const handleDelete = async (id) => {
+try {
+await axios.delete(`http://localhost:5286/api/Blogs/${id}`);
+setBlogs(blogs.filter(blog => blog.id !== id));
+} catch (error) {
+console.error('Error deleting blog:', error);
+}
+};
+
+if(isLoading) return <p>Loading...</p>
+
+return <div className="container">
+<h1 className="title">Welcome to My Blog</h1>
+<div className="blog-list">
+{blogs.map(blog => (
+<div className="blog-card" key={blog.id}>
+<h2 className="blog-title"><a href={`blogs/${blog.id}`}>{blog.title}</a></h2>
+<p className="blog-description">{blog.description}</p>
+<button className="delete-btn" onClick={() => handleDelete(blog.id)}>Delete</button>
+</div>
+))}
+</div>
+<AddBlogForm />
+</div>
+}
+
+export default Home;
+
+-------------------------------------------------------------------------------------------------------------
+
+
+Blog.js
+
+
+// Blog.js
+import React from 'react';
+import { useEffect ,useState} from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
+function Blog({ title, description }) {
+const [blogs, setBlogs] = useState([]);
+const {blogId} = useParams();
+
+useEffect(() => {
+const fetchBlogs = async () => {
+try {
+const response = await axios.get(`http://localhost:5286/api/Blogs/${blogId}`);
+setBlogs(response.data);
+} catch (error) {
+console.error('Error fetching data:', error);
+}
+};
+
+fetchBlogs();
+}, [blogs]);
+return (
+<div className="blog">
+<h2 className="blog-title">{blogs.title}</h2>
+<p className="blog-description">{blogs.description}</p>
+</div>
+);
+}
+
+export default Blog;
+
+------------------------------------------------------------------------------------------------------------
+
+
+AddBlogForm.js
+
+
+// AddBlogForm.js
+import React, { useState } from 'react';
+import axios from 'axios';
+// import {useNavigate} from 'react-router-dom';
+
+function AddBlogForm() {
+const [title, setTitle] = useState('');
+const [description, setDescription] = useState('');
+// let navigate = useNavigate();
+
+const handleSubmit = async (e) => {
+e.preventDefault();
+try {
+const response = await axios.post('http://localhost:5286/api/Blogs', { title, description });
+//onAdd(response.data);
+setTitle('');
+setDescription('');
+} catch (error) {
+console.error('Error adding blog:', error);
+}
+};
+
+return (
+<form onSubmit={handleSubmit} className="add-blog-form">
+<input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+<textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+<button type="submit">Add Blog</button>
+</form>
+);
+}
+
+export default AddBlogForm;
+
+
+
+---------------------------------------------------------------------------------------------------------------
+App.js
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function App() {
+const [blogs, setBlogs] = useState([]);
+
+useEffect(() => {
+const fetchBlogs = async () => {
+try {
+const response = await axios.get('http://localhost:5286/api/Blogs');
+setBlogs(response.data);
+} catch (error) {
+console.error('Error fetching data:', error);
+}
+};
+
+fetchBlogs();
+}, []);
+
+return (
+<div>
+<h1>Blog Posts</h1>
+<ul>
+{blogs.map(blog => (
+<li key={blog.id}>
+<h2>{blog.title}</h2>
+<p>{blog.description}</p>
+</li>
+))}
+</ul>
+</div>
+);
+}
+
+export default Home;
+
+
+=======================================================
+index.js
+
+
+
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import Home from './components/Home';
+
+import './index.css';
+//import App from './App';
+import reportWebVitals from './reportWebVitals';
+import Blog from './components/Blog';
+
+const router = createBrowserRouter([
+{
+path: '/',
+element: <Home />
+},
+{ path: 'blogs/:blogId', element: <Blog /> },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode>
+<RouterProvider router={router} />
+</React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+
+
+
+=====================================
+
+
+react project 
+
+
+important documents
+
+
+https://www.c-sharpcorner.com/article/reactjs-crud-using-net-core-web-api/
+
+
+https://travis.media/how-to-create-react-app-net-api-vscode/
+
+
+https://getbootstrap.com/docs/4.0/components/card/
+
+
+https://github.com/munibrbutt/articles-code/tree/main
+
+https://github.com/vishalpwaman1000/Crud-Operation-Front-End-Implementation
+
+
+https://github.com/vishalpwaman1000/Crud-Operation/tree/main

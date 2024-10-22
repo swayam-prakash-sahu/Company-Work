@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)), url(background.jpg); 
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.logo{
+    width: 80px;
+    cursor: pointer;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+
+}
+
+.navbar ul li a{
+     text-decoration: none;
+     color: #fff;
+     text-transform: uppercase;
+}
+
+/* transitions on navbar menu */
+
+.navbar ul li::after { 
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #009688;
+    position: absolute;
+    left: 0; 
+    bottom: -10px;
+    transition: 0.5s;
+} 
+
+.navbar ul li:hover::after{
+     width: 100%; 
+} 
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.content h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.content p{
+    margin: 20px auto;
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; 
+
+}
+
+/* watch more and subscribe button */
+span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+} 
+
+button:hover span{
+    width: 100%;
+} 
+
+/* removing border when hover on button */
+button:hover{
+    border:none;  
+} 
+
+/* footer design */
+
+.text-footer {
+    text-align: center;
+    padding: 30px 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: whitesmoke;
+}
+
+footer {
+    text-align: center;
+    
+}
+
+/* form */
+
+body { background:rgb(30,30,40); }
+.form { max-width:420px; margin:50px auto; }
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent; 
+  border:2px solid #CC6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box; 
+}
+
+.feedback-input:focus { border:2px solid #CC4949; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#CC6666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+
+[type="submit"]:hover { background:#CC4949; }
+
+
+#Centre{
+    color: grey;
+    margin: auto;
+    width:100%;
+    background-color: rgb(192, 203, 175);
+    text-align: center;
+    padding: 50px 0;
+    font-family: sans-serif;
+    justify-content: center;
+}
+
+
+/* CSS for screens smaller than 768px (tablets and below) */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .navbar ul li {
+        margin: 0 10px;
+    }
+
+    .content h1 {
+        font-size: 50px;
+    }
+
+    .content p {
+        font-size: 16px;
+    }
+
+    button {
+        width: 150px;
+        margin: 10px 5px;
+    }
+}
+
+/* CSS for screens smaller than 576px (phones) */
+@media screen and (max-width: 576px) {
+    .content h1 {
+        font-size: 40px;
+    }
+
+    .content p {
+        font-size: 14px;
+    }
+
+    .feedback-input {
+        font-size: 16px;
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    [type="submit"] {
+        font-size: 20px;
+    }
+}
+
+
+/* @media only screen and (max-width: 320px){
+    div.content {
+      display: none;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+  }
+
+@media screen and (min-width: 320px) and(max-width: 768px){
+    div.content {
+      display: block;
+    }
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 768px) and(max-width: 1440px){
+    div.content {
+      display: block;
+    }
+  } */

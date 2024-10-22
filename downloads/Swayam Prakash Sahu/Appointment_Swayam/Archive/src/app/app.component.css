@@ -1,0 +1,53 @@
+
+  
+
+  div {
+    
+    text-align: center;
+    background-color: blanchedalmond;
+    /* padding-bottom: ; */
+    /* background-image: url('../assets/annie-spratt-OTy0mkqc2Yk-unsplash.jpg');  */
+  }
+
+  /* .bag { */
+    /* background-image: url('../assets/2151005751.jpg');  */
+    /* background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 50px; 
+    color: #fff;  */
+
+    /* width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)), url(C:/Users/SwayamPrakashSahu/Downloads/RoleAuth/Archive/src/assets/2149126949.jpg); 
+    background-size: cover;
+    background-position: center; */
+  /* } */
+  
+  /* Linear Gradient Overlay */
+  /* .bag::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7));
+    z-index: -1; 
+  } */
+  
+  
+  /* .bag > * {
+    text-align: center;
+  } */
+  
+  nav a {
+    text-decoration: none;
+    color: blue;
+  }
+  
+  /* nav a.active {
+    color: red;
+  } */
+  
+

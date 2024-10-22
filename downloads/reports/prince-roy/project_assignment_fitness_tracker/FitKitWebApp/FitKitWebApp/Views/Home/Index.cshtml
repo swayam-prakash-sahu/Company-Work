@@ -1,0 +1,107 @@
+﻿@model UserDetails;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles { 
+    <link href="~/Content/Dashboard.styles.css" type="text/css" rel="stylesheet" />
+}
+
+<div class="container">
+    @await Html.PartialAsync("_Navbar")
+
+    <div class="dashboard-container">
+       <h1><span>Good Morning</span> Welcome Back 🎉</h1>
+
+       <div class="health-track">
+            <div class="card card-1">
+                <div><img src="~/images/wallet.svg" alt="" /><span>Steps</span></div>
+                <p><span class="steps">2500</span> Steps</p>
+                <div class="progress-bar"><div class="progress-num"></div></div>
+                <p>50% of your goals</p>
+            </div>
+
+            <div class="card card-2">
+                <div>
+                    <img src="~/images/wallet.svg" alt="" /><span>Water</span>
+                </div>
+                <div class="outer-circle">
+                     <p id="litres">1.25 Litres</p>
+              
+                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="8rem" height="8rem"> 
+                         <circle cx="64" cy="64" r="53" stroke-linecap="round" /> 
+                     </svg>
+                </div>
+            </div>
+
+            <div class="card card-3">
+                <img src="~/images/wallet.svg" alt="" /> <span>Calories</span>
+                <div class="outer-circle">
+                    <p id="litres">1.25 Litres</p>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="8rem" height="8rem">
+                        <circle cx="64" cy="64" r="53" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card card-4">
+                <img src="~/images/wallet.svg" alt="" />
+                <p><span class="steps">2500</span> Steps</p>
+                <div class="progress-bar"><div class="progress-num"></div></div>
+                <p>50% of your goals</p>
+            </div>
+       </div>
+
+       <div class="progress-report-container">
+           <div>
+               <h1>Progress</h1>
+               <div class="progress-report-bar"></div>
+           </div>
+           <div>
+               <div class="progress-report-stats">
+                    <div class="activities">
+                        <div class="dot"></div>
+                        <p>Cardio</p>
+                    </div>
+
+                    <div class="activities">
+                        <div class="dot"></div>
+                        <p>Stretching</p>
+                    </div>
+
+                    <div class="activities">
+                        <div class="dot"></div>
+                        <p>Threadmill</p>
+                    </div>
+
+                    <div class="activities">
+                        <div class="dot"></div>
+                        <p>Strength</p>
+                    </div>
+               </div>
+           </div>
+       </div>
+    </div>
+    @await Html.PartialAsync("_ProfileSection", Model)    
+</div>
+
+@section Script{
+    <script>
+        // var numbersEl = document.getElementById("litres");
+        // console.log(numbersEl);
+
+        // let counter = 0;
+        // setInterval(() => {
+        //     if (counter == 1200) {
+        //         numbersEl.innerText = `1.2 Litres`;
+        //         clearInterval;
+        //     } else {
+        //         counter += 1;
+        //         numbersEl.textContent = `${counter} Litres`;
+        //     }
+        // }, 3000);
+
+    </script>
+}

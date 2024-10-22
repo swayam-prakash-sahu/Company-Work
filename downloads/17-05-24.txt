@@ -1,0 +1,76 @@
+The algorithms used in this research paper are:
+
+Linear Regression (OLS)
+Generalized Additive Model (GAM)
+Spatial Autoregressive Regression (SAR)
+eXtreme Gradient Boosting (XGB)
+
+
+
+
+Uniqueness:
+
+Location-based pricing: The project takes into account the location of the property, which is a crucial factor in determining the price of a house.
+Comprehensive feature engineering: The project uses a range of features, including square footage, number of bedrooms and bathrooms, and location, to build a robust model.
+
+Handling outliers and missing values: The project uses techniques such as mean and median imputation to handle missing values and outlier detection and removal to ensure that the model is not biased by extreme values.
+
+Use of GridSearchCV for hyperparameter tuning: The project uses GridSearchCV to tune the hyperparameters of the Lasso and Decision Tree models. This process allows the model to be as accurate as possible.
+
+Visualization of results: The project uses visualizations such as a bar graph of feature importance to better understand the correlation between the features and the target variable.
+
+
+
+Limitations:
+
+Size of dataset: The dataset used for this project is quite small, containing only 657 rows and 21 columns. This means that the model may not have the most accurate predictions for data that it has not seen before.
+
+Model limitations: Although the model used in this project, linear regression, is quite accurate, it may not accurately predict the prices of larger properties with more than three bedrooms and bathrooms. Other models such as random forest or gradient boosting may be more suitable for this purpose.
+
+Future changes in demand: The model used in this project may not accurately predict the prices of future homes due to changes in demand for housing in the area. To improve the model's accuracy in the long term, it may be necessary to update the model periodically with new data.
+
+Dependence on variables: The project relies on several variables such as location, square footage, and the number of bedrooms and bathrooms. Any change in these variables could affect the model's predictions.
+
+Unaccounted factors: The model used in this project does not take into account any factors that may significantly affect housing prices, such as interest rates, property taxes, or government policies. These factors could significantly impact the predictions made by the model.
+
+In future work, consider using more data or incorporating more features to improve the accuracy of the model. Additionally, you can also try out other models like Random Forest or Gradient Boosting and compare their performance. Remember, data is constantly changing, so it is important to continuously update your model to ensure its accuracy.
+
+This experimental outcome of the project showcases a solid understanding of the basic principles of data science and how to apply them to real-world problems. It demonstrates the power of data-driven decision-making and the potential of AI in the realm of real estate.
+
+
+
+
+===================================
+
+
+This data science project series walks through step by step process of how to build a real estate price prediction website. We will first build a model using sklearn and linear regression using banglore home prices dataset from kaggle.com. Second step would be to write a python flask server that uses the saved model to serve http requests. Third component is the website built in html, css and javascript that allows user to enter home square ft area, bedrooms etc and it will call python flask server to retrieve the predicted price. During model building we will cover almost all data science concepts such as data load and cleaning, outlier detection and removal, feature engineering, dimensionality reduction, gridsearchcv for hyperparameter tunning, k fold cross validation etc. Technology and tools wise this project covers,
+
+give the limitations of my real estate price prediction model
+Edit
+ 
+Based on the project description, here are some potential limitations of your real estate price prediction model:
+
+Data Quality and Availability: The model is built using the Bangalore home prices dataset from Kaggle, which may not be representative of the entire Indian real estate market or other regions. The dataset may also have limitations in terms of data quality, completeness, and accuracy.
+Linear Regression Assumptions: The model uses linear regression, which assumes a linear relationship between the features and the target variable. However, real estate prices may have non-linear relationships with features, which could lead to inaccurate predictions.
+Feature Engineering Limitations: The model may not capture all relevant features that affect real estate prices, such as location-specific factors, amenities, and external factors like economic conditions.
+Overfitting or Underfitting: The model may suffer from overfitting or underfitting, especially if the dataset is small or if the model is not regularized properly.
+Lack of Hyperparameter Tuning: Although GridSearchCV is used for hyperparameter tuning, there may be other hyperparameters that are not tuned, which could lead to suboptimal performance.
+Model Interpretability: Linear regression models can be difficult to interpret, especially for non-technical users. This may make it challenging to understand why the model is making certain predictions.
+Scalability: The model may not be scalable to handle large volumes of data or high traffic on the website.
+Lack of Real-time Data: The model is trained on historical data, which may not reflect current market trends or changes in the real estate market.
+Geographic Limitations: The model is trained on data from Bangalore, which may not be applicable to other cities or regions.
+User Input Errors: The website relies on user input for features like square footage and number of bedrooms. If users enter incorrect or inaccurate information, the model's predictions may be inaccurate.
+Model Updates and Maintenance: The model may require periodic updates to reflect changes in the market or new data. This could be a challenge, especially if the model is deployed on a website.
+Lack of Transparency: The model's predictions may not be transparent, making it difficult for users to understand how the predictions are made.
+These limitations can be addressed by:
+
+Collecting more data from diverse sources
+Using more advanced machine learning algorithms or techniques like ensemble methods or neural networks
+Incorporating more features and interactions between features
+Implementing regularization techniques to prevent overfitting
+Using techniques like feature importance or SHAP values to improve model interpretability
+Developing a more robust and scalable architecture for the website and model deployment
+Incorporating real-time data and updating the model periodically
+Expanding the model to cover more geographic regions
+Implementing input validation and error handling on the website
+Providing more transparency into the model's predictions and decision-making process.

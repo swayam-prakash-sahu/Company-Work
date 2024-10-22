@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts Links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="shortcut icon" href="./src/assets/images/favicon.ico" type="image/x-icon" />
+
+    <!-- Top Level CSS File -->
+    <link rel="stylesheet" href="./src/scss/index.scss" />
+
+    <script defer type="module" src="./src/js/index.js"></script>
+
+    <title>Word Scramblle</title>
+  </head>
+  <body>
+    <main>
+      <article class="game__container">
+        <h1 class="game__container--heading">Word Scramblle</h1>
+
+        <p class="random__words__container"></p>
+
+        <div class="game__status__container">
+          <div class="game__status--tries">
+            <p class="tries">Tries(<span>0</span>/5):</p>
+            <div class="dots__container">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <p class="game__status--mistakes">
+            Mistakes:
+            <span class="char--wrong"></span>
+            <span class="char--wrong"></span>
+            <span class="char--wrong"></span>
+            <span class="char--wrong"></span>
+            <span class="char--wrong"></span>
+          </p>
+        </div>
+
+        <form class="matched__words__container">
+          <!-- <input type="text" class="letter__container" aria-label="f" />
+          <input type="text" class="letter__container" aria-label="f" />
+          <input type="text" class="letter__container" aria-label="f" />
+          <input type="text" class="letter__container" aria-label="f" />
+          <input type="text" class="letter__container" aria-label="f" /> -->
+        </form>
+
+        <div class="buttons__container">
+          <button class="btn--random" type="button">Random</button>
+          <button class="btn--reset" type="reset">Reset</button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

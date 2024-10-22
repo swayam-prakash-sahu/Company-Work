@@ -1,0 +1,73 @@
+.background {
+  background-color: blanchedalmond;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  padding: 20px;
+}
+
+.contact-container {
+  height: 100vh;
+}
+
+.card {
+  border: 1px solid #c4bfbf;
+  border-radius: 5px;
+}
+
+.card-title {
+  color: #333;
+}
+
+.bold-input {
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.text-danger {
+  color: red;
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.mode-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.mode-buttons button.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.mode-buttons button.dark-mode {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+

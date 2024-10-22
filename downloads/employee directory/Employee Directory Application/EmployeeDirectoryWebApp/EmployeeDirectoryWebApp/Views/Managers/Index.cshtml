@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EmployeeDirectoryWebApp.Models.Manager>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Managers</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ManagerNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManagerNavigation.EmployeeId)
+                    </td>
+                    <td>
+                        <a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.EmployeeId">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </a> |
+                        <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.EmployeeId">
+                            <span class="glyphicon glyphicon-info-sign"></span> Details
+                        </a> |
+                        <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.EmployeeId">
+                            <span class="glyphicon glyphicon-trash"></span> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

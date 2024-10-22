@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DentalCareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointmenttable">
+          <Key>
+            <PropertyRef Name="AppId" />
+          </Key>
+          <Property Name="AppId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patient" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Treatment" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patienttable">
+          <Key>
+            <PropertyRef Name="PatId" />
+          </Key>
+          <Property Name="PatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatPhone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatDOB" Type="date" Nullable="false" />
+          <Property Name="PatGender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="PatAllergies" Type="varchar" MaxLength="90" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prescriptiontable">
+          <Key>
+            <PropertyRef Name="PrescId" />
+          </Key>
+          <Property Name="PrescId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TreatmentCost" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Medicines" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MedQty" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatmenttable">
+          <Key>
+            <PropertyRef Name="TreatmentId" />
+          </Key>
+          <Property Name="TreatmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TreatmentCost" Type="int" Nullable="false" />
+          <Property Name="TreatmentDesc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usertable">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UPass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Prescript__PatNa__48CFD27E' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Prescript__PatNa__48CFD27E" />-->
+        <EntityContainer Name="DentalCareModelStoreContainer">
+          <EntitySet Name="Appointmenttable" EntityType="Self.Appointmenttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patienttable" EntityType="Self.Patienttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescriptiontable" EntityType="Self.Prescriptiontable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treatmenttable" EntityType="Self.Treatmenttable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usertable" EntityType="Self.Usertable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DentalCareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointmenttable">
+          <Key>
+            <PropertyRef Name="AppId" />
+          </Key>
+          <Property Name="AppId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patient" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Treatment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Patienttable">
+          <Key>
+            <PropertyRef Name="PatId" />
+          </Key>
+          <Property Name="PatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatDOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PatGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PatAllergies" Type="String" MaxLength="90" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prescriptiontable">
+          <Key>
+            <PropertyRef Name="PrescId" />
+          </Key>
+          <Property Name="PrescId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TreatmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TreatmentCost" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Medicines" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MedQty" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Treatmenttable">
+          <Key>
+            <PropertyRef Name="TreatmentId" />
+          </Key>
+          <Property Name="TreatmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TreatmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TreatmentCost" Type="Int32" Nullable="false" />
+          <Property Name="TreatmentDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usertable">
+          <Key>
+            <PropertyRef Name="UId" />
+          </Key>
+          <Property Name="UId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DentalCareEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointmenttables" EntityType="Self.Appointmenttable" />
+          <EntitySet Name="Patienttables" EntityType="Self.Patienttable" />
+          <EntitySet Name="Prescriptiontables" EntityType="Self.Prescriptiontable" />
+          <EntitySet Name="Treatmenttables" EntityType="Self.Treatmenttable" />
+          <EntitySet Name="Usertables" EntityType="Self.Usertable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DentalCareModelStoreContainer" CdmEntityContainer="DentalCareEntities">
+          <EntitySetMapping Name="Appointmenttables">
+            <EntityTypeMapping TypeName="DentalCareModel.Appointmenttable">
+              <MappingFragment StoreEntitySet="Appointmenttable">
+                <ScalarProperty Name="AppId" ColumnName="AppId" />
+                <ScalarProperty Name="patient" ColumnName="patient" />
+                <ScalarProperty Name="Treatment" ColumnName="Treatment" />
+                <ScalarProperty Name="AppDate" ColumnName="AppDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patienttables">
+            <EntityTypeMapping TypeName="DentalCareModel.Patienttable">
+              <MappingFragment StoreEntitySet="Patienttable">
+                <ScalarProperty Name="PatId" ColumnName="PatId" />
+                <ScalarProperty Name="PatName" ColumnName="PatName" />
+                <ScalarProperty Name="PatPhone" ColumnName="PatPhone" />
+                <ScalarProperty Name="PatAddress" ColumnName="PatAddress" />
+                <ScalarProperty Name="PatDOB" ColumnName="PatDOB" />
+                <ScalarProperty Name="PatGender" ColumnName="PatGender" />
+                <ScalarProperty Name="PatAllergies" ColumnName="PatAllergies" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescriptiontables">
+            <EntityTypeMapping TypeName="DentalCareModel.Prescriptiontable">
+              <MappingFragment StoreEntitySet="Prescriptiontable">
+                <ScalarProperty Name="PrescId" ColumnName="PrescId" />
+                <ScalarProperty Name="PatName" ColumnName="PatName" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+                <ScalarProperty Name="TreatmentCost" ColumnName="TreatmentCost" />
+                <ScalarProperty Name="Medicines" ColumnName="Medicines" />
+                <ScalarProperty Name="MedQty" ColumnName="MedQty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Treatmenttables">
+            <EntityTypeMapping TypeName="DentalCareModel.Treatmenttable">
+              <MappingFragment StoreEntitySet="Treatmenttable">
+                <ScalarProperty Name="TreatmentId" ColumnName="TreatmentId" />
+                <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+                <ScalarProperty Name="TreatmentCost" ColumnName="TreatmentCost" />
+                <ScalarProperty Name="TreatmentDesc" ColumnName="TreatmentDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usertables">
+            <EntityTypeMapping TypeName="DentalCareModel.Usertable">
+              <MappingFragment StoreEntitySet="Usertable">
+                <ScalarProperty Name="UId" ColumnName="UId" />
+                <ScalarProperty Name="UName" ColumnName="UName" />
+                <ScalarProperty Name="UPass" ColumnName="UPass" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

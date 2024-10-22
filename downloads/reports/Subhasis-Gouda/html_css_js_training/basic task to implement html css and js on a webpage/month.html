@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" id="b">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" href="month.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        var tempTable = '';
+        // for(var i; i < 31; i++)
+        {
+            tempTable += `<td><textarea name="text-${i}" id="${i}"></textarea>`
+        
+        }
+        function saveToFile() {
+            var textAreas = document.querySelectorAll('textarea');
+            var content = '';
+
+            textAreas.forEach(function(textArea) {
+                content += textArea.name + ': ' + textArea.value + '\n';
+            });
+
+            var blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, "schedule.txt");
+        }
+
+        function loadFromFile(event) {
+            var input = event.target;
+
+            var reader = new FileReader();
+            reader.onload = function(){
+                var text = reader.result;
+
+                var lines = text.split('\n');
+
+                lines.forEach(function(line) {
+                    var parts = line.split(': ');
+                    if (parts.length === 2) {
+                        var textarea = document.querySelector('textarea[name="' + parts[0] + '"]');
+                        if (textarea) {
+                            textarea.value = parts[1];
+                        }
+                    }
+                });
+            };
+            reader.readAsText(input.files[0]);
+        }
+
+        function loadTextData() {
+            fetch('schedule.txt')
+            .then(response => response.text())
+            .then(data => {
+                var lines = data.split('\n');
+
+                lines.forEach(function(line) {
+                    var parts = line.split(': ');
+                    if (parts.length === 2) {
+                        var textarea = document.querySelector('textarea[name="' + parts[0] + '"]');
+                        if (textarea) {
+                            textarea.value = parts[1];
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+<header >
+    <div class="d1" style="justify-content: center;">
+        <div id="s1">
+            <table class="t1" border="2px" style="border-color:rgb(23, 52, 43) ;">
+                <thead>
+                <tr><td id="top1" colspan="4">Feb</td><td colspan="3" id="top2" style="text-align: right;">2024</td></tr>
+                </thead>
+                <div class="week">
+                    <tr>
+                        <td class="w">M</td>
+                        <td class="w">T</td>
+                        <td class="w">W</td>
+                        <td class="w">T</td>
+                        <td class="w">F</td>
+                        <td class="w">S</td>
+                        <td class="w" style="color: brown;">S</td>
+                    </tr>
+                    <tr>
+                        <td class="w">-</td>
+                        <td class="w">-</td>
+                        <td class="w">-</td>
+                        <td class="w">1</td>
+                        <td class="w">2</td>
+                        <td class="w">3</td>
+                        <td class="w" style="color: brown;">4</td>
+                    </tr>
+                    <tr>
+                        <td class="w">5</td>
+                        <td class="w">6</td>
+                        <td class="w">7</td>
+                        <td class="w">8</td>
+                        <td class="w">9</td>
+                        <td class="w">10</td>
+                        <td class="w" style="color: brown;">11</td>
+                    </tr>
+                    <tr>
+                        <td class="w">12</td>
+                        <td class="w">13</td>
+                        <td class="w">14</td>
+                        <td class="w">15</td>
+                        <td class="w">16</td>
+                        <td class="w">17</td>
+                        <td class="w" style="color: brown;">18</td>
+                    </tr>
+                    <tr>
+                        <td class="w">19</td>
+                        <td class="w">20</td>
+                        <td class="w">21</td>
+                        <td class="w">22</td>
+                        <td class="w">23</td>
+                        <td class="w">24</td>
+                        <td class="w" style="color: brown;">25</td>
+                    </tr>
+                    <tr>
+                        <td class="w">26</td>
+                        <td class="w">27</td>
+                        <td class="w">28</td>
+                        <td class="w">29</td>
+                        <td class="w">-</td>
+                        <td class="w">-</td>
+                        <td class="w" style="color: brown;">-</td>
+                    </tr>
+                </div>
+            </table>
+        </div>
+        <div id="s2">
+            <div style="text-align: center;">2024</div>
+            <div style="text-align: center;">Month in view</div>
+            <div style="text-align: center;">Schedule your appointments, events and important dates</div>
+        </div>
+        <div id="s3">
+            <h1 style="text-align: right;">February</h1>
+        </div>
+    </div>
+</header>
+<hr>
+<body id="bd">
+    <form action="" id="scheduleForm">
+    <div class="d2">
+        <span class="plan_table">  
+            <table class="t2" border="1px" style="border-color:rgb(23, 52, 43)" style="padding: 10px; " >
+            <thead style="padding: 10px;">
+            <tr>
+                <td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td>
+            </tr>
+            </thead>
+            <div class="week2">
+                <tr class="w1">
+                    <td class="w5"><textarea  name="day null" id="w6" cols="12" rows="6" readonly></textarea><br>-</td>
+                    <td class="w5"><textarea  name="day null" id="w6" cols="12" rows="6" readonly></textarea><br>-</td>
+                    <td class="w5"><textarea  name="day null" id="w6" cols="12" rows="6" readonly></textarea><br>-</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 1" id="w6" cols="12" rows="6"></textarea><br>1</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 2" id="w6" cols="12" rows="6"></textarea><br>2</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 3" id="w6" cols="12" rows="6"></textarea><br>3</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 4" id="w6" cols="12" rows="6"></textarea><br>4</td>
+                </tr>
+                <tr class="w2">
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 5" id="w6" cols="12" rows="6"></textarea><br>5</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 6" id="w6" cols="12" rows="6"></textarea><br>6</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 7" id="w6" cols="12" rows="6"></textarea><br>7</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 8" id="w6" cols="12" rows="6"></textarea><br>8</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 9" id="w6" cols="12" rows="6"></textarea><br>9</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 10" id="w6" cols="12" rows="6"></textarea><br>10</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 11" id="w6" cols="12" rows="6"></textarea><br>11</td>
+                </tr>
+                <tr class="w3">
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 12" id="w6" cols="12" rows="6"></textarea><br>12</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 13" id="w6" cols="12" rows="6"></textarea><br>13</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 14" id="w6" cols="12" rows="6"></textarea><br>14</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 15" id="w6" cols="12" rows="6"></textarea><br>15</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 16" id="w6" cols="12" rows="6"></textarea><br>16</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 17" id="w6" cols="12" rows="6"></textarea><br>17</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 18" id="w6" cols="12" rows="6"></textarea><br>18</td>
+                </tr>
+                <tr class="w4">
+                    
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 19" id="w6" cols="12" rows="6"></textarea><br>19</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 20" id="w6" cols="12" rows="6"></textarea><br>20</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 21" id="w6" cols="12" rows="6"></textarea><br>21</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 22" id="w6" cols="12" rows="6"></textarea><br>22</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 23" id="w6" cols="12" rows="6"></textarea><br>23</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 24" id="w6" cols="12" rows="6"></textarea><br>24</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 25" id="w6" cols="12" rows="5"></textarea><br>25</td>
+                </tr>
+                <tr class="w4">
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 26" id="w6" cols="12" rows="5"></textarea><br>26</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 27" id="w6" cols="12" rows="5"></textarea><br>27</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 28" id="w6" cols="12" rows="5"></textarea><br>28</td>
+                    <td class="w5"><textarea placeholder="Enter your plans here" name="day 29" id="w6" cols="12" rows="5"></textarea><br>29</td>
+                    <td class="w5"><textarea name="day null" id="w6" cols="12" rows="5" readonly></textarea><br>-</td>
+                    <td class="w5"><textarea name="day null" id="w6" cols="12" rows="5" readonly></textarea><br>-</td>
+                    <td class="w5"><textarea name="day null" id="w6" cols="12" rows="5" readonly></textarea><br>-</td>
+                <!-- </tr> -->
+                <tr style="text-align: center; padding-left: 50px;" > 
+                    <td colspan="7">
+                        <input type="file" accept=".txt" onchange="loadFromFile(event)">
+                        <button onclick="saveToFile()">Save to Text File</button>
+                        <button onclick="loadTextData()">Load Text Data</button>
+                    </td>
+                </tr>
+            </div>
+            </table>
+        </span> 
+        <span class="note">
+            <table class="t3"  border="2px" style="border-color:rgb(23, 52, 43) ; border-collapse: collapse;">
+            <thead>
+                <tr style="text-align: center;"><td><h3>notes here</h3></td></tr>
+            </thead>
+            <tbody>
+                <tr><td><textarea name="note_data 1" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 2" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 3" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 4" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 5" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 6" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 7" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 8" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 9" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 10" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 11" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 12" id="w7" cols="55" rows="2" ></textarea></td></tr>
+                <tr><td><textarea name="note_data 13" id="w7" cols="55" rows="2" ></textarea></td></tr>
+            </tbody>
+            </table>
+        </span>
+    </div>
+    </form>
+</body>
+<footer>
+    <div class="f1">
+        <hr>
+        <button onclick="dark()">Dark</button><hr>
+        <div style="text-align: center;">Developed by Subhasis Gouda</div>
+        <div style="text-align: center;">Contact me at <br> <a style="color: rgb(14, 25, 21);" href="mailto:Subhasis.gouda@gyansys.com">Subhasis.gouda@gyansys.com</a></div>
+        <div style="text-align: center;"><a style="color: rgb(14, 25, 21);" href="https://www.linkedin.com/in/subhasis-gouda-9aaa1b211">linkedin</a></div>
+    </div>
+</footer>
+        <script>
+            function dark(){
+                document.getElementById('bd').style.backgroundImage='url(\'Dark1.jpg\')'; 
+                document.getElementById('bd').style.color='white';
+                
+            }
+        </script>
+</html>

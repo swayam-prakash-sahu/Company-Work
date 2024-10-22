@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DentalCareModelStoreContainer" CdmEntityContainer="DentalCareEntities">
+    <EntitySetMapping Name="Appointmenttables">
+      <EntityTypeMapping TypeName="DentalCareModel.Appointmenttable">
+        <MappingFragment StoreEntitySet="Appointmenttable">
+          <ScalarProperty Name="AppId" ColumnName="AppId" />
+          <ScalarProperty Name="patient" ColumnName="patient" />
+          <ScalarProperty Name="Treatment" ColumnName="Treatment" />
+          <ScalarProperty Name="AppDate" ColumnName="AppDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patienttables">
+      <EntityTypeMapping TypeName="DentalCareModel.Patienttable">
+        <MappingFragment StoreEntitySet="Patienttable">
+          <ScalarProperty Name="PatId" ColumnName="PatId" />
+          <ScalarProperty Name="PatName" ColumnName="PatName" />
+          <ScalarProperty Name="PatPhone" ColumnName="PatPhone" />
+          <ScalarProperty Name="PatAddress" ColumnName="PatAddress" />
+          <ScalarProperty Name="PatDOB" ColumnName="PatDOB" />
+          <ScalarProperty Name="PatGender" ColumnName="PatGender" />
+          <ScalarProperty Name="PatAllergies" ColumnName="PatAllergies" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prescriptiontables">
+      <EntityTypeMapping TypeName="DentalCareModel.Prescriptiontable">
+        <MappingFragment StoreEntitySet="Prescriptiontable">
+          <ScalarProperty Name="PrescId" ColumnName="PrescId" />
+          <ScalarProperty Name="PatName" ColumnName="PatName" />
+          <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+          <ScalarProperty Name="TreatmentCost" ColumnName="TreatmentCost" />
+          <ScalarProperty Name="Medicines" ColumnName="Medicines" />
+          <ScalarProperty Name="MedQty" ColumnName="MedQty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treatmenttables">
+      <EntityTypeMapping TypeName="DentalCareModel.Treatmenttable">
+        <MappingFragment StoreEntitySet="Treatmenttable">
+          <ScalarProperty Name="TreatmentId" ColumnName="TreatmentId" />
+          <ScalarProperty Name="TreatmentName" ColumnName="TreatmentName" />
+          <ScalarProperty Name="TreatmentCost" ColumnName="TreatmentCost" />
+          <ScalarProperty Name="TreatmentDesc" ColumnName="TreatmentDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usertables">
+      <EntityTypeMapping TypeName="DentalCareModel.Usertable">
+        <MappingFragment StoreEntitySet="Usertable">
+          <ScalarProperty Name="UId" ColumnName="UId" />
+          <ScalarProperty Name="UName" ColumnName="UName" />
+          <ScalarProperty Name="UPass" ColumnName="UPass" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

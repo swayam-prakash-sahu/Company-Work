@@ -1,0 +1,154 @@
+/* _content/FitKitWebApp/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-2nk4kpya2l] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-2nk4kpya2l] {
+  color: #0077cc;
+}
+
+.btn-primary[b-2nk4kpya2l] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-2nk4kpya2l], .nav-pills .show > .nav-link[b-2nk4kpya2l] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-2nk4kpya2l] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-2nk4kpya2l] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-2nk4kpya2l] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-2nk4kpya2l] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-2nk4kpya2l] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/FitKitWebApp/Views/Shared/_Navbar.cshtml.rz.scp.css */
+.sidebar[b-842qw9kv70] {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.2rem;
+}
+
+li[b-842qw9kv70] {
+  display: grid;
+  place-items: center center;
+  padding-block: 0.4rem;
+  padding-inline: 0.4rem;
+  border-radius: 8px;
+}
+li:first-child[b-842qw9kv70] {
+  background-color: #FF844B;
+}
+
+.navbar li[b-842qw9kv70] {
+  list-style-type: none;
+  margin-block: 1rem;
+}
+/* _content/FitKitWebApp/Views/Shared/_ProfileSection.cshtml.rz.scp.css */
+.profile-section[b-5vesizxcn0] {
+  background-color: #F4F5F5;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+}
+
+.avatar-container[b-5vesizxcn0] {
+  display: flex;
+  gap: 1rem;
+}
+
+.avatar-details[b-5vesizxcn0] {
+  display: flex;
+  padding-block: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  justify-content: space-around;
+  font-weight: 500;
+  color: #9DACC1;
+  margin-block-start: 2rem;
+}
+.avatar-details span:first-child[b-5vesizxcn0] {
+  color: #191C32;
+  font-weight: 800;
+}
+.avatar-details span:last-child[b-5vesizxcn0] {
+  font-size: 0.9375rem;
+  display: block;
+}
+
+.goals-container[b-5vesizxcn0] {
+  margin-block-start: 2rem;
+}
+.goals-container > p[b-5vesizxcn0] {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.goal[b-5vesizxcn0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  margin-block-start: 1rem;
+  border-radius: 8px;
+}
+.goal .goal-avatar[b-5vesizxcn0] {
+  background-color: #F3F6FB;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-inline: 0.2rem;
+  padding-block: 0.2rem;
+  display: grid;
+  place-items: center center;
+}
+.goal img[b-5vesizxcn0] {
+  width: 100%;
+}
+.goal .goal-stats p:first-child[b-5vesizxcn0] {
+  font-weight: 600;
+}
+.goal .goal-stats p:last-child[b-5vesizxcn0] {
+  color: #9DACC1;
+  font-size: 0.875rem;
+}
+
+.ring[b-5vesizxcn0] {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center center;
+  color: #191C32;
+  font-weight: 600;
+  background: radial-gradient(closest-side, white 80%, transparent 80% 100%), conic-gradient(hotpink 75%, grey 0);
+}

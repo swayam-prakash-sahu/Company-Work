@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\CatalogMvcApp",
+    "\\CatalogMvcApp\\bin",
+    "\\CatalogMvcApp\\bin\\Debug",
+    "\\CatalogMvcApp\\bin\\Debug\\net8.0",
+    "\\CatalogMvcApp\\bin\\Release",
+    "\\CatalogMvcApp\\Controllers",
+    "\\CatalogMvcApp\\Data",
+    "\\CatalogMvcApp\\Migrations",
+    "\\CatalogMvcApp\\Models",
+    "\\CatalogMvcApp\\obj"
+  ],
+  "SelectedNode": "\\CatalogMvcApp\\CatalogMvcApp.csproj",
+  "PreviewInSolutionExplorer": false
+}

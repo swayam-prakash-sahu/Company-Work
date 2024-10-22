@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script src="authenticate.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body >
+    <div class="bd" style="border: 2px solid rgba(220, 230, 225, 0); border-radius: 2%;">
+    <h1>Login Page</h1>
+    <div id="loginTab">
+        <button id="loginTabBtn" onclick="showLogin()" style="border: 2px solid rgba(220, 230, 225, 0); border-radius: 2%;">Login</button> <br>
+        <button id="createAccountTabBtn" onclick="showCreateAccount()" style="border: 2px solid rgba(220, 230, 225, 0); border-radius: 2%;">Create Account</button>
+    </div>
+    <form id="loginForm" style="display:none;" >
+        <label class="label" for="username">Username</label><br>
+        <input class="input" type="text" id="username" name="username" required><br><br>
+        <label class="label" for="password">Password</label><br>
+        <input class="input" type="password" id="password" name="password" required><br><br>
+        <button class="btn" type="submit" style="border: 2px solid rgba(220, 230, 225, 0); border-radius: 2%;">Login</button>
+    </form>
+    <form id="createAccountForm" style="display:none;">
+        <label class="label" for="newUsername">Username</label><br>
+        <input class="input" type="text" id="newUsername" name="newUsername" placeholder="create username" required><br><br>
+        <label class="label" for="newPassword">Password:</label><br>
+        <input class="input" type="password" id="newPassword" name="newPassword" required><br><br>
+        <button class="btn" type="submit" style="border: 2px solid rgba(220, 230, 225, 0); border-radius: 2%;">Create Account</button>
+    </form>
+    </div>
+</body>
+
+</html>
+
+
+<td>
+    <select class="form-select" onchange="changeAudit(this)">
+        <option value="Created By">  @Html.DisplayNameFor(model => model.CreatedDate) : @Html.DisplayFor(modelItem => item.CreatedDate)   </option>
+        <option value="Created Date">@Html.DisplayNameFor(model => model.CreatedBy) : @Html.DisplayFor(modelItem => item.CreatedBy) </option>
+        <option value="Updated By">  @Html.DisplayNameFor(model => model.UpdatedDate) : @Html.DisplayFor(modelItem => item.UpdatedDate)   </option>
+        <option value="Updated Date">@Html.DisplayNameFor(model => model.UpdatedBy) : @Html.DisplayFor(modelItem => item.UpdatedBy) </option>
+    </select>
+</td>
+
+
+    @Html.DisplayNameFor(model => model.CreatedDate)
+    @Html.DisplayNameFor(model => model.CreatedBy)
+    @Html.DisplayNameFor(model => model.UpdatedDate)
+    @Html.DisplayNameFor(model => model.UpdatedBy)
+
+    
+        @Html.DisplayFor(modelItem => item.CreatedDate)
+        @Html.DisplayFor(modelItem => item.CreatedBy)
+        @Html.DisplayFor(modelItem => item.UpdatedDate)
+        @Html.DisplayFor(modelItem => item.UpdatedBy)

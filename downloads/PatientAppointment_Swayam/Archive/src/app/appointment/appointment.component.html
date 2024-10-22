@@ -1,0 +1,114 @@
+<!-- 
+<div class="container">
+  <h1 class="mb-4">Doctor Appointment</h1>
+  <form (submit)="scheduleAppointment()">
+    <div class="form-group">
+      <label for="date">Select Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" required>
+    </div>
+    <div class="form-group">
+      <label for="timeSlot">Select Time Slot:</label>
+      <select class="form-control" id="timeSlot" name="timeSlot" [(ngModel)]="selectedTimeSlot" required>
+        <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+  </form>
+
+ 
+  <div *ngIf="timeSlots.length > 0">
+    <h2>Blocked Time Slots</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Time Slot</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let slot of timeSlots">
+          <td>{{ slot.patientName }}</td>
+          <td>{{ slot.email }}</td>
+          <td>{{ slot.phoneNumber }}</td>
+          <td>{{ slot.timeSlot }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+
+<!-- <div class="container">
+  <h1 class="mb-4">Doctor Appointment</h1>
+  <form (submit)="scheduleAppointment()">
+    <div class="form-group">
+      <label for="date">Select Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" required>
+    </div>
+    <div class="form-group">
+      <label for="timeSlot">Select Time Slot:</label>
+      <select class="form-control" id="timeSlot" name="timeSlot" [(ngModel)]="selectedTimeSlot" required>
+        <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+  </form>
+
+  
+  <div *ngIf="timeSlots.length > 0">
+    <h2>Blocked Time Slots</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Time Slot</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+        <tr *ngFor="let slot of timeSlots">
+          <td>{{ slot.patientName }}</td>
+          <td>{{ slot.email }}</td>
+          <td>{{ slot.phoneNumber }}</td>
+          <td>{{ slot.timeSlot }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+
+<!-- appointment.component.html -->
+<div class="container">
+  <h1 class="mb-4">Doctor Appointment</h1>
+  <form (submit)="scheduleAppointment()">
+    <div class="form-group">
+      <label for="date">Select Date:</label>
+      <input type="date" class="form-control" id="date" name="date" [(ngModel)]="date" required>
+    </div>
+    <div class="form-group">
+      <label for="timeSlot">Select Time Slot:</label>
+      <select class="form-control" id="timeSlot" name="timeSlot" [(ngModel)]="selectedTimeSlot" required>
+        <option *ngFor="let slot of timeSlots" [value]="slot">{{ slot }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Book Appointment</button>
+  </form>
+</div>

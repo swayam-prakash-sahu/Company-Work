@@ -1,0 +1,93 @@
+
+
+
+<div class="logout-btn">
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Verification Status</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td>1</td>
+        <td>admin</td>
+        <td>rahul&#64;gmail.com</td>
+        <td>admin</td>
+        <td>Verified</td>
+        <td>
+          <button class="btn btn-primary">Verify Email</button>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>om</td>
+        <td>om&#64;gmail.com</td>
+        <td>om</td>
+        <td>Verified</td>
+        <td>
+          <button class="btn btn-primary">Verify Email</button>
+        </td>
+      </tr> -->
+      <!-- <tr *ngFor="let user of users">
+        <td>{{ user.userid }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.verify }}</td>
+        <td>
+          <button class="btn btn-primary">Verify Email</button>
+        </td>
+      </tr> -->
+
+      <tr *ngFor="let user of users; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.verify ? 'Verified' : 'Not Verified' }}</td>
+        <td>
+          <button *ngIf="!user.verify" class="btn btn-primary" (click)="verifyUser(user)">Verify Email</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- form.component.html -->
+
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>S.No</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Verification Status</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userData; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.password }}</td>
+      <td>{{ user.verify ? 'Verified' : 'Not Verified' }}</td>
+      <td>
+        <button class="btn btn-primary">Verify Email</button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+  
+
+

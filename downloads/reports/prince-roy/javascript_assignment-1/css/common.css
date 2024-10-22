@@ -1,0 +1,12 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+}
+.nav-item > a {
+  color: white !important;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+td img {
+  max-width: 2rem;
+}

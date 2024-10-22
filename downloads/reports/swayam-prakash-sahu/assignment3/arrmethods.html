@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+
+var arr = [1,2,3,4,5,6,7,8,9];
+arr.push(10);//Enters list of elements at the end of the list.
+arr.shift();//Removes the first element.
+console.log(arr);
+console.log(arr.unshift(9));//Adds element to the First index
+console.log(arr.at(7));//Returns index of 7
+
+var arr2 = [11,22,33,44];
+var apple = arr.concat(arr2);//Concats the 2 arrays.
+console.log(apple);
+console.log(arr.slice(2,4));//Slices out the mentioned part.
+console.log(arr.lastIndexOf(8));//returns last index of 8.
+
+function test(val, i, col)
+{
+    return val>5;
+}
+console.log(arr.find(test));//Returns value of first element >5
+console.log(arr.findIndex(test));//Returns index of first element >5
+console.log(arr.findLastIndex(test));//Last index of element greater than 5.
+
+
+</script>
+</body>
+</html>

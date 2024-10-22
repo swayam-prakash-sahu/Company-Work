@@ -1,0 +1,24 @@
+.sidebar[b-842qw9kv70] {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1.2rem;
+}
+
+li[b-842qw9kv70] {
+  display: grid;
+  place-items: center center;
+  padding-block: 0.4rem;
+  padding-inline: 0.4rem;
+  border-radius: 8px;
+}
+li:first-child[b-842qw9kv70] {
+  background-color: #FF844B;
+}
+
+.navbar li[b-842qw9kv70] {
+  list-style-type: none;
+  margin-block: 1rem;
+}

@@ -1,0 +1,144 @@
+SQL Part 2 Evaluation
+
+Please submit form before time.
+Points:
+-/100
+
+DML Statements
+Will be reviewed
+
+1.Write a SQL query to insert a new record into the "Employees" table with the following details: EmployeeID = 101, FirstName = 'John', LastName = 'Doe', and Salary = 50,000.
+
+Insert into Employees(EmployeeID, FirstName, LastName, Salary) values(101, 'John', 'Doe',50000 );
+Will be reviewed
+
+2.How would you use the UPDATE statement to increase the salary of all employees in the "Sales" department by 10%?
+
+UPDATE employees 
+set salary = salary + (salary * 10/100)
+where department = 'Sales';
+
+Will be reviewed
+
+3.Write a SQL query to delete all records from the "Orders" table where the order status is 'Canceled'.
+
+Delete from orders where order_status = 'Canceled';
+
+Will be reviewed
+
+4.Explain the difference between the DELETE statement and the TRUNCATE TABLE statement. Provide a scenario where you would prefer using TRUNCATE TABLE.
+
+
+1. DELETE Statement:
+   - DELETE is a DML (Data Manipulation Language) statement.
+   - It removes specific rows from a table based on the condition specified in the WHERE clause.
+   - DELETE operations can be rolled back 
+   - DELETE statements can be selective, allowing us to delete specific rows based on certain criteria.
+
+2. TRUNCATE TABLE Statement:
+   - TRUNCATE TABLE is a DDL (Data Definition Language) statement.
+   - It removes all rows from a table.
+   - TRUNCATE TABLE operations cannot be rolled back. Once you execute a TRUNCATE TABLE statement, the data is permanently deleted.
+   - TRUNCATE TABLE operations typically execute faster than DELETE operations because they don't generate as much undo and redo information.
+
+
+Scenario for preferring TRUNCATE TABLE:
+
+Suppose we have a large table with millions of records, and we need to clear out all of its data, perhaps for maintenance purposes or to prepare for a data refresh. In this scenario, using TRUNCATE TABLE would be preferred over DELETE because:
+
+when we need to quickly remove all data from a table, especially if it's a large table, TRUNCATE TABLE is the preferred option.
+
+Will be reviewed
+
+5.Describe the purpose of the MERGE statement in SQL. Provide an example scenario where the MERGE statement would be beneficial.
+
+The MERGE statement in SQL is used to perform operations such as INSERT, UPDATE, or DELETE on a target table based on the results of a join with a source table. Its purpose is to synchronize the data between two tables by allowing us to efficiently handle multiple operations in a single statement.
+
+ purpose of the MERGE statement:
+
+1. Insertion: If a row exists in the source table but not in the target table, the MERGE statement can insert that row into the target table.
+
+2. Updating: If a row exists in both the source and target tables, the MERGE statement can update the corresponding row in the target table based on specified conditions.
+
+3. Deletion: If a row exists in the target table but not in the source table, the MERGE statement can delete that row from the target table.
+
+Example scenario where the MERGE statement would be beneficial:
+
+if we have a table containing new data that needs to be synchronized with a main table in our database. The main table holds employee information, including their IDs, names, and salaries. The staging table contains updated salary information for some employees and new employees to be added.
+
+Using the MERGE statement, we can efficiently perform the operations in a single statement:
+
+1. Insert new employees from the staging table into the main table.
+2. Update the salary of existing employees in the main table based on the updated salary information in the staging table.
+3. Delete any employees from the main table who are no longer present in the staging table (e.g. employees who have left the company).
+Select Queries
+
+Will be reviewed
+
+6.Write a SQL query to retrieve all columns from the "Products" table where the product price is greater than 100.
+
+Select * from Products where product_price >100;
+
+Will be reviewed
+
+7.How would you use the WHERE clause in a SELECT statement to retrieve records from the "Customers" table where the country is 'USA' and the city is 'New York'?
+
+select * from Customers where country = 'USA' and city = 'New York';
+
+Will be reviewed
+
+8.Provide an example of using the GROUP BY clause in a SELECT statement. How can it be used to summarize data in a meaningful way?
+
+The GROUP BY clause in a SELECT statement is used to group rows that have the same values into summary rows, often to perform aggregate functions such as COUNT, SUM, AVG, MAX, or MIN on the grouped data. Here's an example:
+
+eg.
+
+SELECT customer_id, COUNT(*) AS order_count
+FROM Orders
+GROUP BY customer_id;
+
+The GROUP BY clause allows us to summarize data in a meaningful way by:
+
+1. Aggregating Data
+2. Grouping Data
+3. Creating Summary Reports
+
+ example scenario
+
+let say we have a list of orders from different customers. Each order has the customer's ID, the product they bought, and the date they bought it. Now, we want to see how many orders each customer has placed.
+
+Using the GROUP BY clause we can put similar orders together. So, all orders from the same customer are grouped into one. Then, we can count how many orders are in each group.
+
+For example:
+- Customer 1 placed 5 orders.
+- Customer 2 placed 3 orders.
+
+Will be reviewed
+
+9.Explain the purpose of the HAVING clause in conjunction with the GROUP BY clause. Provide an example scenario where HAVING would be useful.
+
+The HAVING clause in SQL is used in conjunction with the GROUP BY clause to filter the grouped data based on specified conditions. While the WHERE clause filters rows before they are grouped, the HAVING clause filters groups after they have been grouped.
+
+purpose of the HAVING clause:
+
+1. Filtering Grouped Data
+
+2. Aggregated Conditions: the HAVING clause works with aggregated values, such as counts, sums, averages, etc. of each group.
+
+Example scenario where HAVING would be used:
+
+Let's say we have a database table named "Orders" with columns "customer_id", "order_date", and "total_amount". We want to find customers who have placed more than three orders and have spent a total amount exceeding $500.
+
+HAVING clause to achieve this:
+
+SELECT customer_id, COUNT(*) AS num_orders, SUM(total_amount) AS total_spent
+FROM Orders
+GROUP BY customer_id
+HAVING COUNT(*) > 3 AND SUM(total_amount) > 500;
+
+
+Will be reviewed
+
+10. Write a SQL query to retrieve the top 5 highest-paid employees from the "Employees" table, ordered by salary in descending order.
+
+select * from Employees order by salary desc LIMIT 5;

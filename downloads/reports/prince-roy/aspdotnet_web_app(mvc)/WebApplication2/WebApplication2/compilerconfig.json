@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Views/Home/Index.cshtml.css",
+    "inputFile": "Views/Home/Index.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/_Layout.cshtml.css",
+    "inputFile": "Views/Shared/_Layout.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/_FormInput.cshtml.css",
+    "inputFile": "Views/Shared/_FormInput.cshtml.scss"
+  }
+]

@@ -1,0 +1,58 @@
+﻿@page "/"
+
+@using UnsplashBox.Components.Shared
+
+@inject UnsplashService UnsplashService
+
+<PageTitle>Home</PageTitle>
+
+<div class="searchContainer">
+    <h1>Search</h1>
+    <p>Search high-resolution images from Unsplash</p>
+
+     <Input />
+
+    @*
+    <form action="search">
+        <input type="text" @bind="searchQuery" @oninput="async (e) => await SearchPhotos()" placeholder="Enter your keywords..." aria-label="search"/>
+    </form>
+    *@
+
+    @*
+    @if (photos == null)
+    {
+        <p>Loading...</p>
+    }
+    else if (photos.Count == 0)
+    {
+        <p>No photos found.</p>
+    }
+    else
+    {
+        <div class="photoGrid">
+            @foreach (var photo in photos)
+            {
+                <div class="photos">
+                    <img src="@photo.SmallUrl" alt="@photo.Description" />
+                </div>
+            }
+        </div>
+    }
+    *@
+</div>
+
+@code{
+    List<Photo> photos;
+    string searchQuery = "cat";
+
+    public string InputQuery { get; set; } = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await SearchPhotos();
+    }
+
+    private async Task SearchPhotos() => photos = await UnsplashService.SearchPhotosAsync(searchQuery);
+
+}
+

@@ -1,0 +1,22 @@
+/* Style for the container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Style for the h1 */
+  h1 {
+    text-align: center;
+    color: #1f2dcb;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the add task component */
+  app-add-task {
+    margin-bottom: 20px;
+    
+  }
+  
+  
+  

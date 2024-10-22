@@ -1,0 +1,24 @@
+/* form.component.css */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+  
+  .table td {
+    text-align: center;
+  }
+  
+  .btn-primary {
+    padding: 5px 10px;
+  }
+  

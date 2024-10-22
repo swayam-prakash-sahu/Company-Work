@@ -1,0 +1,74 @@
+﻿.exercises-dashboard {
+    padding-inline: 2rem;
+    align-self: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        margin-block: 0;
+        margin-inline: 0;
+    }
+
+    >div{
+        display: flex;
+    }
+
+    img {
+        max-width: 1.5rem;
+    }
+}
+
+.exercise-stats {
+    background-color: #ffffff;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    font-weight: 600;
+    color: rgba(#000000, 0.7);
+    padding-inline: 1rem;
+    padding-block: 1rem;
+    margin-block-end: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 1rem 1rem -1rem rgba(#000000, 0.1);
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover, &:hover {
+        cursor: pointer;
+    }
+
+    img{
+        width: 3rem;
+    }
+}
+
+.page-numbers {
+    display: flex;
+}
+
+.column-name{
+    box-shadow: none;
+    background-color: transparent;
+    color: currentColor;
+    margin-block: 0;
+    font-weight: 700;
+}
+
+.number {
+    padding-inline: 1rem;
+    padding-block: 0.6rem;
+    border-radius: 50%;
+}
+
+.active {
+    background-color: #FF7443;
+}

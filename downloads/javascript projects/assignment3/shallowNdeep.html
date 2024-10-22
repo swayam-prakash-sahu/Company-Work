@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+</body>
+<script>
+
+// shallow copy 
+
+const first_person1 = {
+name: "Jack",
+age: 24,
+}
+const second_person1 = first_person1;
+
+second_person1.age = 25;
+
+console.log(first_person1.age); // output: 25
+console.log(second_person1.age); // output: 25
+
+// deep copy
+// Using Spread{...} operator, we can create a deep copy if there is no nesting
+
+const first_person2 = {
+name: "Jack",
+age: 24,
+}
+
+const second_person2 = {...first_person2 };
+
+second_person2.age = 25;
+
+console.log(first_person2.age); // output: 24
+console.log(second_person2.age); // output: 25
+
+// If the objects/arrays are nested, then we can achieve deep copy by using 
+// JSON.parse() and JSON.stringify()
+
+const first_person3 = {
+  name: "Jack",
+  age: 24,
+  address: {
+    apartment: "A",
+    city: "London"
+  }
+};
+
+const second_person3 = JSON.parse(JSON.stringify(first_person3));
+
+second_person3.age = 25;
+second_person3.address.apartment = "N";
+console.log(first_person3);
+console.log(second_person3);
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,6 @@
+@FitKitAPI_HostAddress = http://localhost:5120
+
+GET {{FitKitAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

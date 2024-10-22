@@ -1,0 +1,117 @@
+﻿@model List<Exercise>;
+@using Newtonsoft.Json;
+
+@{
+    var serializedModel = JsonConvert.SerializeObject(Model);
+}
+
+@section Styles {
+    <link href="~/Content/Exercise.style.css" type="text/css" rel="stylesheet" />
+}
+
+<div class="container">
+    @await Html.PartialAsync("_Navbar")
+    <div class="exercises-dashboard">
+        <div class="header">
+            <h1>Exercises</h1>
+            <div><span>Filter by muscle group </span><img src="~/images/Arrow.gif" alt="" /></div>
+        </div>
+
+        <div class="exercise-list">
+            <div class="exercise-item"></div>
+            <div class="pagination">
+                <div>
+                    <img class="left-arrow" src="~/images/chevron-left-arrow.svg" alt="" />
+                </div>
+
+                <p class="page-numbers"></p>
+
+                <div>
+                    <img class="right-arrow" src="~/images/chevron-right-arrow.svg" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <p>Hello</p>
+    </div>
+</div>
+
+<script>
+    /*
+    Serial the model data and based on the length of it, calculate and render page numbers element.
+    For the current page read the page number and render model data from current page number - 1 * 5 upto
+    five elements. Make the current active page number highlighted. on left arrow click, current page should
+    be decremented and on right arrow click, current page number should be incremented.
+    */
+    document.addEventListener('DOMContentLoaded', () => {
+        const parentElement = document.querySelector('p');
+        const paginationContainer = document.querySelector('.pagination');
+        const exerciseElement = document.querySelector('.exercise-item');
+        let previousActiveElement = null;
+
+        const modelData = @Html.Raw(serializedModel);
+
+
+        const arr = new Array(Math.ceil(modelData.length / 5));
+        const pageNumberMarkup = Array.from(arr).map((a, i) => `<span class="number">${i+1}</span>`).join('');
+        
+        parentElement.insertAdjacentHTML('beforeend', pageNumberMarkup);
+
+        const numberElements = document.querySelectorAll('.number');
+
+        const totalNumbers = numberElements.length;
+
+        let currentNumber = 1;
+        let start = 0;
+        let end = 0;
+        handlePagination(currentNumber - 1);
+
+        paginationContainer.addEventListener('click', function (e) {
+            previousActiveElement !== null && previousActiveElement.classList.remove('active');
+
+            if (e.target.classList.contains('number')) {
+                currentNumber = +e.target.textContent;
+                handlePagination(currentNumber - 1);
+            }
+
+            if (e.target.classList.contains('left-arrow')) {
+                currentNumber = currentNumber > 1 ? --currentNumber : totalNumbers;
+                handlePagination(currentNumber - 1);
+            }
+
+            if (e.target.classList.contains('right-arrow')) {
+                currentNumber = currentNumber >= totalNumbers ? 1 : ++currentNumber;
+                handlePagination(currentNumber - 1);
+            }
+
+        });
+
+        function handlePagination(elementNumber) {
+            numberElements[elementNumber].classList.add('active');
+            previousActiveElement = numberElements[elementNumber];
+            start = (elementNumber) * 5;
+            end = start + 5;
+            renderElements(start, end);
+        }
+
+        function renderElements(start, end) {
+            exerciseElement.innerHTML = '';
+            const markup = modelData.slice(start, end).map(data => {
+                return `<div class="exercise-stats">
+                                        <span>${data.Name}</span>
+                                        <span>${data.MuscleGroup}</span>
+                                        <span>${data.Equipment}</span>
+                                        <span>${data.Difficulty}</span>
+                                    </div>`;
+            }).join('');
+            exerciseElement.insertAdjacentHTML('beforeend', `<div class="exercise-stats column-name">
+                                            <span>Name</span>
+                                            <span>Muscle Group</span>
+                                            <span>Equipment</span>
+                                            <span>Difficulty</span>
+                                        </div>`);
+            exerciseElement.insertAdjacentHTML('beforeend', markup);
+        }
+    })
+</script>

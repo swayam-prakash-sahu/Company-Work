@@ -1,0 +1,8 @@
+<div>
+    <h1 style="display: inline">{{ title }}</h1>
+    <span *ngIf="showVersionNumber(inputText)">Version: {{ versionNumber }}</span>
+  </div>
+  <div style="margin-bottom: 50px">
+    Type the secret password to hide version number:
+    <input [(ngModel)]="inputText" />
+  </div>

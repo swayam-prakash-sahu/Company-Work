@@ -1,0 +1,103 @@
+It seems like you're expanding on the project requirements for a blog website, particularly adding user registration functionality and refining the UI. Let's integrate these updates into the existing project requirement document:
+
+---
+
+**Project Requirement Document**
+
+---
+
+### Overview of the Project:
+
+The project aims to develop a blog website using Angular for the frontend and .NET for the backend. The website will allow users to view a list of blogs on the home page, read individual blog posts, add new blogs, and delete existing ones. Additionally, user registration functionality will be implemented to allow users to create accounts.
+
+### Purpose of the Document:
+
+This document serves as a comprehensive guide for the development team, outlining the project's scope, requirements, and technical specifications. It provides a clear understanding of the project's objectives, features, user interface design, and now, user registration functionality.
+
+### Mockups or Wireframes of User Interfaces:
+
+#### Home Page:
+
+- Display a list of blog titles.
+- Each blog title should have a delete icon for removing the blog.
+- "Add New Blog" button in the top right corner.
+- Navigation bar with a "Categories" section.
+- "Login" button in the top right corner.
+
+#### Blog Page:
+
+- Display the title and description of the selected blog.
+- "Back to Home" button to navigate back to the home page.
+
+#### Add Blog Modal:
+
+- Form to add a new blog with fields for title and description.
+- "Submit" button to add the blog.
+
+#### User Registration Page:
+
+- Form to register a new user with fields for username, email, and password.
+- "Submit" button to register the user.
+
+### Technology Stack:
+
+- **Frontend**: Angular
+- **Backend**: .NET (Web API)
+- **Database**: SQL Server
+
+### Features:
+
+1. **Home Page**:
+- Display a list of all available blogs.
+- Allow users to delete blogs.
+- Provide an option to add new blogs.
+- Navigation bar with categories and login options.
+
+2. **Blog Page**:
+- Show the title and description of a selected blog.
+- Allow users to navigate back to the home page.
+
+3. **Add Blog Modal**:
+- Enable users to create and submit new blog posts.
+
+4. **User Registration**:
+- Allow users to register on the website.
+
+### API Endpoints:
+
+- **GET /blog**: Fetch all available blogs.
+- **POST /blog**: Add a new blog.
+- **DELETE /blog/{blog_id}**: Delete a specific blog.
+- **GET /blog/{blog_id}**: Fetch details of a specific blog.
+- **GET /UserRegistrations**: Fetch all available users.
+- **POST /UserRegistrations**: Add a new user.
+- **DELETE /UserRegistrations/{user_id}**: Delete a specific user.
+- **GET /UserRegistrations/{user_id}**: Fetch details of a specific user.
+- **PUT /UserRegistrations/{user_id}**: Update details of a specific user.
+
+### Database Schema:
+
+**blogs** Table:
+- **id** (Primary Key, Unique)
+- **title** (String)
+- **description** (String)
+
+**UserRegistrations** Table:
+- **id** (Primary Key, Unique)
+- **username** (String)
+- **email** (String)
+- **password** (String)
+
+### Deployment:
+
+- The Angular frontend will be deployed to a hosting platform such as Netlify or Vercel.
+- The .NET backend will be deployed to a cloud service provider like Azure or AWS.
+- The SQL Server database will be hosted on a cloud platform or locally depending on the project requirements.
+
+### Conclusion:
+
+This project requirement document provides a detailed overview of the blog website development project, including its objectives, user interface design, technology stack, features, API endpoints, and deployment strategy. It serves as a reference for the development team to ensure the successful implementation of the project.
+
+--- 
+
+With these updates, the document now includes the user registration functionality and the revised UI elements. Let me know if there's anything else you'd like to add or modify!

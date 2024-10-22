@@ -1,0 +1,1 @@
+Select users.userid, users.username, users.email, Appointment.appointment_id,Appointment.contact, Appointment.timeslot,Appointment.dated From users inner join Appointment on users.userid=Appointment.userid;

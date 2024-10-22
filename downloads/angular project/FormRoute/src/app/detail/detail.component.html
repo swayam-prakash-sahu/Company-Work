@@ -1,0 +1,56 @@
+<!-- <p>detail works!</p> -->
+
+<!-- detail.component.html -->
+<!-- <p>Submitted Information:</p>
+<div *ngIf="submittedData">
+  <p><strong>Name:</strong> {{ submittedData.name }}</p>
+  <p><strong>Email:</strong> {{ submittedData.email }}</p>
+  <p><strong>Phone:</strong> {{ submittedData.phone }}</p>
+  <p><strong>Gender:</strong> {{ submittedData.gender }}</p>
+</div> -->
+
+<!-- <p>detail works!</p> -->
+
+<!-- <ul>
+  <li *ngFor="let record of formData">
+    <p><strong>Name:</strong> {{ record.name }}</p>
+    <p><strong>Email:</strong> {{ record.email }}</p>
+    <p><strong>Phone:</strong> {{ record.phone }}</p>
+    <p><strong>Gender:</strong> {{ record.gender }}</p>
+    <p *ngIf="record.skills"><strong>Skills:</strong> {{ record.skills }}</p>
+  </li>
+</ul> -->
+
+
+<p>detail works!</p>
+
+<ul *ngIf="records && records.length > 0">
+  <li *ngFor="let record of records">
+    <p><strong>Name:</strong> {{ record.name }}</p>
+    <p><strong>Email:</strong> {{ record.email }}</p>
+    <p><strong>Phone:</strong> {{ record.phone }}</p>
+    <p><strong>Gender:</strong> {{ record.gender }}</p>
+    <p *ngIf="record.skills"><strong>Skills:</strong> {{ record.skills }}</p>
+  </li>
+</ul>
+
+<!-- <div *ngIf="!records || records.length === 0">
+  <p>No data to display.</p>
+</div> -->
+
+<!-- <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card bg-light">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Form Data</h2>
+          <p class="card-text"><strong>Name:</strong> {{ formData.name }}</p>
+          <p class="card-text"><strong>Email:</strong> {{ formData.email }}</p>
+          <p class="card-text"><strong>Phone:</strong> {{ formData.phone }}</p>
+          <p class="card-text"><strong>Gender:</strong> {{ formData.gender }}</p>
+          <p class="card-text"><strong>Skills:</strong> {{ formData.skills }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="h"><h3>Here you will get your location in form of latitude, logitude and altitude</h3></div>
+    <button id="b1" onclick="getlocation()">Getlocation</button><br><br>
+    <div id="la">Latitude:</div>
+    <div id="lo">Longitude:</div>
+    <div id="al">Altitude:</div>
+</body>
+<script>
+    const lati = document.getElementById('la');
+    const longi = document.getElementById('lo');
+    const alti = document.getElementById('al');
+    function getlocation(){
+        navigator.geolocation.getCurrentPosition(
+            function showposition(position)
+            {
+                lati.innerHTML= "Latitude: " + position.coords.latitude;
+                longi.innerHTML="Longitude: " + position.coords.longitude;
+                alti.innerHTML="Altitude: " + position.coords.altitude;
+            }
+        )
+    }
+    
+</script>
+</html>

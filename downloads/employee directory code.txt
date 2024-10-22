@@ -1,0 +1,1054 @@
+
+
+
+
+
+
+
+
+@model IEnumerable<EmployeeDirectoryWebApplication.Models.EmployeeProfile>
+
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Employee Profiles</h1>
+
+<p>
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+<div class="col-md-6">
+<div class="input-group">
+<input type="text" class="form-control" id="searchInput" placeholder="Search by name">
+<div class="input-group-append">
+<button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.EmployeeName)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.EmployeeProfilePic)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.EmploymentStatus)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Designation)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Dept)
+</th>
+
+@* <th>
+@Html.DisplayNameFor(model => model.CreatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.CreatedBy)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedBy)
+</th> *@
+<th></th>
+</tr>
+</thead>
+<tbody id="employeeList">
+@foreach (var item in Model)
+{
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.EmployeeName)
+</td>
+<td>
+<img src="@item.EmployeeProfilePic" />
+@* @Html.DisplayFor(modelItem => item.EmployeeProfilePic) *@
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.EmploymentStatus)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Designation.DesignationName)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Dept.DepartmentName)
+</td>
+@* <td>
+@Html.DisplayFor(modelItem => item.CreatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.CreatedBy)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedBy)
+</td> *@
+<td>
+@if(User.IsInRole("Admin"))
+{
+<a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.EmployeeId">
+<span class="glyphicon glyphicon-pencil"></span> Edit
+</a>
+}
+
+<a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.EmployeeId">
+<span class="glyphicon glyphicon-info-sign"></span> Details
+</a> |
+<a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.EmployeeId">
+<span class="glyphicon glyphicon-trash"></span> Delete
+</a>
+</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
+
+@section Scripts {
+<script>
+$(document).ready(function () {
+$('#searchButton').click(function () {
+var value = $('#searchInput').val().toLowerCase();
+$('#employeeList tr').filter(function () {
+$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+});
+});
+});
+</script>
+}
+
+
+
+
+
+====================================================================================================
+
+
+contact info view
+
+
+@model IEnumerable<EmployeeDirectoryWebApplication.Models.ContactViewModel>
+
+
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Employee Contact Information</h1>
+
+<p>
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+
+<div class="row">
+<div class="col-md-6">
+<div class="input-group">
+<input type="text" class="form-control" id="searchInput" placeholder="Search by location">
+<div class="input-group-append">
+<button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.EmployeeName)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Email)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Phone)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.OfficeLocation)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.socialmediaprofile)
+</th>
+@* <th>
+@Html.DisplayNameFor(model => model.CreatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.CreatedBy)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedBy)
+</th> *@
+@* <th>
+@Html.DisplayNameFor(model => model.Employee)
+</th> *@
+<th></th>
+</tr>
+</thead>
+<tbody id="DepartmentList">
+@foreach (var item in Model)
+{
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.EmployeeName)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Email)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.Phone)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.OfficeLocation)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.socialmediaprofile)
+</td>
+@* <td>
+@Html.DisplayFor(modelItem => item.CreatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.CreatedBy)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedBy)
+</td> *@
+@* <td>
+@Html.DisplayFor(modelItem => item.EmployeeId)
+</td> *@
+<td>
+<a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.contactId">
+<span class="glyphicon glyphicon-pencil"></span> Edit
+</a> |
+<a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.contactId">
+<span class="glyphicon glyphicon-info-sign"></span> Details
+</a> |
+<a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.contactId">
+<span class="glyphicon glyphicon-trash"></span> Delete
+</a>
+</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
+
+@section Scripts {
+<script>
+$(document).ready(function () {
+$('#searchButton').click(function () {
+var value = $('#searchInput').val().toLowerCase();
+$('#DepartmentList tr').filter(function () {
+$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+});
+});
+});
+</script>
+}
+
+
+==========================================================
+departments
+
+
+@model IEnumerable<EmployeeDirectoryWebApplication.Models.Department>
+
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Employee Department</h1>
+
+<p>
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.DeptId)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.DepartmentName)
+</th>
+@* <th>
+@Html.DisplayNameFor(model => model.CreatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.CreatedBy)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedBy)
+</th> *@
+<th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.DeptId)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.DepartmentName)
+</td>
+@* <td>
+@Html.DisplayFor(modelItem => item.CreatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.CreatedBy)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedBy)
+</td> *@
+<td>
+<a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.DeptId">
+<span class="glyphicon glyphicon-pencil"></span> Edit
+</a> |
+<a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.DeptId">
+<span class="glyphicon glyphicon-info-sign"></span> Details
+</a> |
+<a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.DeptId">
+<span class="glyphicon glyphicon-trash"></span> Delete
+</a>
+</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
+
+
+
+=====================
+designations
+
+
+@model IEnumerable<EmployeeDirectoryWebApplication.Models.Designation>
+@{
+ViewData["Title"] = "Index";
+}
+
+<h1>Employee Designation</h1>
+
+<p>
+<a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive">
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.DesignationName)
+</th>
+@* <th>
+@Html.DisplayNameFor(model => model.CreatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.CreatedBy)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedDate)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.UpdatedBy)
+</th> *@
+<th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+<tr>
+<td>
+@Html.DisplayFor(modelItem => item.DesignationName)
+</td>
+@* <td>
+@Html.DisplayFor(modelItem => item.CreatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.CreatedBy)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedDate)
+</td>
+<td>
+@Html.DisplayFor(modelItem => item.UpdatedBy)
+</td> *@
+<td>
+<a class="btn btn-info btn-sm" asp-action="Edit" asp-route-id="@item.DesignationId">
+<span class="glyphicon glyphicon-pencil"></span> Edit
+</a> |
+<a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.DesignationId">
+<span class="glyphicon glyphicon-info-sign"></span> Details
+</a> |
+<a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.DesignationId">
+<span class="glyphicon glyphicon-trash"></span> Delete
+</a>
+</td>
+</tr>
+}
+</tbody>
+</table>
+</div>
+
+
+=================================
+details.cshtml
+
+@model EmployeeDirectoryWebApplication.Models.EmployeeProfile
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>EmployeeProfile</h4>
+    <hr />
+    <dl class="row">
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ManagerId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ManagerId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeProfilePic)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeProfilePic)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmploymentStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmploymentStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dept)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dept.DeptId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Designation.DesignationId)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.EmployeeId">Edit</a>
+    }
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
+===================================
+
+@model EmployeeDirectoryWebApplication.Models.ContactInformation
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>ContactInformation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OfficeLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OfficeLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SocialMediaProfiles)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SocialMediaProfiles)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+    </dl>
+</div>
+<div>
+     @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.ContactId">Edit</a>
+        }
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
+
+===============
+
+@model EmployeeDirectoryWebApplication.Models.Department
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Department</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+    </dl>
+</div>
+<div>
+     @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.DeptId">Edit</a>
+        }
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
+
+===================
+
+@model EmployeeDirectoryWebApplication.Models.Designation
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>Designation</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DesignationName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+    </dl>
+</div>
+<div>
+     @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Edit" asp-route-id="@Model?.DesignationId">Edit</a>
+        
+        }
+        <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>
+
+
+====================================
+profiles updated
+
+@model EmployeeDirectoryWebApplication.Models.EmployeeProfile
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .profile-pic {
+            max-width: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        hr {
+            border-color: #ccc;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        dl.row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        dd {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: #fff;
+            border: 1px solid #007bff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+        /* Media query for adjusting layout on smaller screens */
+       
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="details">
+        <h4>Employee Profile</h4>
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <img src="@Model.EmployeeProfilePic" class="profile-pic" alt="Profile Picture">
+            </div>
+            <div class="col-sm-8">
+                <hr />
+                <dl class="row">
+                    <dt>Employee Name:</dt>
+                    <dd>@Html.DisplayFor(model => model.EmployeeName)</dd>
+
+                    <dt>Manager ID:</dt>
+                    <dd>@Html.DisplayFor(model => model.ManagerId)</dd>
+
+                    <dt>Employment Status:</dt>
+                    <dd>@Html.DisplayFor(model => model.EmploymentStatus)</dd>
+
+                    <dt>Updated Date:</dt>
+                    <dd>@Html.DisplayFor(model => model.UpdatedDate)</dd>
+
+                    <dt>Department:</dt>
+                    <dd>@Html.DisplayFor(model => model.Dept.DeptId)</dd>
+
+                    <dt>Designation:</dt>
+                    <dd>@Html.DisplayFor(model => model.Designation.DesignationId)</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="actions">
+        @if (User.IsInRole("Admin"))
+        {
+            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.EmployeeId">Edit</a>
+        }
+        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+</body>
+</html>
+================================
+edit code  simple
+
+@model EmployeeDirectoryWebApplication.Models.EmployeeProfile
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>EmployeeProfile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeId" />
+            
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesignationId" class="control-label"></label>
+                <select asp-for="DesignationId" class="form-control" asp-items="ViewBag.DesignationId"></select>
+                <span asp-validation-for="DesignationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeptId" class="control-label"></label>
+                <select asp-for="DeptId" class="form-control" asp-items="ViewBag.DeptId"></select>
+                <span asp-validation-for="DeptId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerId" class="control-label"></label>
+                <input asp-for="ManagerId" class="form-control" />
+                <span asp-validation-for="ManagerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeProfilePic" class="control-label"></label>
+                <input asp-for="EmployeeProfilePic" class="form-control" />
+                <span asp-validation-for="EmployeeProfilePic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmploymentStatus" class="control-label"></label>
+                <input asp-for="EmploymentStatus" class="form-control" />
+                <span asp-validation-for="EmploymentStatus" class="text-danger"></span>
+            </div>
+            @* <div class="form-group">
+                <label asp-for="CreatedDate" class="control-label"></label>
+                <input asp-for="CreatedDate" class="form-control" />
+                <span asp-validation-for="CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedDate" class="control-label"></label>
+                <input asp-for="UpdatedDate" class="form-control" />
+                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UpdatedBy" class="control-label"></label>
+                <input asp-for="UpdatedBy" class="form-control" />
+                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>
+
+================
+
+employee profiles create code
+
+@model EmployeeDirectoryWebApplication.Models.EmployeeProfile
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>EmployeeProfile</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <input asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesignationId" class="control-label"></label>
+                <select asp-for="DesignationId" class ="form-control" asp-items="ViewBag.DesignationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeptId" class="control-label"></label>
+                <select asp-for="DeptId" class ="form-control" asp-items="ViewBag.DeptId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagerId" class="control-label"></label>
+                <input asp-for="ManagerId" class="form-control" />
+                <span asp-validation-for="ManagerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeProfilePic" class="control-label"></label>
+                <input asp-for="EmployeeProfilePic" class="form-control"  />
+                <span asp-validation-for="EmployeeProfilePic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmploymentStatus" class="control-label"></label>
+                <input asp-for="EmploymentStatus" class="form-control" />
+                <span asp-validation-for="EmploymentStatus" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>
+
+
+====================
+
+https://thispersondoesnotexist.com/
+
+https://randomuser.me/api/portraits/men/91.jpg
+
+https://picsum.photos/id/870/200/300?grayscale&blur=2

@@ -1,0 +1,56 @@
+
+<body>
+  <h1>Form Validation Project</h1>
+
+<div class="container mt-5">
+  <div class="form-container">
+  <form #form="ngForm" (ngSubmit)="submitForm(form)">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" maxlength="30" ngModel required class="form-control">
+      <div *ngIf="nameWarning" class="warning">{{ nameWarning }}</div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" ngModel pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required class="form-control">
+      <div *ngIf="emailWarning" class="warning">{{ emailWarning }}</div>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" ngModel pattern="[0-9]{10}" required class="form-control">
+      <div *ngIf="phoneWarning" class="warning">{{ phoneWarning }}</div>
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" ngModel required class="form-control">
+        <i class="bi bi-arrow-down-short"></i>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="skills">Skills:</label>
+      <input type="text" id="skills" name="skills" ngModel class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ editMode ? 'Save Changes' : 'Submit' }}</button>
+  </form>
+</div>
+  <div *ngIf="submitted && records.length > 0" class="mt-3">
+    <h2>Submitted Information:</h2>
+    <div *ngFor="let record of records; let i = index" class="border p-3 mb-3">
+      <p><strong>Name:</strong> {{ record.name }}</p>
+      <p><strong>Email:</strong> {{ record.email }}</p>
+      <p><strong>Phone:</strong> {{ record.phone }}</p>
+      <p><strong>Gender:</strong> {{record.gender}}</p>
+      <p *ngIf="record.skills"><strong>Skills:</strong> {{record.skills}}</p>
+      <button class="btn btn-secondary" (click)="editRecord(i)">Edit</button>
+      <span class="mx-1"></span>
+      <button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
+    </div>
+  </div>
+</div>
+</body>
+
+  

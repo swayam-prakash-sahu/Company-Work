@@ -1,0 +1,30 @@
+﻿[
+  {
+    "outputFile": "wwwroot/Content/Form.style.css",
+    "inputFile": "wwwroot/Content/Form.style.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Login.styles.css",
+    "inputFile": "wwwroot/Content/Login.styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/UserDetails.styles.css",
+    "inputFile": "wwwroot/Content/UserDetails.styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Dashboard.styles.css",
+    "inputFile": "wwwroot/Content/Dashboard.styles.scss"
+  },
+  {
+    "outputFile": "Views/Shared/_Navbar.cshtml.css",
+    "inputFile": "Views/Shared/_Navbar.cshtml.scss"
+  },
+  {
+    "outputFile": "Views/Shared/_ProfileSection.cshtml.css",
+    "inputFile": "Views/Shared/_ProfileSection.cshtml.scss"
+  },
+  {
+    "outputFile": "wwwroot/Content/Exercise.style.css",
+    "inputFile": "wwwroot/Content/Exercise.style.scss"
+  }
+]

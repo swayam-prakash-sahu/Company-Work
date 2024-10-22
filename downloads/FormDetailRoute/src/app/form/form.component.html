@@ -1,0 +1,61 @@
+
+
+<div class="background"></div>
+<div class="container mt-5 contact-container d-flex justify-content-center align-items-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Form Validation Project</h2>
+        <form id="contactForm" #form="ngForm" (ngSubmit)="submitForm(form)">
+          <!-- <div class="form-group">
+            <label for="name" class="bold-input">Name:</label>
+            <input type="text" placeholder="Name" class="form-control" id="name" name="name" [(ngModel)]="formData.name" maxlength="30" required>
+            <div *ngIf="nameWarning" class="text-danger">{{ nameWarning }}</div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="bold-input">Email:</label>
+            <input type="email" placeholder="Email" class="form-control" id="email" name="email" [(ngModel)]="formData.email" required>
+            <div *ngIf="emailWarning" class="text-danger">{{ emailWarning }}</div>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="bold-input">Phone:</label>
+            <input type="tel" placeholder="Phone number" class="form-control" id="phone" name="phone" [(ngModel)]="formData.phone" required>
+            <div *ngIf="phoneWarning" class="text-danger">{{ phoneWarning }}</div>
+          </div> -->
+
+          <div class="form-group">
+            <label for="name" class="bold-input">Name:</label><span class="text-danger">*</span>
+            <input type="text" placeholder="Name" class="form-control" id="name" name="name" [(ngModel)]="formData.name" maxlength="30" required>
+            <div *ngIf="nameWarning" class="text-danger">{{ nameWarning }}</div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="bold-input">Email:</label><span class="text-danger">*</span>
+            <input type="email" placeholder="Email" class="form-control" id="email" name="email" [(ngModel)]="formData.email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+            <div *ngIf="emailWarning" class="text-danger">{{ emailWarning }}</div>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="bold-input">Phone:</label><span class="text-danger">*</span>
+            <input type="tel" placeholder="Phone number" class="form-control" id="phone" name="phone" [(ngModel)]="formData.phone" pattern="[0-9]{10}" required>
+            <div *ngIf="phoneWarning" class="text-danger">{{ phoneWarning }}</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="gender" class="bold-input">Gender:</label><span class="text-danger">*</span>
+            <select class="form-control" id="gender" name="gender" [(ngModel)]="formData.gender" required>
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="skills" class="bold-input">Skills:</label>
+            <input type="text" placeholder="Enter Skills" class="form-control mb-3" id="skills" name="skills" [(ngModel)]="formData.skills">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

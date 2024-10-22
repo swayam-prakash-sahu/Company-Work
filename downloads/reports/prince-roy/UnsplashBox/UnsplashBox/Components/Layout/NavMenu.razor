@@ -1,0 +1,35 @@
+﻿<nav class="navMenu">
+    <a><img src="images/Logo.svg" /></a>
+    <ul class="navLinks">
+        @foreach(var link in navLinks)
+        {
+            <li>
+                <a href="@link.EndPoint.ToLower()" @onclick="() => SelectedNavLink(link)" class="@((selectedNavLink == link) ? "active": "")">
+                    @link.Name
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
+
+@code {
+    public class NavLink
+    {
+        public string Name { get; set; } = "";
+
+        public string EndPoint { get; set; } = "";
+    }
+
+    private List<NavLink> navLinks = new List<NavLink>
+    {
+        new NavLink { Name = "Home", EndPoint = "" },
+        new NavLink { Name = "Collections" , EndPoint = "collections" }
+    };
+
+    private NavLink selectedNavLink = new NavLink();
+
+    private void SelectedNavLink(NavLink navLink)
+    {
+        selectedNavLink = navLink;
+    }
+}

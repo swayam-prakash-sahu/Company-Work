@@ -1,0 +1,28 @@
+﻿.sidebar {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1.2rem;
+}
+
+li {
+    display: grid;
+    place-items: center center;
+    padding-block: 0.4rem;
+    padding-inline: 0.4rem;
+    border-radius: 8px;
+
+    &:first-child {
+        background-color: #FF844B;
+    }
+}
+
+.navbar {
+
+    li {
+        list-style-type: none;
+        margin-block: 1rem;
+    }
+}

@@ -1,0 +1,103 @@
+form.component.ts
+
+
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+//import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+selector: 'app-form',
+standalone: true,
+imports: [FormsModule,CommonModule],
+templateUrl: './form.component.html',
+styleUrl: './form.component.css'
+})
+export class FormComponent {
+formData: any = {};
+submitted: boolean = false;
+
+submitForm(form: any) {
+if (form.valid) {
+this.submitted = true;
+this.formData = { ...form.value };
+}
+}
+}
+
+
+form.component.html
+
+
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+<div>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" maxlength="30" ngModel required>
+</div>
+<div>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" ngModel pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+</div>
+<div>
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone" ngModel pattern="[0-9]{10}" required>
+</div>
+<div>
+<label for="gender">Gender:</label>
+<select id="gender" name="gender" ngModel required>
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+<div>
+<label for="skills">Skills:</label>
+<input type="text" id="skills" name="skills" ngModel>
+</div>
+<button type="submit">Submit</button>
+</form>
+
+<div *ngIf="submitted">
+<h2>Submitted Information:</h2>
+<p>Name: {{formData.name}}</p>
+<p>Email: {{formData.email}}</p>
+<p>Phone: {{formData.phone}}</p>
+<p>Gender: {{formData.gender}}</p>
+<p *ngIf="formData.skills">Skills: {{formData.skills}}</p>
+</div>
+
+
+
+
+form.component.css
+
+
+form {
+width: 300px;
+margin: 0 auto;
+}
+
+
+app.component.ts
+
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FormComponent } from './form/form.component';
+
+@Component({
+selector: 'app-root',
+standalone: true,
+imports: [RouterOutlet,FormComponent],
+templateUrl: './app.component.html',
+styleUrl: './app.component.css'
+})
+export class AppComponent {
+title = 'ValidateForm';
+}
+
+
+
+app.component.html
+
+
+<app-form></app-form>

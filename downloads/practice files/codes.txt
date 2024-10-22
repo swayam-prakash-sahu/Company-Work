@@ -1,0 +1,461 @@
+department view(Index.cshtml)
+
+@model IEnumerable<EmployeeDirectoryWebApp.Models.Department>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Department</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartmentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DeptId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DeptId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DeptId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+========================
+web apis
+
+https://www.youtube.com/watch?v=ycGk7wuYUyo&t=919s
+
+https://www.youtube.com/watch?v=Fp6s89A136Q
+
+
+imp
+
+https://www.youtube.com/watch?v=_TgiJR13cT4
+
+https://www.youtube.com/@CodeWithGopi
+
+https://github.com/adminManoj?tab=repositories
+
+=====================================
+practice web api 
+
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
+namespace EmployeeDirectoryWebApplication.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ProductsController : ControllerBase
+    {
+        private static List<Product> _products = new List<Product>
+        {
+            new Product { Id = 1, Name = "Product 1", Price = 10.99 },
+            new Product { Id = 2, Name = "Product 2", Price = 20.99 },
+            new Product { Id = 3, Name = "Product 3", Price = 30.99 }
+        };
+
+        [HttpGet]
+        public IActionResult GetAllProducts()
+        {
+            return Ok(_products);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetProductById(int id)
+        {
+            var product = _products.Find(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
+
+        [HttpPost]
+        public IActionResult CreateProduct([FromBody] Product product)
+        {
+            _products.Add(product);
+            return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateProduct(int id, [FromBody] Product product)
+        {
+            var existingProduct = _products.Find(p => p.Id == id);
+            if (existingProduct == null)
+            {
+                return NotFound();
+            }
+            existingProduct.Name = product.Name;
+            existingProduct.Price = product.Price;
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteProduct(int id)
+        {
+            var product = _products.Find(p => p.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            _products.Remove(product);
+            return NoContent();
+        }
+    }
+    public class Product
+    {
+        public int Id { get; set; }
+        public required string Name { get; set; }
+        public double Price { get; set; }
+    }
+}
+
+=========================================================================
+designation view(Index.cshtml)
+
+@model IEnumerable<EmployeeDirectoryWebApp.Models.Designation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Designation</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DesignationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesignationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DesignationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DesignationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DesignationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+============================
+Managers view(Index.cshtml)
+
+
+@model IEnumerable<EmployeeDirectoryWebApp.Models.Manager>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Managers</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerNavigation.EmployeeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+===================================================
+Contact Information view(Index.cshtml)
+
+
+@model IEnumerable<EmployeeDirectoryWebApp.Models.ContactInformation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Contact Information</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfficeLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialMediaProfiles)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfficeLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SocialMediaProfiles)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ContactId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ContactId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ContactId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+===============
+
+
+@model IEnumerable<EmployeeDirectoryWebApp.Models.EmployeeProfile>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Profiles</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeProfilePic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmploymentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Designation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manager)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeProfilePic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmploymentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation.DesignationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manager.EmployeeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

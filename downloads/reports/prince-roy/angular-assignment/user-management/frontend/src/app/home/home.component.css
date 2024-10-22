@@ -1,0 +1,13 @@
+.links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: rgb(80, 162, 255);
+  color: black;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}

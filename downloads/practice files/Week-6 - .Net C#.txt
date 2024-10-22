@@ -1,0 +1,277 @@
+GET Evaluation Week-6 - .Net C#
+
+Points:-/150
+Will be reviewed
+
+1.Explain the difference between Code First and Database First approaches in Entity Framework.
+Code First and Database First approaches in entity framework are methods of developing windows forms.
+
+Code First approach is a development approach where we define the classes first and then let our entity framework generate the database schema based on those classes.
+
+Database first approach is a development approach where we design the database schema first and  then the entity framework generates the corresponding model classes to represent database tables. 
+Will be reviewed
+2.How does LINQ differ from traditional SQL queries? Provide an example of a LINQ query to retrieve data from a collection.
+LINQ is a query language which is used in C# and .NET to perform operations.
+
+it is also called language integrated query.
+
+it is a standardized method or way to query data from different data sources using a system similar to SQL within C# code.
+
+LINQ query return results in the form of objects.
+
+e.g.
+
+string[] names = {"Ram","Sam","Shyam","Lal","Som"};
+
+var Intern = from name in names
+                     where name.Contains("S")
+                     select name
+
+foreach(var name in Intern)
+{
+  Console.WriteLine(name);
+}
+
+Traditional SQL queries can interact within database applications to fetch or retrieve data in databases. 
+
+They can't interact with code written in high level languages.
+Will be reviewed
+3.What are the different types of inheritance supported in C#? Give a brief explanation of each type.
+Different types of inheritance supported in C# are
+
+1. Single : A class inherits from only one parent/base class.
+
+2. Multilevel : A class inherits from another class, which acts as a base class for some other class.
+
+3. Multiple : A class which inherits from multiple base or parent classes 
+
+4. Hybrid : A combination of different types of inheritance is called hybrid inheritance
+
+In C# , multiple and hybrid inheritance is achieved through interfaces. Cannot implemented through class.
+
+5. Hierarchical : Multiple classes derived from one base class
+
+e.g.
+class P{
+ 
+}
+class A : P
+{
+}
+class B: P
+{
+}
+Will be reviewed
+4.Describe the concept of method overriding in object-oriented programming. Provide a practical example of method overriding in a class hierarchy.
+When a method in a derived class has the same name, same parameters or arguments and the same return type as a method in its base class, the method in the derived class is called to override the method the in the base class.
+
+through method overriding , Run time polymorphism is implemented.
+
+e.g.
+
+class Parent
+{
+    public void age();
+}
+
+class Child : Parent
+{
+    public void age();
+}
+
+class Override
+{
+ void Main()
+ {
+    child c = new child();
+    c.age();
+ }
+}
+Will be reviewed
+5.What is an abstract class? How does it differ from a regular class? Give an example of when you would use an abstract class.
+Data abstraction is the process of hiding certain details and showing only the essential ones to the user.
+
+Abstraction can be achieved by either abstract classes or interfaces in C#, 2 ways.
+
+abstract keyword is used to implement abstract classes and method.
+
+we cannot create objects of abstract class.
+
+purpose of the abstract class is to provide a definition of the base class that derive class will share.
+
+implementation of abstract class must be provided by derived class.
+
+abstract methods can only be used in abstract classes and they does not have a body.
+
+
+regular classes can't implement abstraction concept of Object oriented programming approach.
+
+we can make objects of regular classes.
+Will be reviewed
+6.What is an interface in C#? How does it differ from a class? Provide an example of implementing an interface in a C# program.
+Interface in C# is used to achieve abstraction
+
+Interface is a fully abstract class, which can only contain abstract methods and properties.
+
+Interface methods do not have a body, body is provided by the classes in which they are implemented.
+
+it is like a blueprint of a class
+
+methods which are inside the class in which interface is implemented are abstract methods.
+
+they cannot have a method body and can't build objects
+
+used to achieve multiple inheritance in C#
+
+e.g.
+
+public interface operation
+{
+ void calculate();
+}
+public class Add: operation
+{
+ public void calculate(){ Console.WriteLine("adding");}
+}
+public class test
+{
+  public static void Main(){
+   
+operation p;
+p = new Add();
+p.calculate();
+}
+}
+Will be reviewed
+7.Explain the purpose of a sealed class in C#. When would you use a sealed class in your application?
+Classes can be declared sealed by putting keyword sealed before the class definition.
+
+Sealed classes cannot be used as a base class. So, it cannot implement abstraction.
+
+C# sealed keyword is used to apply restrictions on the method and classes.
+
+if we create a sealed class , it cannot be derived 
+
+if we create a sealed method, it cannot be overriden 
+
+they are used to stop a class to be inherited from other classes.
+
+application:
+
+when we want to stop inheriting the properties or methods from other classes 
+Will be reviewed
+8.What is a DataTable in ADO.NET? How does it differ from other data structures? Provide an example of creating and populating a DataTable.
+DataTable in C# are like the tables present in SQL. 
+
+DataTable represents the relational data in a tabular form, i.e. in the form of rows and columns.
+
+internal class Data_Table
+    {
+        public static void Main(string[] args)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Id", typeof(int));
+            dt.Columns.Add("Name",typeof(string));
+          
+ 
+            DataRow dr = dt.NewRow();
+            dr["Id"] = 1;
+            dr["Name"] = "Swayam";
+            dt.Rows.Add(dr);
+
+          Console.Read();
+        }
+   }
+Will be reviewed
+9.Describe the role of a DataSet in ADO.NET. How is it different from a DataTable? Explain with an example.
+A DataSet represents is a part of a database .
+
+It is a collection of tables containing relational data, organized in a tabular format.
+
+The DataSet class belongs to the System.Data namespace
+
+DataTable contains rows, columns, and constraints that represent data from a data source
+
+DataSet may have data from various tables where as DataTable can only hold data from a single table.
+Will be reviewed
+10.What is an enum in C#? How do you declare and use enums in your code? Provide an example demonstrating the usage of enums.
+enum in C# are also called enumerations.
+
+used to store set of named constatnts such as days, month etc
+
+also called enumerators
+
+enum constants have default values, start from zero and incremented on by one.
+
+it is a user defined data type that contains fixed set of values
+
+declaration:
+
+enum days{monday, tuesdays,wednesday}
+
+e.g.
+
+using System
+public class Enum{
+
+public enum days 
+{monday, tuesdays, wednesday}
+
+public static void Main()
+{
+...
+ }
+}
+Will be reviewed
+11.Explain the purpose of a TextBox control in Windows Forms. How can you manipulate the text entered into a TextBox programmatically?
+a TextBox control in Windows Forms is used to display, or accept an input inside it.
+
+primary purpose is to dispaly and input from users
+
+we can manipulate the text entered into a TextBox programmatically by the code below
+
+TextBox can also show texts which are set programmatically by the coders
+
+textBox1.Text = "Welcome to Microsoft Team";
+
+textBox1 is the name of the text box
+Will be reviewed
+12.Describe the function of a RadioButton control in a WinForms application. How would you implement mutually exclusive selection behavior using RadioButton controls?
+RadioButton control is used to select a single option among the group of the options. 
+
+For example, select the current day of week from the given list, 
+
+so we will choose only one option among 7 options like Sunday, Monday etc.
+Will be reviewed
+13.What is the DataGridView control used for in WinForms development? How would you bind a DataGridView to a data source and customize its appearance and behavior?
+The DataGridView control provides a powerful and flexible way to display data in a tabular format.
+
+allows us to change the view by choosing different option available.
+
+helpful tool for presenting and interacting with tabular data in Windows Forms applications. 
+
+binding to data source 
+
+We can bind the DataGridView to a data source or a database like SSMS, by adding connecting string in the app.config file.
+
+and then giving credentials of database server name, user name and password of the database to establish connections.
+
+then we add a new item and choose the approach database First or Code First and proceed to test connection. If it is successful then connection is established properly .
+
+we can automatically se data columns based on the schema of the data source in the data base.
+Will be reviewed
+14.Describe the role of a TreeView control in a Windows Forms application. How would you populate a TreeView with hierarchical data and respond to user interaction with tree nodes?
+The TreeView control allows us to display a hierarchy of nodes to users
+
+they are used for displaying hierarchical data like displaying folder structures etc
+Will be reviewed
+15.How does the Timer control work in Windows Forms? Provide an example scenario where you would use a Timer control to perform periodic tasks or update the UI.
+Timer control in Windows Forms allows us to execute same function/block again and again in fixed intervals.
+
+it executes a code block repeatedly at a specified interval.
+
+For example, showing time every 5 minutes in the winform application.
+Microsoft 365
+This content is created by the owner of the form. The data you submit will be sent to the form owner. Microsoft is not responsible for the privacy or security practices of its customers, including those of this form owner. Never give out your password.
+Microsoft Forms | AI-Powered surveys, quizzes and pollsCreate my own form
+Privacy and cookies | Terms of use

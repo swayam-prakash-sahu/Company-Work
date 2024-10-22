@@ -1,0 +1,13 @@
+﻿<!-- Input.razor -->
+@inject NavigationManager navManager
+
+<form @onsubmit="HandleQuerySubmit">
+    <input type="text" placeholder="Enter your keywords..." aria-label="search-box" />
+</form>
+
+@code {
+    public void HandleQuerySubmit(EventArgs e)
+    {
+        navManager.NavigateTo("/search");
+    }
+}

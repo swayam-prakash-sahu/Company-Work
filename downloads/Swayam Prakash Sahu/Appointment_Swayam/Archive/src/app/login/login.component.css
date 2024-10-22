@@ -1,0 +1,118 @@
+/* Styles for login container */
+/* .login-container {
+  margin-top: 50px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  margin-bottom: 0; 
+}
+
+.login-container .form-group {
+  margin-bottom: 20px;
+}
+
+.login-container .form-group label {
+  font-weight: bold;
+}
+
+.login-container .form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container .error {
+  color: red;
+  margin-top: 5px;
+}
+
+.login-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #0056b3;
+} */
+
+
+/* .container {
+  margin-top: 50px;
+  background-color: aqua;
+} */
+
+.form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+.form-container {
+  /* background-color: burlywood; */
+  border: 1px solid #080202;
+  border-radius: 5px;
+  padding: 10px;
+  margin : 10% 10% 10%;
+  margin: 10% auto; 
+  max-width: 80%; 
+  max-height: 100%;
+  
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.alert-danger {
+  margin-top: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn-primary {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* Style for the link to register page */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Style for the active link */
+.active {
+  font-weight: bold;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Set height to container height if needed */
+  margin-bottom: 10px;
+}

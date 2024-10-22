@@ -1,0 +1,148 @@
+Write SQL code to create a new database named "SampleDB".
+create database SampleDB;
+Will be reviewed
+2.Define a table named "Employees" with columns for ID, Name, and Department.
+Create table Employees(
+  ID INT,
+  Name varchar(50) NOT NULL,
+  Department varchar(50)  NOT NULL
+ );
+Will be reviewed
+3.Explain the purpose of a view in SQL.
+A view is a virtual table
+
+The purpose of a view is to provide a simplified and controlled access to data in a database
+
+It helps implementing data security and abstraction
+
+They improve performance by reducing the amount of data
+Will be reviewed
+4.Write a SQL query to create a view named "EmployeeDetails" that displays the ID, Name, and Department of employees from the Employees table.
+Create view EmployeeDetails AS
+SELECT ID, Name, Department
+FROM Employees;
+Will be reviewed
+5.What is a temporary table in SQL? Explain its significance.
+A temporary table is used for only one database session and the table is auto dropped when the session is closed.
+
+two types - local and global
+
+ -- significance:
+
+1. they store intermediate results and helps breakdown complex queries into simple smaller ones.
+
+2. we can isolate data from other users, making it easier for sensitive data
+Will be reviewed
+6.Write SQL code to create a temporary table named "TempEmployees" with columns for ID, Name, and Department.
+Create Temporary Table TempEmployees
+(
+  ID int,
+Name varchar(50),
+Department varchar(50)
+);
+Will be reviewed
+7.Define a stored procedure named "InsertEmployee" that accepts parameters for ID, Name, and Department and inserts a new employee into the Employees table.
+Create Procedure InsertEmployee
+( 
+  @ID int,
+  @Name varchar(50),
+  @Department varchar(50)
+)
+AS 
+BEGIN
+  INSERT into Employees(ID, Name, Department)
+  Values (@ID, @Name, @Department);
+END;
+Will be reviewed
+8.Explain the advantages of using stored procedures in database management.
+advantages include
+
+1. stored procedures allow us to encapsulate and modularize the sql code, reuse the code and helps reducing duplicates.
+
+2. they helps in improving the performance of database, instead of executing multiple sql statement one by one, we can execute a single stored procedure which will execute all the sql statements.
+
+3. improves security and implements abstraction.
+
+4. multiple users can execute the same stored procedure.
+Will be reviewed
+9.Write a SQL script that checks if a given employee's department is "Sales". If true, display a message "Employee belongs to Sales department", else display "Employee belongs to a different department".
+DECLARE @Department varchar(30);
+
+IF @Department = 'Sales'
+   PRINT 'Employee belongs to the sales department';
+ELSE
+ PRINT 'Employee belongs to a different department'
+Will be reviewed
+10.Define a transaction in SQL and explain its purpose.
+it is a sequence of operations (CRUD) performed as a single unit
+
+Either all the statements executes or none of them. 
+
+it follows ACID properties.
+
+The purpose of a transaction is to maintain the consistency and integrity of the data in a database.
+
+helps in handling errors, by rolling back.
+
+Will be reviewed
+11.Write SQL code to start a transaction, insert a new record into the Employees table, and commit the transaction.
+BEGIN TRANSACTION;
+
+INSERT INTO Employees (ID, first_name, last_name) values (1,'rahul','shah');
+
+COMMIT;
+Will be reviewed
+12.Explain the role of the Try-Catch block in error handling within stored procedures.
+Try-Catch block is a construct to handle errors that occur within a stored procedure. 
+
+It consists of two parts 
+
+try block - contains code that may raise an error
+
+catch block - contains the code that will be executed if an error is raised
+Will be reviewed
+13.Write a SQL stored procedure named "UpdateEmployee" that updates an employee's department. Implement error handling using a Try-Catch block to handle any potential errors during the update process.
+CREATE PROCEDURE UpdateEmployee
+    @employee_id INT,
+    @new_dept NVARCHAR(50)
+AS
+BEGIN
+    BEGIN TRY
+        
+        UPDATE Employees
+        SET department = @new_dept
+        WHERE employee_id = @employee_id;
+
+        
+        COMMIT;
+    END TRY
+
+    BEGIN CATCH
+       
+        SELECT ERROR_MESSAGE() AS ErrorMessage;
+        ROLLBACK TRANSACTION;
+        
+
+    END CATCH
+END;
+GO
+Will be reviewed
+14.Define a trigger named "AfterEmployeeInsert" that automatically inserts a record into a separate audit table whenever a new employee is inserted into the Employees table.
+Create TRIGGER AfterEmployeeInsert
+ON Employees
+AFTER INSERT
+AS
+BEGIN
+   INSERT INTO Employee_Audit (EmpID, Name, Department, InsertDate)
+   SELECT EmpID, Name, Department, GETDATE()
+   FROM INSERTED;
+END;
+Will be reviewed
+15.Discuss the potential use cases and benefits of using triggers in database management.
+feature in dbms that allows us to automatically execute a specific action or set of actions in response to certain events.
+
+helps in maintaining data integrity
+
+helps implementing data validation rules
+
+they helps in automating the tasks

@@ -1,0 +1,15 @@
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EmpView.exe.config
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EmpView.exe
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EmpView.pdb
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EntityFramework.dll
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EntityFramework.xml
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.csproj.AssemblyReference.cache
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.Form1.resources
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.Properties.Resources.resources
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.csproj.GenerateResource.cache
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.csproj.CoreCompileInputs.cache
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.csproj.CopyComplete
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.exe
+C:\Users\PrinceRoy\source\repos\EmpView\EmpView\obj\Debug\EmpView.pdb

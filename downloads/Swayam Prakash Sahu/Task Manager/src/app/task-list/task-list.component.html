@@ -1,0 +1,19 @@
+
+ <div class="task-list">
+    <h2>List of Tasks</h2>
+    <ul class="list-group">
+      <li *ngFor="let task of tasks; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+        <span *ngIf="editedTaskIndex !== i; else editInput">{{ task.title }}</span>
+        <ng-template #editInput>
+          <input type="text" [(ngModel)]="editedTaskTitle" class="form-control" />
+        </ng-template>
+        <div>
+          <button *ngIf="editedTaskIndex !== i" (click)="editTask(i)" class="btn btn-primary btn-sm">Edit</button>
+          <button *ngIf="editedTaskIndex === i" (click)="saveTaskChanges(i)" class="btn btn-success btn-sm">Save</button>
+          <button *ngIf="editedTaskIndex === i" (click)="cancelEdit()" class="btn btn-secondary btn-sm">Cancel</button>
+          <button (click)="deleteTask(i)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

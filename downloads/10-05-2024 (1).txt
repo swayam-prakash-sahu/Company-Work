@@ -1,0 +1,196 @@
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<div class="con">
+<div class="nav">
+<ul>
+<div class="left">
+<li>Home</li>
+<li>Categories</li>
+</div>
+<div class="title">
+<li><span>taara</span></li>
+</div>
+<div class="rigth">
+<li>
+<div class="search">
+<input type="text" id="search-input" placeholder="Search" />
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<!-- <input type="text" id="search-input" placeholder="Search" /> -->
+</div>
+</li>
+<li>
+<button (click)="redirect()">Login</button>
+</li>
+</div>
+</ul>
+</div>
+<div class="content">
+<div class="tag">
+<span>Hey, we're Tarra.See our</span><br />
+<span>thoughts,stories and ideas.</span>
+<p>
+Tarra is a minimal multipuprpose blog.A beautiful way to share stories
+with your growing audience
+</p>
+</div>
+<form>
+<div class="subscribe">
+<input
+type="text"
+name=""
+placeholder="Email Address"
+id=""
+aria-label="email"
+/>
+<button type="button">Subscribe</button>
+</div>
+</form>
+</div>
+<div class="blogs-container">
+<app-card
+[imageUrl]="'../../assets/tech.jpg'"
+[text]="'Sceince'"
+></app-card>
+<app-card
+[imageUrl]="'../../assets/travel.jpg'"
+[text]="'Travel'"
+></app-card>
+<app-card [imageUrl]="'../../assets/art.jpg'" [text]="'Art'"></app-card>
+<app-card
+[imageUrl]="'../../assets/lifestyle.jpg'"
+[text]="'Lifestyle'"
+></app-card>
+</div>
+</div>
+
+
+ul{
+list-style-type: none;
+display: flex;
+flex-direction: row;
+gap: 1rem;
+}
+.nav{
+margin-top: 2rem;
+}
+
+.search i {
+margin-top: 10px;
+
+}
+
+#search-input {
+display: none;
+}
+
+.search:hover #search-input {
+display: inline-block;
+}
+
+.left{
+display: flex;
+flex-direction: row;
+gap:2rem;
+}
+.rigth{
+display: flex;
+flex-direction: row;
+gap: 2rem;
+margin-top: -4px;
+}
+button{
+border-radius: 15px;
+border: none;
+background-color: black;
+color: white;
+padding: 10px;
+width: 5rem;
+box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.title{
+margin-left: 20rem;
+
+}
+.rigth{
+margin-left: 20rem;
+}
+.left{
+margin-left: 5rem;
+}
+
+
+
+.tag{
+margin-top:8%;
+text-align: center;
+font-size: 40px;
+}
+.tag p{
+font-size: 15px;
+}
+.blogs-container{
+margin-block: 3rem;
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+
+}
+
+form {
+display: grid;
+place-items: center center;
+}
+
+.subscribe{
+position: relative;
+}
+
+form input {
+background-color: #fff;
+border-radius: 12px;
+padding-inline: 0.6rem;
+padding-block: 0.8rem;
+width: 30vw;
+
+}
+
+form button {
+all: unset;
+background-color: black;
+color: white;
+position: absolute;
+bottom: 0.25rem;
+right: 0.25rem;
+border-radius: 10px;
+padding-inline: 0.6rem;
+padding-block: 0.6rem;
+}
+
+
+.blogs-container app-card:hover {
+animation: hop 0.5s ease infinite alternate;
+}
+
+@keyframes hop {
+0% {
+transform: translateY(0);
+}
+100% {
+transform: translateY(-5px);
+}
+}
+
+
+style the search component such that , when magnifying glass is hovered , the search bar should be shown on the same line where magnifying glass is present
+
+
+
+
+make the title taara to the centre
+
+and shift the search bar and login button to the right
+

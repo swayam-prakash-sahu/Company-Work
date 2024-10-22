@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required pattern="[A-Za-z]{3,}"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required pattern=".*[^A-Za-z0-9].*"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            var usernameInput = document.getElementById('username');
+            
+            if (!usernameInput.checkValidity()) {
+                event.preventDefault();
+                console.log("customError:", usernameInput.validity.customError);
+                console.log("patternMismatch:", usernameInput.validity.patternMismatch);
+                console.log("rangeOverflow:", usernameInput.validity.rangeOverflow);
+                console.log("rangeUnderflow:", usernameInput.validity.rangeUnderflow);
+                console.log("stepMismatch:", usernameInput.validity.stepMismatch);
+                console.log("tooLong:", usernameInput.validity.tooLong);
+                console.log("typeMismatch:", usernameInput.validity.typeMismatch);
+                console.log("valueMissing:", usernameInput.validity.valueMissing);
+                console.log("valid:", usernameInput.validity.valid);
+            }});
+            document.getElementById('myForm').addEventListener('submit', function(event) {
+            var passwordInput = document.getElementById('password');
+            
+            if (!passwordInput.checkValidity()) {
+                event.preventDefault(); // Prevent form submission
+                console.log("Password must contain at least one symbol.");
+            }
+        });
+
+    </script>
+</body>
+</html>

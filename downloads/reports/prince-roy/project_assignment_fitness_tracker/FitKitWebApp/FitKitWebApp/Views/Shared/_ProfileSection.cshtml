@@ -1,0 +1,72 @@
+﻿@{
+}
+
+@model UserDetails;
+
+<div class="profile-section">
+    <div class="avatar-container">
+        <img src="~/images/Avatar.svg" />
+        <h3>Alex Ju</h3>
+    </div>
+
+    <div class="avatar-details">
+        <p>
+            <span>@Model.Weight</span>kg
+            <span>Weight</span>
+        </p>
+        <p>
+            <span>@Model.Height</span>
+            <span>Height</span>
+        </p>
+        <p>
+            <span>@Model.Age</span>yrs
+            <span>Age</span>
+        </p>
+    </div>
+
+    <div class="goals-container">
+        <p>Your Goals</p>
+        <div class="goal">
+            <div class="goal-avatar">
+                <img src="~/images/run.svg" />
+            </div>
+
+            <div class="goal-stats">
+                <p>Running</p>
+                <p>70km/80km</p>
+            </div>
+
+            <div class="ring">
+                <p>79%</p>
+            </div>
+        </div>
+        <div class="goal">
+            <div class="goal-avatar">
+                <img src="~/images/sleep.svg" />
+            </div>
+
+            <div class="goal-stats">
+                <p>Sleeping</p>
+                <p>50hrs/60hrs</p>
+            </div>
+
+            <div class="ring">
+                <p>60%</p>
+            </div>
+        </div>
+        <div class="goal">
+            <div class="goal-avatar">
+                <img src="~/images/fire.svg" />
+            </div>
+
+            <div class="goal-stats">
+                <p>Weight Loss</p>
+                <p>70kg/100kg</p>
+            </div>
+
+            <div class="ring">
+                <p>60%</p>
+            </div>
+        </div>
+    </div>
+</div>

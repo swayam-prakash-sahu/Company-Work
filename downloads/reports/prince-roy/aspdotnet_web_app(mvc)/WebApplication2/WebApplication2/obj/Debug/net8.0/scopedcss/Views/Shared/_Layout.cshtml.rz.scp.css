@@ -1,0 +1,32 @@
+.nav-container[b-amt9qciysm] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+}
+
+.nav-links-container[b-amt9qciysm] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  color: currentColor;
+}
+.nav-links-container li[b-amt9qciysm] {
+  list-style-type: none;
+  font-weight: 500;
+}
+.nav-links-container a[b-amt9qciysm] {
+  color: grey;
+  text-decoration: none;
+}
+
+.active[b-amt9qciysm] {
+  color: black;
+  background-color: #E5E7EB;
+  padding-inline: 0.8rem;
+  padding-block: 0.4rem;
+  border-radius: 5px;
+}

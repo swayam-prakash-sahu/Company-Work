@@ -1,0 +1,196 @@
+SQL Part 1 Evaluation
+
+What does SQL stand for?
+
+SQL stands for structured query language. It is a programming language designed for managing and querying relational databases. SQL is used to communicate with a database. It is the standard language for relational database management systems.
+
+In SQL, what is the purpose of the SELECT statement?
+
+The SELECT statement in SQL is used to retrieve data from one or more tables in a database. It allows us to specify the columns we want to retrieve, apply filters to narrow down the results, perform calculations, and even join multiple tables together to extract the desired information.
+It is the most frequently used DML command.
+example: SELECT * FROM Customer; 
+
+
+How do you create a new table in SQL?
+
+The CREATE TABLE statement is used to create a new table in a database.
+
+Syntax : CREATE TABLE table_name (
+    col1 datatype,
+    col2 datatype,
+   ... );
+Example: CREATE TABLE Interns (
+    InternID int,
+    LastName varchar(30),
+    FirstName varchar(30),
+    Address varchar(50),
+    City varchar(30)
+);
+
+--------------------
+
+
+
+SQL Part 1 Evaluation
+
+What is SQL
+
+1.What does SQL stand for?
+
+SQL stands for structured query language. It is a programming language designed for managing and querying relational databases. SQL is used to communicate with a database. It is the standard language for relational database management systems.
+
+2.In SQL, what is the purpose of the SELECT statement?
+
+The SELECT statement in SQL is used to retrieve data from one or more tables in a database. It allows us to specify the columns we want to retrieve, apply filters to narrow down the results, perform calculations, and even join multiple tables together to extract the desired information.
+It is the most frequently used DML command.
+
+example: SELECT * FROM Customer; 
+
+Create Table
+
+3.How do you create a new table in SQL?
+The CREATE TABLE statement is used to create a new table in a database.
+
+Syntax : CREATE TABLE table_name (
+    col1 datatype,
+    col2 datatype,
+   ... );
+Example: CREATE TABLE Interns (
+    InternID int,
+    LastName varchar(30),
+    FirstName varchar(30),
+    Address varchar(50),
+    City varchar(30)
+);
+
+4.Write a Create statement with primary key in a SQL table, why is it important?
+
+CREATE TABLE Intern (
+    InternId integer PRIMARY KEY, 
+    FirstName varchar(20), 
+    LastName varchar(20), 
+    Email varchar(30), 
+    PhoneNo varchar(20), 
+    Salary integer
+);
+
+or
+
+CREATE TABLE industries (
+  name varchar(100) ,
+  producer varchar(100),
+  PRIMARY KEY(producer)
+);
+
+A primary key uniquely identifies each row in a table. It must contain unique and non-null values. A table can have only one primary key.
+Alter Table
+
+5.How can you add a new column to an existing table in SQL?
+ALTER TABLE command is used to add a new column to the existing database table.
+
+for a single column to add;
+
+ALTER TABLE table_name
+ADD column_name data_type;
+
+for multiple columns to add:
+
+ALTER TABLE table_name 
+ADD col_name1 data_type,
+    col_name2 data_type,
+    ADD col_nameN data_typeN;
+
+6.What is the purpose of the ALTER TABLE statement in SQL?
+
+An existing table's columns can be added, removed, or modified using the SQL ALTER TABLE statement. On already-existing tables, the ALTER TABLE statement can also be used to add and remove different constraints.
+
+Rename Columns
+
+7.How do you rename a column in an SQL table?
+
+we can rename a column by using the table with ALTER TABLE table_name and then write which column to rename and what to rename it to with RENAME COLUMN old_name TO new_name.
+
+syntax:
+ALTER TABLE table_name
+RENAME COLUMN old_name TO new_name;
+
+8.Why might you want to rename a column in a SQL table?
+
+To keep the database organized, we might need to change the names of the columns.
+Modify Column Datatype Size
+
+9.How do you modify the datatype size of an existing column in SQL?
+
+ALTER command is used to modify the structure of existing tables in the database.
+ALTER TABLE table_name ALTER COLUMN col_name VARCHAR(50);
+
+10.Why might you need to modify the datatype size of a column?
+
+Modifying the data type size of a column that already contains data can be for following reasons:
+1. Data requirements change
+2. Performance optimization
+3. Data integrity
+
+Delete Columns
+
+11.How can you delete a column from an existing table in SQL?
+
+syntax: 
+ALTER TABLE table_name
+DROP COLUMN Col_name;
+
+12.What considerations should be taken before deleting a column from a table?
+
+1. Imapct on Data : how deleting the column will affect data stored in the table.
+2. Performance : might improve query performance by reducing amount of data stored in the table.
+3. backup : a copy of data if anything goes wrong
+4. Primary and foreign key considerations
+
+Rename Table
+
+13.How do you rename a table in SQL?
+
+ALTER TABLE table_name
+RENAME COLUMN old_name TO new_name;
+
+14.In what situations might you need to rename a table?
+
+Database administrators and users may want to change the name of the table in the SQL database because they want to give a more relevant name to the table.
+
+Drop Table
+
+15.How do you delete or remove an entire table from a database in SQL?
+
+DROP TABLE statement is used to delete a table with data from the database.
+syntax:
+DROP TABLE table_name
+
+16.What precautions should be taken before dropping a table?
+
+1. Make a backup of the database.
+2. Double-check that you are dropping the correct table.
+3. Ensure that you have the appropriate permissions to drop the table.
+4. Make sure you do not need any of the data in the table.
+
+Null Value
+
+17.What does a NULL value represent in a database?
+
+A null value in a relational database is used when the value in a column is unknown or missing. NULL values are those values in which there is no data value in the particular field in the table.
+
+18.How can you insert a NULL value into a column during data insertion?
+
+SQL INSERT statement can be used to insert NULL value into a column.
+
+syntax:
+
+INSERT INTO interns
+VALUES ("A001","Ram","benagluru",NULL);
+
+or
+
+inserting NULL values into specific columns
+
+INSERT INTO agents
+(agent_code,agent_name,commission)
+VALUES ("A001","Ram",NULL)

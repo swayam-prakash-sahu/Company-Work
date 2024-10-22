@@ -1,0 +1,8 @@
+<app-header
+  [title]="mySuperAwesomeTitle"
+  [versionNumber]="1.2"
+  [showVersionNumber]="stringIsNotSwayam"
+></app-header>
+<app-todo-items (todoItemWasAdded)="myFunction($event)"></app-todo-items>
+
+The last todo item that was added is: {{ lastTodoItemThatWasAdded }}

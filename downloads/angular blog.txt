@@ -1,0 +1,225 @@
+TASK FOR angular and DOT NET 
+
+
+ Create a blog website using Angular and DotNet
+
+ Frontend will be created using angular and backend using dotnet.
+
+Angular TASK -
+
+Website should have two pages
+
+
+Home page
+
+This page should open up when user hits the route.
+
+
+On mount of this page you need to call your api's (GET localhost:8000/blog) route to fetch a list of all the available blogs.
+Display all the blogs in a good looking manner (Display only blog title in home page).
+
+On click of any the blog open up a new page (/blogs/blog_id) route.
+
+All the blogs should also have a delete icon button clicking on which you delete the blog.
+
+
+This page should also have a add new blog button on the top right corner.
+
+Clicking that button should open a new modal  which has a form to create a new blog
+
+Blog page
+
+This page should should both the title and description of your blog.
+
+
+On mount of this page you need to call your (GET localhost:8000/blog/:blog_id) route to fetch this particular blog
+Display title and description of blog in this page.
+
+This page should also have a button to allow the users to go back to home page.
+
+API TASK
+
+Create an api using DOT NET with following details
+
+
+
+API Schema
+TABLE SCHEMA
+blogs (TABLE NAME)
+id (PRIMARY KEY, UNIQUE)
+title (str)
+description (str)
+
+
+API ROUTES
+
+/blog
+
+GET
+
+returns all the available blogs
+
+INPUT FORMAT: NA
+
+
+POST
+adds a new blog
+
+
+OUTPUT FORMAT: NA
+
+DELETE
+
+INPUT FORMAT: blog_id
+
+
+OUTPUT FORMAT: [{ id: 1, title: 'blog 1', description: 'some description' }, ...]
+INPUT FORMAT: { title: 'blog', description: 'some blog description' }
+deletes the selected blog
+OUTPUT FORMAT: NA
+/blog/blog_id
+
+GET
+
+return blog info for given blog_id
+
+INPUT FORMAT: blog_id (passed as a url param)
+
+OUTPUT FORMAT: { id: 1, title: 'blog 1', description: 'some description' }
+
+
+
+
+
+
+**Project Requirement Document**
+
+---
+
+### Overview of the Project:
+
+The project aims to develop a blog website using Angular for the frontend and .NET for the backend. The website will allow users to view a list of blogs on the home page, read individual blog posts, add new blogs, and delete existing ones.
+
+### Purpose of the Document:
+
+This document serves as a comprehensive guide for the development team, outlining the project's scope, requirements, and technical specifications. It provides a clear understanding of the project's objectives, features, and user interface design.
+
+### Mockups or Wireframes of User Interfaces:
+
+#### Home Page:
+
+- Display a list of blog titles.
+- Each blog title should have a delete icon for removing the blog.
+- "Add New Blog" button in the top right corner.
+
+ Blog Page:
+
+- Display the title and description of the selected blog.
+- "Back to Home" button to navigate back to the home page.
+
+Add Blog Modal:
+
+- Form to add a new blog with fields for title and description.
+- "Submit" button to add the blog.
+
+Technology Stack:
+
+- **Frontend**: Angular
+- **Backend**: .NET (Web API)
+- **Database**: SQL Server
+
+### Features:
+
+1. **Home Page**:
+- Display a list of all available blogs.
+- Allow users to delete blogs.
+- Provide an option to add new blogs.
+
+2. **Blog Page**:
+- Show the title and description of a selected blog.
+- Allow users to navigate back to the home page.
+
+3. **Add Blog Modal**:
+- Enable users to create and submit new blog posts.
+
+### API Endpoints:
+
+- **GET /blog**: Fetch all available blogs.
+- **POST /blog**: Add a new blog.
+- **DELETE /blog/{blog_id}**: Delete a specific blog.
+- **GET /blog/{blog_id}**: Fetch details of a specific blog.
+
+### Database Schema:
+
+**blogs** Table:
+- **id** (Primary Key, Unique)
+- **title** (String)
+- **description** (String)
+
+### Deployment:
+
+- The Angular frontend will be deployed to a hosting platform such as Netlify or Vercel.
+- The .NET backend will be deployed to a cloud service provider like Azure or AWS.
+- The SQL Server database will be hosted on a cloud platform or locally depending on the project requirements.
+
+### Conclusion:
+
+This project requirement document provides a detailed overview of the blog website development project, including its objectives, user interface design, technology stack, features, API endpoints, and deployment strategy. It serves as a reference for the development team to ensure the successful implementation of the project.
+
+---
+
+This document outlines the project's scope, requirements, and technical specifications based on the provided information. Let me know if you need further details or revisions!
+
+
+
+
+
+
+
+
+
+
+UserRegistrations
+
+GET /UserRegistrations: Fetch all available users.
+POST /UserRegistrations: Add a new user.
+DELETE /UserRegistrations/{user_id}: Delete a specific user.
+GET /UserRegistrations/{user_id}: Fetch details of a specific user.
+PUT/UserRegistrations/{user_id}: update details of a specific user.
+
+
+
+
+API Endpoints:
+
+- GET /blog: Fetch all available blogs.
+- POST /blog: Add a new blog.
+- DELETE /blog/{blog_id}: Delete a specific blog.
+- GET /blog/{blog_id}: Fetch details of a specific blog.
+
+
+https://localhost:7202/api/Blogs
+
+
+
+
+https://localhost:7202/api/UserRegistrations
+
+
+build a home page section, categories section on the navigation bar and add new blog button
+
+
+ on the top right corner of the home page place login button
+
+
+ there will be no app module file
+
+
+
+
+radial gradient - background
+
+
+https://www.w3schools.com/howto/howto_css_form_icon.asp
+
+give a search button icon magnifying glass , when on hover a search bar should pop up 

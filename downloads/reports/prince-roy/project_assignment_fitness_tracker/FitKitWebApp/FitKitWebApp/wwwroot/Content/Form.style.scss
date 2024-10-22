@@ -1,0 +1,153 @@
+﻿.signup-page-container {
+    min-height: 100vh;
+    display: grid;
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    margin-inline: 1.5rem;
+    margin-block: 2rem;
+
+    @media (min-width: 64rem) {
+        grid-template-columns: repeat(2, 1fr);
+        margin-inline: 4rem;
+        margin-block: 3rem;
+    }
+}
+
+.hero-container {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+
+    .img-container {
+        margin-block-end: 2rem;
+     }
+
+    img {
+        max-width: 90%;
+    }
+}
+
+
+a {
+    text-decoration: none;
+    color: #FF7443;
+}
+
+.or {
+    text-align: center;
+    color: #7C838A;
+}
+
+.third-party-login {
+    display: flex;
+    gap: 1rem;
+
+    button {
+        display: flex;
+        align-items: center;
+        border: 1px solid #7C838A;
+        border-radius: 10px;
+        outline: 3px solid transparent;
+        background-color: transparent;
+        padding-inline: 0.6rem;
+        padding-block: 0.3rem;
+        font-size: 1rem;
+    }
+
+    img {
+        max-width: 2.25rem;
+    }
+
+}
+
+.content {
+    width: 100%;
+
+    h1 {
+       text-align: center;
+       font-size: 1.525rem;
+      }
+}
+
+.form-container {
+    display: grid;
+    gap: 1rem;
+    padding-block-start: 1.2rem;
+    color: #7C838A;
+
+    .input-container {
+        display: grid;
+        gap: 0.2rem;
+
+        span {
+            color: red;
+        }
+    }
+
+    input[name="FirstName"], input[name="LastName"] {
+        text-transform: capitalize;
+    }
+
+    .input-tag {
+        border: none;
+        border-radius: 12px;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        background-color: rgba(#B0BAC3, 0.4);
+
+
+        &::placeholder {
+            font-family: "Manrope", sans-serif;
+        }
+
+        &:hover, &:focus {
+            cursor: pointer;
+            outline: 2px solid rgba(#000000, 0.6);
+        }
+    }
+
+    .error-animation {
+        animation-name: shake;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 2;
+        animation-fill-mode: forwards;
+        outline: 3px solid #fb5656;
+    }
+}
+
+.create-btn {
+    justify-self: center;
+    background-color: #FF7443;
+    outline: 3px solid transparent;
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-size: 1.125rem;
+    font-weight: 500;
+    padding-inline: 3.5rem;
+    padding-block: 0.6rem 0.5rem;
+    margin-block-end: 0.7rem;
+}
+
+@keyframes shake {
+    0% {
+        margin-left: 0;
+    }
+
+    25% {
+        margin-left: 0.5rem;
+        margin-right: -0.5rem;
+    }
+
+    75% {
+        margin-left: -0.5rem;
+        margin-right: 0.5rem;
+    }
+
+    100% {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

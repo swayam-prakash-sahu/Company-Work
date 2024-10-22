@@ -1,0 +1,32 @@
+.blog-container {
+  h2 {
+    text-align: center;
+    word-spacing: 2px;
+    padding-inline: 1rem;
+    padding-block: 2rem;
+    background-color: rgb(238, 238, 238);
+  }
+
+  p {
+    padding-inline: 1rem;
+    padding-block: 2rem;
+
+    @media (min-width: 45rem) {
+      width: 70%;
+      padding-inline-start: 4rem;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  img {
+    max-width: 1.1rem;
+  }
+}

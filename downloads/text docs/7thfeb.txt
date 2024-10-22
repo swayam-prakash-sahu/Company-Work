@@ -1,0 +1,4 @@
+revised basic git commands
+Training on HTML and CSS from Shiva
+Going through C# documentation
+self learning basics of C# - variables, methods, members, types and properties

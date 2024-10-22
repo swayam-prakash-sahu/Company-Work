@@ -1,0 +1,1 @@
+﻿.sidebar{background-color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-inline:1.2rem;}li{display:grid;place-items:center center;padding-block:.4rem;padding-inline:.4rem;border-radius:8px;}li:first-child{background-color:#ff844b;}.navbar li{list-style-type:none;margin-block:1rem;}

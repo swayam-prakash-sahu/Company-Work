@@ -1,0 +1,16 @@
+SELECT TOP (1000) [EmployeeId]
+      ,[UserId]
+      ,[EmployeeName]
+      ,[DesignationId]
+      ,[DeptId]
+      ,[ManagerId]
+      ,[EmployeeProfilePic]
+      ,[EmploymentStatus]
+      ,[CreatedDate]
+      ,[CreatedBy]
+      ,[UpdatedDate]
+      ,[UpdatedBy]
+      ,[UserId1]
+  FROM [EmployeeDirectoryDB].[dbo].[EmployeeProfiles]
+
+ 

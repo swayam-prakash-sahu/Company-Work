@@ -1,0 +1,581 @@
+Assignments:
+
+.NET Memory Management
+
+Garbage Collector (GC) is the part of the .NET framework that allocates and releases memory for your .NET applications.
+
+When a new process is started, the runtime reserves a region of address space for the process called the managed heap.
+
+Objects are allocated in the heap contiguously one after another.
+
+Memory allocation is a very fast process as it is just the adding of a value to a pointer.
+
+In addition to the managed heap, an app always consumes some amount of so-called unmanaged* memory which is not managed by GC.
+
+1. Memory release﻿
+The process of releasing memory is called garbage collection.
+
+When GC performs a collection, it releases only objects that are no longer in use by the application (for example, a local variable in a method can be accessed only during the method execution and after this, the variable is no longer needed).
+
+
+
+2. Generations﻿
+For better performance of memory release, the managed heap is divided into segments called generations: 0, 1, and 2.
+
+When objects are just created, they are placed to the Generation 0 (Gen 0).
+
+
+3. Large Object Heap﻿
+Due to performance reasons, large objects (larger than 85 KB) are stored in a separate segment of the managed heap called Large Object Heap (LOH).
+
+---------------------------
+
+Value Types and Reference Types
+
+
+All fundamental data types, Boolean, Date, structs, and enums are examples of value types. Examples of reference types include: strings, arrays, objects of classes, etc. To create reference types in C#, you can take advantage of these keywords: class, interface and delegate.
+
+In C#, variables can be categorized into two main types: value types and reference types. Understanding the difference between these two types is crucial for writing efficient and bug-free code.
+
+1. Value Types:
+Value types directly contain their data and are stored in the stack memory.
+Examples of value types include primitive types such as int, float, double, char, bool, and struct types.
+When you assign a value type variable to another variable, a copy of the value is made. Changing one variable does not affect the other.
+Value types have a fixed size known at compile time.
+Value types are generally faster to access and manipulate because they are directly stored in memory.
+
+
+e.g.
+int a = 5;
+int b = a; // b gets a copy of the value of a
+b = 10; // Changing b does not affect a
+Console.WriteLine(a); // Output: 5
+
+2. Reference Types:
+Reference types store references to their data in the heap memory.
+Examples of reference types include classes, interfaces, delegates, and arrays.
+When you assign a reference type variable to another variable, you're copying the reference to the same object. They both refer to the same object in memory.
+Modifying a property or field of the object through one variable will affect the object referenced by the other variable.
+Reference types have a variable size and can grow dynamically.
+
+e.g.
+int[] array1 = { 1, 2, 3 };
+int[] array2 = array1; // array2 points to the same memory location as array1
+array2[0] = 5; // Modifying array2 also modifies array1
+Console.WriteLine(array1[0]); // Output: 5
+
+Boxing and unboxing
+The conversion of a value type to a reference type is known as boxing. Unboxing is just the opposite - it is defined as the process of conversion of a reference type to a value type. The following code snippet illustrates boxing and unboxing in C#.
+
+int i = 100;
+
+Object obj = i; //Boxing
+
+i = (int) obj; //Unboxing
+
+
+Passing by value and passing by reference
+The following code listing illustrates how you can pass a variable to a method by value.
+
+ static void Increment(int i)
+
+        {
+
+            i = i + 1;
+
+        }
+
+        static void Main()
+
+        {
+
+            int x = 1;
+
+            Increment(x);
+
+            Console.WriteLine("The value of x is: " +x);
+
+            Console.Read();
+
+        }
+
+Note that you can pass a value type as a reference to a method by using the ref keyword. The following code listing illustrates this.
+
+static void Increment(ref int i)
+
+        {
+
+            i = i + 1;
+
+        }
+
+        static void Main()
+
+        {
+
+            int x = 1;
+
+            Increment(ref x);
+
+            Console.WriteLine("The value of x is: " +x);
+
+            Console.Read();
+
+        }
+
+When the above code is executed, the message "The value of x is: 2" will be displayed in the console.
+
+Storage locations
+The CLR stores objects in three types of storage locations -- the registers, the stack or the managed heap. While the short-lived objects are stored inside registers or stack, the long-lived objects are stored in the heap. As I mentioned earlier, value types are generally stored in the stack.
+---------------------------------------
+
+Arrays
+
+In C#, arrays are used to store collections of elements of the same data type. Arrays provide a convenient way to work with a fixed-size collection of elements. Here are some key points about arrays in C#:
+
+Declaration and Initialization:
+Arrays are declared using square brackets [].
+You can declare an array and initialize it in the same statement, or you can declare it first and then initialize it later.
+Arrays can be of any data type, including value types and reference types.
+
+// Declaration and initialization
+int[] numbers = { 1, 2, 3, 4, 5 };
+
+// Declaration and later initialization
+int[] moreNumbers;
+moreNumbers = new int[] { 6, 7, 8, 9, 10 };
+
+Accessing Elements:
+Elements of an array are accessed using zero-based indexing.
+You can access elements using square brackets [] and specifying the index of the element you want to access.
+
+int[] numbers = { 1, 2, 3, 4, 5 };
+Console.WriteLine(numbers[0]); // Output: 1
+
+Length Property:
+Arrays have a Length property that returns the total number of elements in the array.
+Example:
+
+int[] numbers = { 1, 2, 3, 4, 5 };
+Console.WriteLine(numbers.Length); // Output: 5
+
+Iterating Through Arrays:
+You can iterate through the elements of an array using loops such as for loop, foreach loop, or LINQ methods.
+
+Example using for loop:
+
+int[] numbers = { 1, 2, 3, 4, 5 };
+for (int i = 0; i < numbers.Length; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+
+Multidimensional Arrays:
+C# supports multidimensional arrays, including rectangular arrays and jagged arrays.
+Rectangular arrays have a fixed size for each dimension.
+Jagged arrays are arrays of arrays where each element can be an array of different sizes.
+
+Example of a rectangular array:
+
+int[,] matrix = new int[2, 3]; // 2 rows, 3 columns
+
+
+Example of a jagged array:
+
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5 };
+jaggedArray[2] = new int[] { 6, 7, 8 };
+
+
+---------------------------------------------------------------------------------
+Multi-Dimensional Arrays
+Jagged Arrays
+
+
+Multi-Dimensional Arrays:
+
+Multi-dimensional arrays in C# allow you to store data in multiple dimensions, such as a 2D matrix or a 3D space. They are declared using commas to specify the dimensions within square brackets.
+
+Rectangular Arrays: These are arrays where each row has the same number of columns.
+
+Example:
+int[,] matrix = new int[3, 3]; // 3x3 matrix
+
+Accessing Elements:
+You access elements using indices for each dimension separated by commas.
+
+Example:
+int[,] matrix = new int[3, 3]; // 3x3 matrix
+matrix[0, 0] = 1;
+
+Iterating Through Multi-Dimensional Arrays:
+You typically use nested loops to iterate through the elements.
+
+Example:
+
+int[,] matrix = new int[3, 3]; // 3x3 matrix
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        matrix[i, j] = i * 3 + j;
+    }
+}
+-------------------------------------------------------
+Jagged Arrays:
+
+Jagged arrays are arrays of arrays, where each element of the outer array can be an array of different lengths. This flexibility allows for irregularly shaped data structures.
+
+Declaration and Initialization:
+Jagged arrays are declared similar to regular arrays but with multiple sets of square brackets.
+
+Example:
+
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5 };
+jaggedArray[2] = new int[] { 6, 7, 8 };
+
+Accessing Elements:
+Accessing elements involves two levels of indexing: one for the outer array and another for the inner array.
+
+Example:
+
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+int element = jaggedArray[0][1]; // Accessing the second element of the first inner array
+
+Iterating Through Jagged Arrays:
+You use nested loops to iterate through each element of the outer and inner arrays.
+
+Example:
+
+int[][] jaggedArray = new int[3][];
+for (int i = 0; i < jaggedArray.Length; i++) {
+    for (int j = 0; j < jaggedArray[i].Length; j++) {
+        Console.WriteLine(jaggedArray[i][j]);
+    }
+}
+Jagged arrays are especially useful when dealing with data structures where the size of the inner arrays may vary, such as in representing matrices with varying row lengths or representing sparse data.
+-------------------------------------------
+
+Param Arrays
+
+In C#, the params keyword allows you to specify a method parameter that takes a variable number of arguments of a specified type. This feature is useful when you want to create methods that can accept a variable number of arguments without having to explicitly define an array parameter. 
+
+Here's how you use params arrays:
+
+Syntax:
+You declare a parameter as a params array by prefixing the parameter type with the params keyword.
+
+returnType MethodName(params type[] parameterName)
+{
+    // Method body
+}
+
+returnType is the type of value the method returns.
+MethodName is the name of the method.
+type is the type of elements in the params array.
+parameterName is the name of the parameter.
+
+
+Usage:
+You can pass any number of arguments of the specified type when calling the method, and they will be treated as elements of an array inside the method.
+
+void PrintNumbers(params int[] numbers)
+{
+    foreach (int num in numbers)
+    {
+        Console.WriteLine(num);
+    }
+}
+
+You can call the method with any number of integer arguments:
+
+PrintNumbers(1, 2, 3); // Output: 1, 2, 3
+PrintNumbers(10, 20, 30, 40, 50); // Output: 10, 20, 30, 40, 50
+
+
+Rules and Considerations:
+
+The params parameter must be the last parameter in the method signature.
+You can have only one params parameter in a method signature.
+You can still call the method with an explicit array parameter if needed.
+If you don't pass any arguments, the params array will be an empty array.
+
+
+void Example(params string[] values)
+{
+    if (values.Length == 0)
+    {
+        Console.WriteLine("No values provided.");
+    }
+    else
+    {
+        foreach (string value in values)
+        {
+            Console.WriteLine(value);
+        }
+    }
+}
+
+Example(); // Output: No values provided.
+
+Example("a", "b", "c"); // Output: a, b, c
+
+The params keyword provides flexibility and convenience when working with methods that need to accept a variable number of arguments of the same type. It's commonly used in scenarios where the number of arguments passed to a method can vary, such as formatting methods or methods that perform operations on collections.
+
+
+---------------------
+Collections
+
+In C#, collections are objects that can hold and manipulate groups of related objects. Collections provide various data structures and algorithms to store, retrieve, and manipulate data efficiently. The .NET Framework provides several built-in collection classes in the System.Collections and System.Collections.Generic namespaces. Here's an overview of some commonly used collections in C#:
+
+Arrays:
+Arrays are the most basic form of collection in C#. 
+They can hold a fixed number of elements of the same type.
+Arrays offer constant-time access to elements by index but are not resizable.
+
+List<T>:
+List<T> is a dynamic array implementation introduced in .NET Framework 2.0. 
+It allows you to store elements of a specified type and automatically resizes itself as needed.
+List<T> provides methods for adding, removing, and accessing elements efficiently.
+It offers better performance and type safety compared to ArrayList.
+
+Dictionary<TKey, TValue>:
+Dictionary<TKey, TValue> is a generic collection that stores key-value pairs.
+It provides fast lookup operations based on the key.
+Keys must be unique within the dictionary, but values can be duplicated.
+
+HashSet<T>:
+HashSet<T> is a collection that stores unique elements.
+It provides constant-time operations for adding, removing, and checking for the presence of elements.
+HashSet<T> ensures that no duplicate elements are stored.
+
+Queue<T>:
+Queue<T> represents a first-in, first-out (FIFO) collection of objects.
+Elements are added to the end of the queue and removed from the beginning.
+It is commonly used for implementing algorithms like breadth-first search.
+
+Stack<T>:
+Stack<T> represents a last-in, first-out (LIFO) collection of objects.
+Elements are added and removed from the top of the stack.
+It is useful for implementing algorithms like depth-first search and expression evaluation.
+
+LinkedList<T>:
+LinkedList<T> is a doubly linked list implementation that allows efficient insertion and removal of elements at any position.
+It provides constant-time insertion and removal operations but slower access to elements by index compared to List<T>.
+
+SortedSet<T> and SortedList<TKey, TValue>:
+SortedSet<T> and SortedList<TKey, TValue> are collections that maintain their elements in sorted order.
+SortedSet<T> stores unique elements, whereas SortedList<TKey, TValue> stores key-value pairs with unique keys.
+These are just a few examples of collections available in C#. Depending on your requirements, you can choose the appropriate collection type to efficiently store and manipulate data in your applications.
+
+------------------------------------------------------
+ArrayList
+
+In C#, the ArrayList is a non-generic collection of objects whose size increases dynamically. It is the same as Array except that its size increases dynamically.
+
+An ArrayList can be used to add unknown data where we don't know the types and the size of the data.
+
+In C#, the ArrayList class is one of the collections provided by the .NET Framework's System.Collections namespace. It represents a dynamic array that can grow or shrink in size as needed. While ArrayList provides flexibility, it comes with some performance overhead compared to more specialized collections introduced in later versions of .NET.
+
+Here's how we can work with ArrayList:
+
+Importing the Namespace:
+To use ArrayList, you need to include the System.Collections namespace in your code.
+
+using System.Collections;
+
+Creating an ArrayList:
+You can create an ArrayList object and add elements to it using the Add method.
+
+ArrayList arrayList = new ArrayList();
+arrayList.Add("Hello");
+arrayList.Add(123);
+arrayList.Add(3.14);
+
+Accessing Elements:
+You can access elements in an ArrayList using the indexer or the foreach loop.
+
+Console.WriteLine(arrayList[0]); // Output: Hello
+
+foreach (var item in arrayList)
+{
+    Console.WriteLine(item);
+}
+
+Removing Elements:
+You can remove elements using the Remove method.
+
+arrayList.Remove("Hello");
+
+Count and Capacity:
+ArrayList has a Count property that indicates the number of elements it currently holds. It also has a Capacity property that indicates the total number of elements it can hold before resizing is required.
+
+Console.WriteLine(arrayList.Count); // Output: 2
+
+Type Safety:
+Since ArrayList stores elements of type object, it doesn't provide compile-time type safety. You need to ensure that you cast elements appropriately when retrieving them.
+
+Performance Considerations:
+Because ArrayList stores elements of type object, boxing and unboxing operations occur when storing value types, which can impact performance. Additionally, resizing operations can be costly if the collection needs to be resized frequently.
+
+Alternatives:
+If you require type safety and better performance, consider using the generic collections introduced in .NET Framework 2.0, such as List<T>, which provides a strongly-typed alternative to ArrayList.
+
+using System.Collections.Generic;
+
+List<int> list = new List<int>();
+list.Add(123);
+
+While ArrayList can be useful in scenarios where you need a dynamic collection of objects and don't require type safety, it's generally recommended to use generic collections for better performance and type safety.
+
+---------------------------------------------------------------------
+
+
+Hashtable
+A Hashtable is a collection of key/value pairs that are arranged based on the hash code of the key.
+
+Hashtable is a collection class that stores key/value pairs in a hash table data structure.
+It allows fast retrieval of values based on their associated keys.
+Keys must be unique within the Hashtable, but values can be duplicated.
+Hashtable provides a mechanism for accessing elements in near-constant time complexity.
+However, it does not preserve the order of elements.
+
+Example:
+
+Hashtable hashtable = new Hashtable();
+hashtable.Add("key1", "value1");
+hashtable.Add("key2", "value2");
+
+Console.WriteLine(hashtable["key1"]); // Output: value1
+
+SortedList:
+
+SortedList is a collection class that maintains a sorted collection of key/value pairs.
+It automatically sorts the elements based on the keys.
+Each key must be unique within the SortedList.
+SortedList allows fast retrieval of values based on their associated keys and also supports searching by key.
+Modifications such as insertion and deletion have a logarithmic time complexity due to maintaining the sorted order.
+
+Example:
+
+SortedList sortedList = new SortedList();
+sortedList.Add("key2", "value2");
+sortedList.Add("key1", "value1");
+
+Console.WriteLine(sortedList["key1"]); // Output: value1
+
+
+Both Hashtable and SortedList are useful when you need to associate keys with values and require fast lookup based on keys. However, consider using Dictionary<TKey, TValue> instead of Hashtable for new development, as Dictionary<TKey, TValue> provides type safety and better performance. Similarly, SortedDictionary<TKey, TValue> or SortedSet<T> can be used as alternatives to SortedList depending on the requirements.
+
+--------------------------------
+
+
+In C#, Stack and Queue are fundamental collection classes provided by the .NET Framework's System.Collections namespace. They represent specialized data structures for storing and manipulating collections of objects in a Last-In-First-Out (LIFO) and First-In-First-Out (FIFO) manner, respectively. 
+
+overview of stack and Queue:
+
+Stack
+
+Stack represents a Last-In-First-Out (LIFO) collection of objects.
+Elements are added to and removed from the top of the stack.
+Common operations include Push to add an item to the top of the stack, Pop to remove and return the top item, and Peek to view the top item without removing it.
+It is commonly used in applications such as expression evaluation, backtracking algorithms, and managing function calls.
+
+Stack<int> stack = new Stack<int>();
+stack.Push(1);
+stack.Push(2);
+stack.Push(3);
+
+int topItem = stack.Pop(); // Removes and returns 3
+int peekedItem = stack.Peek(); // Returns 2 (does not remove it)
+
+
+Queue
+
+Queue represents a First-In-First-Out (FIFO) collection of objects.
+Elements are added to the end of the queue and removed from the beginning.
+Common operations include Enqueue to add an item to the end of the queue, Dequeue to remove and return the first item, and Peek to view the first item without removing it.
+It is commonly used in applications such as task scheduling, breadth-first search algorithms, and message passing systems.
+
+Example:
+
+Queue<string> queue = new Queue<string>();
+queue.Enqueue("First");
+queue.Enqueue("Second");
+queue.Enqueue("Third");
+
+string firstItem = queue.Dequeue(); // Removes and returns "First"
+string peekedItem = queue.Peek(); // Returns "Second" (does not remove it)
+
+Both Stack and Queue provide efficient operations for adding, removing, and inspecting elements, making them suitable for scenarios where you need to manage a collection of objects in a specific order. It's important to choose the appropriate data structure based on the requirements of your application.
+
+
+-----------------------------------
+
+BitArray
+
+
+In C#, BitArray is a class provided by the .NET Framework that represents a collection of boolean values as a compact array of bits. It provides efficient storage and manipulation of bits, allowing you to perform bitwise operations on individual bits or entire arrays of bits. 
+
+overview of BitArray:
+
+Declaration and Initialization:
+
+You can create a BitArray by specifying its length (number of bits) or by providing an array of bytes or integers.
+
+// Create a BitArray with length 10 (all bits initialized to false)
+BitArray bitArray1 = new BitArray(10);
+
+// Create a BitArray from an array of bytes
+byte[] bytes = { 0xAA, 0x55 }; // 10101010, 01010101
+BitArray bitArray2 = new BitArray(bytes);
+
+// Create a BitArray from an array of integers
+int[] integers = { 10, 20, 30 }; // 1010, 10100, 11110
+BitArray bitArray3 = new BitArray(integers);
+Accessing and Manipulating Bits:
+
+You can access and manipulate individual bits using the indexer.
+
+BitArray bitArray = new BitArray(8); // 00000000
+bitArray[2] = true; // Set the third bit to true
+bitArray.Set(4, true); // Set the fifth bit to true
+Bitwise Operations:
+
+BitArray provides methods to perform bitwise operations such as AND, OR, XOR, and NOT.
+
+BitArray bitArray1 = new BitArray(4); // 0000
+BitArray bitArray2 = new BitArray(4); // 0000
+bitArray1.Set(1, true); // 0010
+bitArray2.Set(2, true); // 0100
+
+bitArray1.And(bitArray2); // Performs bitwise AND operation
+Enumeration:
+
+You can enumerate over the bits in a BitArray using the GetEnumerator method or by using a foreach loop.
+
+BitArray bitArray = new BitArray(8); // 00000000
+foreach (bool bit in bitArray)
+{
+    Console.Write(bit ? "1" : "0"); // Output: 00000000
+}
+
+Conversion to Other Types:
+You can convert a BitArray to an array of bytes or integers.
+
+byte[] bytes = new byte[bitArray.Length / 8];
+bitArray.CopyTo(bytes, 0);
+
+int[] integers = new int[bitArray.Length / 32];
+bitArray.CopyTo(integers, 0);
+
+BitArray is useful in scenarios where you need to efficiently manipulate individual bits or perform bitwise operations on large sets of boolean values. It provides a compact and efficient representation for working with bits in C#.
+
+
+
+
+
+
+

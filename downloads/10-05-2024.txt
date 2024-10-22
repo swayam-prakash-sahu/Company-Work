@@ -1,0 +1,154 @@
+travel.component.ts
+
+import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+selector: 'app-travel',
+standalone: true,
+imports: [HttpClientModule , FormsModule , CommonModule],
+templateUrl: './travel.component.html',
+styleUrl: './travel.component.css'
+})
+export class TravelComponent implements OnInit {
+blogs: any[] = [];
+
+constructor(private http: HttpClient) { }
+
+ngOnInit(): void {
+// Fetch blogs by category
+this.http.get<any[]>('https://localhost:7202/api/Blogs/Category/travel')
+.subscribe(blogs => {
+blogs.forEach(blog => {
+blog.imageUrl = 'https://source.unsplash.com/featured/?nature,landscape&w=100&h=100';
+});
+this.blogs = blogs;
+});
+}
+}
+
+travel.component.html
+
+<h2>Travel Blogs</h2>
+
+<div class="blog-container" *ngFor="let blog of blogs">
+<div class="blog-card">
+<div class="image">
+<img [src]="blog.imageUrl" alt="{{ blog.title }}" />
+</div>
+<div class="details">
+<h3>{{ blog.title }}</h3>
+<p>Category: {{ blog.categories }}</p>
+<p>{{ blog.description }}</p>
+
+</div>
+</div>
+</div>
+
+=============================
+
+
+
+
+now make the title of the blogs as hyperlink, when user click the blog title it should redirect the user to the blog data component
+
+design the blog data component such that title should be in the middle of the page and below that category and description
+
+make a button to edit the title and description , and save the changes on the blog data component
+
+make a button to delete the blog on the blog data component
+
+
+
+
+================
+
+
+import { Component } from '@angular/core';
+import { RouterLink,Router } from '@angular/router';
+import { BlogCardComponent } from '../blog-card/blog-card.component';
+
+import { ArtComponent } from '../categories/art/art.component';
+import { LifestyleComponent } from '../categories/lifestyle/lifestyle.component';
+import { ScienceComponent } from '../categories/science/science.component';
+import { TravelComponent } from '../categories/travel/travel.component';
+import { RouterModule } from '@angular/router';
+import { AddNewBlogComponent } from '../add-new-blog/add-new-blog.component';
+
+
+
+@Component({
+selector: 'app-main',
+standalone: true,
+imports: [RouterLink,BlogCardComponent,ArtComponent,LifestyleComponent,ScienceComponent,TravelComponent , RouterModule , AddNewBlogComponent],
+templateUrl: './main.component.html',
+styleUrl: './main.component.css'
+})
+export class MainComponent {
+constructor(private router: Router){}
+
+redirectToNewBlog() {
+this.router.navigateByUrl('/add-new-blog');
+}
+
+logout() {
+this.router.navigateByUrl('/login');
+}
+
+}
+
+
+<div>
+<h3>Featured Blogs</h3>
+</div>
+
+<!-- Featured blog cards -->
+<div class="featured-blogs">
+<!-- Card 1 -->
+<div class="blog-card">
+<div class="image">
+<!-- <img src="../../assets/blog1.jpg" alt="Blog 1" /> -->
+<img src="https://source.unsplash.com/featured/?nature,landscape&w=100&h=100" alt="Blog 1" />
+</div>
+<div class="details">
+<h4>Title 1</h4>
+<p>Description 1 (maximum 20 words)</p>
+<p>Category: Science</p>
+<a href="#" class="read-more">Read More</a>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="blog-card">
+<div class="image">
+<img src="https://source.unsplash.com/featured/?nature,landscape&w=100&h=100" alt="Blog 2" />
+</div>
+<div class="details">
+<h4>Title 2</h4>
+<p>Description 2 (maximum 20 words)</p>
+<p>Category: Travel</p>
+<a href="#" class="read-more">Read More</a>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="blog-card">
+<div class="image">
+<img src="https://source.unsplash.com/featured/?nature,landscape&w=100&h=100" alt="Blog 3" />
+
+</div>
+<div class="details">
+<h4>Title 3</h4>
+<p>Description 3 (maximum 20 words)</p>
+<p>Category: Art</p>
+<a href="#" class="read-more">Read More</a>
+</div>
+</div>
+</div>
+
+
+make the featured blogs such that it shows the title, category and description of one random blog of travel, art and science
+
+make the size of the blog card fixed, it should not change with image size

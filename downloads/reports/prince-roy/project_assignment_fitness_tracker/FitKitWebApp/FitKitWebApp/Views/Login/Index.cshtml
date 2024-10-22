@@ -1,0 +1,25 @@
+﻿@model FitKitWebApp.Models.UserCredential;
+
+@section Styles {
+    <link href="~/Content/Login.styles.css" type="text/css" rel="stylesheet" />
+}
+
+
+<div class="login-page-container">
+    <form class="form-container" asp-action="Index" method="post">
+        <div class="input-container">
+            <label asp-for="UserName" class="label"></label>
+            <input asp-for="UserName" class="input-tag" placeholder="Enter your User Name here" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+
+        <div class="input-container">
+            <label asp-for="Password" class="label"></label>
+            <input asp-for="Password" type="password" class="input-tag" placeholder="Enter your Password here" />
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <input type="submit" class="login-btn" value="Login" />
+    </form>
+</div>
+

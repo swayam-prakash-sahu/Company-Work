@@ -1,0 +1,77 @@
+h2 {
+    color : red;
+    transition: 5s step-start;
+}
+h2:hover {
+    color: greenyellow;
+    font-size: 40px;
+}
+h2::first-letter {
+    color: black;
+    font-size: 48px;
+}
+h2::before{
+    content : '~';
+}
+h2::after{
+    content : '*';
+}
+
+/* */
+.html{
+    z-index : 2;
+    width: 100px;
+    height: 20px;
+    position: relative;
+    color: gold;
+}
+.css{
+    width: 100px;
+    height: 20px;
+    position: relative;
+    z-index: 3;
+    color: blue;
+}
+.js{
+    width: 100px;
+    height: 20px;
+    position: relative;
+    z-index: 1;
+    color: brown;
+}
+.ts{
+    width: 100px;
+    height: 20px;
+    position: relative;
+    z-index: 4;
+    color: darkcyan;
+}
+.flex{
+    display: flexbox;
+}
+.flex div {
+    display: flex;
+    flex-direction: row;
+
+}
+.flex div{
+    width: 100px;
+    padding: 10px;    
+
+}
+
+/* media queries */
+@media screen and (max-width: 425px){
+    .flex{
+        color: rgb(174, 0, 255);
+        font-size: 12px;
+
+    }     
+}
+
+@media screen and(min-width: 425px) and (max-width: 768px){
+    .flex{
+        color: red;
+
+    }
+}

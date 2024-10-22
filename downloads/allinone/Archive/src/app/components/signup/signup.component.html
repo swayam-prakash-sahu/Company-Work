@@ -1,0 +1,41 @@
+<div class="card bg-dark text-white" style="border-radius: 1rem;">
+    <div class="card-body p-5 text-center">
+        <div class="md-5 mt-md-4 pb-3">
+            <h2 class="fw-bold mb-2 text-uppercase">Sign Up</h2>
+            <form #signupForm="ngForm" (ngSubmit)="createUser()">
+                <div data-mdb-input-init class="form-outline form-white mb-2">
+                    <input type="email" id="typeEmailX" class="form-control form-control-lg" required
+                        [(ngModel)]="email" name="email" #emailInput="ngModel" />
+                    <label class="form-label" for="typeEmailX">Email</label>
+                    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="text-danger">
+                    </div>
+                    Email is required
+                </div>
+
+                <div data-mdb-input-init class="form-outline form-white mb-2">
+                    <input type="text" id="typeUserName" class="form-control form-control-lg" required
+                        [(ngModel)]="username" name="username" #usernameInput="ngModel" />
+                    <label class="form-label" for="typeUserName">UserName</label>
+                    <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)"
+                        class="text-danger">
+                        Username is required</div>
+                </div>
+                <div data-mdb-input-init class="form-outline form-white mb-2">
+                    <input type="password" id="typePasswordX" class="form-control form-control-lg" required
+                        [(ngModel)]="password" name="password" #passwordInput="ngModel" />
+                    <label class="form-label" for="typePasswordX">Password</label>
+                    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)"
+                        class="text-danger">
+                        Password is required</div>
+                </div>
+
+                <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5"
+                    type="submit" [disabled]="signupForm.invalid">SignUp</button>
+            </form>
+
+            <div>
+                <p class="m-2">Don't have an account? <a href="" class="text-white-50 fw-bold">SignIn</a></p>
+            </div>
+        </div>
+    </div>
+</div>

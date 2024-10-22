@@ -1,0 +1,100 @@
+﻿@model EmployeeDirectoryWebApplication.Models.EmployeeProfile
+
+@{
+    // Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .profile-pic {
+            max-width: 150px;
+            border-radius: 50%;
+        }
+
+        .details dl {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .details dt {
+            font-weight: bold;
+        }
+
+        .details dd {
+            margin-left: 0;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="details">
+            <h4>Employee Profile</h4>
+            <hr />
+            <dl>
+                <dt>Employee Name:</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeName)</dd>
+
+                <dt>Manager ID:</dt>
+                <dd>@Html.DisplayFor(model => model.ManagerId)</dd>
+
+                <dt>Profile Picture:</dt>
+                <dd><img src="@Model.EmployeeProfilePic" class="profile-pic" alt="Profile Picture"></dd>
+
+                <dt>Employment Status:</dt>
+                <dd>@Html.DisplayFor(model => model.EmploymentStatus)</dd>
+
+                <dt>Created Date:</dt>
+                <dd>@Html.DisplayFor(model => model.CreatedDate)</dd>
+
+                <dt>Created By:</dt>
+                <dd>@Html.DisplayFor(model => model.CreatedBy)</dd>
+
+                <dt>Updated Date:</dt>
+                <dd>@Html.DisplayFor(model => model.UpdatedDate)</dd>
+
+                <dt>Updated By:</dt>
+                <dd>@Html.DisplayFor(model => model.UpdatedBy)</dd>
+
+                <dt>Department:</dt>
+                <dd>@Html.DisplayFor(model => model.Dept.DeptId)</dd>
+
+                <dt>Designation:</dt>
+                <dd>@Html.DisplayFor(model => model.Designation.DesignationId)</dd>
+            </dl>
+        </div>
+    
+        <div class="actions">
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.EmployeeId">Edit</a>
+            }
+            <a class="btn btn-primary"  asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+database, why we use sql, 
+
+keys- primary, foreign, candidate, composite, alternate
+
+default constraint - provides a default value to a column when insert into statement does not provide a value
+
+unique key - only one null value, more than unique is allowed
+
+index -  used to create and retrieve data very quickly
+
+clustered index - table scan is minimal
+
+non-clustered index -  key-value pairs
+
+seek, scan
+
+create INDEX index_name ON table_name (col1,col2,...)
+
+IN 
+
+views, stored procedures
+
+
+https://navendu.me/posts/open-source-internship-programs/
+
+https://docs.linuxfoundation.org/lfx/mentorship/mentorship-program-timelines
+
+
+https://medium.com/the-research-nest/a-micro-chat-on-exploring-careers-through-open-source-d71130867f66
+
+https://github.com/cncf/mentoring
+
+https://github.com/CIPHERTron/website
+
+https://github.com/tinniaru3005
+
+https://www.hyperledger.org/blog/hyperledger-mentorship-spotlight-hyperledger-onboarding-mentor/mentee-program
+
+https://github.com/AkankshaAI
+
+https://drive.google.com/drive/folders/1NbYpRaP9i80Ls-ml1HJW9qowIE2V1t0c
+ 
+
+ https://github.com/codebasics/py
+
+======================================
+
+https://www.researchgate.net/publication/349477129_House_Price_Prediction
+
+https://prezi.com/p/uvlj6jucqmpb/house-price-prediction/
+
+https://github.com/codebasics/py/tree/master/DataScience
+
+https://github.com/codebasics/py/tree/master/DataScience/BangloreHomePrices
+
+===================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

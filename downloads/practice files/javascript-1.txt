@@ -1,0 +1,235 @@
+
+GET Evaluation Week 2
+
+Basics of JavaScript
+
+1.What is the purpose of the console.log() statement in JavaScript?
+It allows developers to output messages or values to the browser console. The console.log() function is a versatile tool that facilitates the debugging process. The log() method is useful for testing purposes.
+
+2.What is the difference between undefined and null in JavaScript?
+undefined and null are both values that represent the absence of a meaningful value, but they are used in slightly different contexts:
+
+1. undefined: It is a primitive value automatically assigned to variables that have been declared but have not been assigned a value. It also represents the return value of a function that doesn't explicitly return anything. It indicates the absence of a value where one was expected.
+
+2. null: It is also a primitive value, but it represents an intentional absence of any value or an empty value. It's generally explicitly assigned to variables or properties to indicate that there is no meaningful value present.
+
+undefined typically arises when a variable has not been assigned a value, while null is explicitly used to signify the absence of a value.
+JavaScript Engine
+
+3.Which major JavaScript engine is used by Google Chrome?
+Google Chrome uses the V8 JavaScript engine, which is developed by Google and is also open-source. V8 is known for its high performance.
+
+4.What is JIT compilation in the context of a JavaScript engine?
+Just-In-Time (JIT) compilation in the context of a JavaScript engine refers to a technique where JavaScript code is not interpreted directly but instead compiled into native machine code just before execution. This native code can then be executed directly by the CPU, which typically results in much faster execution compared to interpreting the JavaScript source code line by line.
+
+It allows the JavaScript engine to optimize code dynamically based on runtime information, such as variable types and execution paths, leading to significant performance improvements over time.
+
+Event Loops, Callback Queue
+
+5.What is the purpose of the event loop in JavaScript?
+It runs indefinitely and connects the call stack.
+
+The event loop in JavaScript is a crucial mechanism that allows the language to handle asynchronous operations efficiently. Its main purpose is to manage the execution of code in a non-blocking manner, ensuring that tasks such as I/O operations, timers, and event callbacks are handled asynchronously without blocking the main execution thread.
+
+By managing asynchronous tasks, the event loop ensures that JavaScript remains responsive making it suitable for building interactive web applications and handling concurrent tasks without blocking the main thread.
+
+6.Explain the concept of the callback queue.
+The callback queue, is a fundamental component of the event-driven architecture in JavaScript. It is responsible for storing asynchronous callback functions that are ready to be executed.
+
+The callback queue ensures that asynchronous operations are handled asynchronously without blocking the main execution thread. It allows JavaScript to remain responsive and handle concurrent tasks effectively, making it suitable for building interactive web applications and handling I/O-bound operations.
+Execution Context
+
+7.What is the global execution context in JavaScript?
+The global execution context is the default Execution Context where all JavaScript code that is not inside of a function gets executed. For every JavaScript file, there can only be one global execution context.
+
+8.How does the call stack manage multiple execution contexts?
+Multiple execution contexts are managed in a stack structure called the JavaScript call stack. JavaScript engine repeats the two-step process, compiling and execution, to add and remove execution contexts. New execution contexts are added to the top, and the top one has the priority to complete first.
+DOM API
+
+9.How can you change the text content of an HTML element using the DOM?
+We can change the text content of an HTML element using the DOM (Document Object Model) by selecting the element using methods like getElementById, getElementsByClassName or querySelector, and then updating its textContent property. 
+
+example:
+var paragraph = document.getElementById("myParagraph");
+paragraph.textContent = "New text";
+This code selects the paragraph element with the ID "myParagraph" and changes its text content to "New text".
+
+10.What is the purpose of the getElementById method in the DOM?
+
+The getElementById method in the DOM is used to select and retrieve an HTML element from the document by its unique ID attribute. This method is efficient for targeting specific elements, as IDs are supposed to be unique within a document, meaning it will return at most one element.
+Hoisting
+
+11.What is hoisting in JavaScript?
+Hoisting in javascript is a mechanism where variables and function declarations are added to memory inside a javascript data structure called lexical environment. Lexical environment holds data in identifier-variable mapping.
+12.Does hoisting apply to variables declared with let and const?
+let and const declarations are not hoisted and they remain uninitialized.
+
+Closures
+
+13.What is a closure in JavaScript?
+A closure is the combination of a function and the lexical environment (scope) within which that function was declared. Closure is a feature that allows inner functions to access the outer scope of a function. 
+
+14.How does a closure help with encapsulation in JavaScript?
+Closures help with encapsulation by allowing inner functions to access variables from their outer function even after the outer function has finished executing. This enables you to create private variables and functions within a scope, effectively encapsulating them from the global scope and other parts of the program.
+
+var, let, and const
+
+15.What is the key difference between var, let, and const in JavaScript for variable declaration?
+
+1. var is function-scoped while let and const are block-scoped.
+2. var variables can be reassigned while let and const variables can not.
+3. var and let variables can be updated while const variables can not.
+4. var variables are hoisted to the top of their scope while let and const variables are not initialized and cannot be accessed before they are declared.
+
+16.Can you reassign a value to a variable declared with const?
+
+variable declared with const, can't be reassigned a new value at all.
+
+Call by Value & Call by Reference
+
+17.Is JavaScript call by value or call by reference?
+
+Its neither purely call by value nor call by reference. Primitive types (like numbers, strings) are passed by value. Objects(like arrays and functions) are passed by reference.
+
+18.Explain the concept of "passing by reference" with an example.
+Function is called by directly passing the address of the variable as an argument. So changing the value inside the function also change the original value. In JavaScript array and Object follows pass by reference property. example: let obj1 = {   firstName: 'All',   lastName: 'Good' };   let obj2 = obj1;   obj2.firstName = 'Ram';   console.log(obj1.firstName); console.log(obj2.firstName);
+JavaScript Events
+
+19.How can you attach an event handler to an HTML element using JavaScript?
+To add an event handler to an event of an element, we use the addEventListener() method.
+syntax: element.addEventListener(type,eventListener);
+
+20.What is the purpose of the event.preventDefault() method in JavaScript?
+event.preventDefault() method in JavaScript is used within event handlers to prevent the default behavior associated with an event from taking place.
+Callbacks
+
+21.What is a callback function in JavaScript?
+A callback is a function that is passed as an argument to another function, and is called after the main function has finished its execution.
+Callbacks are used to handle the results of asynchronous operations in a non-blocking manner. 
+
+22.How does the use of callbacks contribute to asynchronous programming in JavaScript?
+Callbacks play a crucial role in handling asynchronous tasks, such as making API requests, reading files, and interacting with databases. Without callbacks, JavaScript code would execute sequentially, causing delays and unresponsive user experiences in applications that require data fetching and processing.
+Developer Tools
+
+23.How can you open the Developer Tools in most web browsers?
+To open the Browser Developer Tools. To access the DOM or CSS of the webpage, right-click the desired element on the page and select Inspect. 
+
+24.What is the purpose of the "Console" tab in Developer Tools?
+
+The console is used for debugging JavaScript present in the source code of the webpage. The console window act as our debug window that allows us to handle JavaScript that isn’t working as expected. It allows you to either run a code block or single lines of JavaScript against the page which is currently loaded in the browser. 
+
+Objects
+
+25.How do you access the value of a property in a JavaScript object?
+The syntax for accessing the property of an object is:
+
+1. objectName.property   
+
+2. objectName["property"]  
+
+3. objectName[expression] 
+
+26.What is the difference between an object method and a regular function in JavaScript?
+A function is a piece of code that is called by name. It can be passed data to operate on (i.e. the parameters) and can optionally return data (the return value). All data that is passed to a function is explicitly passed. 
+A object method is a piece of code that is called by a name that is associated with an object. A object method is implicitly passed the object on which it was called.
+
+Arrays, Array Methods
+
+27.How do you add an element to the end of an array in JavaScript?
+To add an element to the end of an array in JavaScript?
+
+1. Using push() Method
+2. Using concat() Method
+3. Using the length property
+
+28.What is the purpose of the map() method in JavaScript arrays?
+map() creates a new array from calling a function for every array element. It does not execute the function for empty elements. It does not change the original array.
+Array of Objects
+
+29.How can you access a specific property of an object in an array of objects?
+The ways to access an array of objects in JavaScript:
+
+Using Array.filter()
+Using Array.map()
+Using [ ] notation
+Using DOT notation
+Using for..in loop
+
+30.What is a common use case for an array of objects in web development?
+Add Element to Array
+Remove an Element From Start and End of Array
+Insert Element at Index in Array
+Replace an Element at Index in Array
+Remove an Element at Index in Array
+Maps, Filters
+
+31.How does the map() method differ from the filter() method in JavaScript arrays?
+map() method in JavaScript is used to create a new array by applying a given function to each element of the original array.
+
+filter() method in JavaScript is used to create a new array that includes only the elements from an existing array that pass a specified condition.
+
+32.What does the find() method return in JavaScript arrays?
+
+The find() method in JavaScript is a handy tool for searching through an array and retrieving the first element that satisfies a specified condition.
+The find() method returns undefined if no elements are found.
+The find() method does not change the original array.
+
+For and Foreach Statements
+
+33.What is the difference between a for loop and a forEach loop in JavaScript?
+The JavaScript for loop is used to iterate through the array or the elements for a specified number of times. Break statement can be used to come out from the loop.
+
+
+The forEach() method is also used to loop through arrays, but it uses a function differently than the  for loop. It passes a callback function for each element of an array. Break statement cannot be used because of the callback function.
+34.How do you break out of a for loop in JavaScript?
+In JavaScript, The break statement is used to jump out of a loop.
+AJAX, Callbacks
+
+35.What does AJAX stand for, and what is its role in web development?
+
+AJAX stands for Asynchronous JavaScript And XML.
+ROLE:
+1. Read data from a web server - after a web page has loaded
+2. Update a web page without reloading the page
+3. Send data to a web server - in the background
+
+36.Why are callbacks commonly used in AJAX requests?
+
+Callbacks are commonly used in AJAX (Asynchronous JavaScript and XML) because AJAX requests are asynchronous operations. When you make an AJAX request, the browser sends the request to the server and continues executing the rest of the code without waiting for the response. 
+
+Async & Await
+
+37.What is the purpose of the async keyword in a JavaScript function?
+Async allows us to write promises-based code as if it was synchronous and it checks that we are not breaking the execution thread.
+
+Async functions will always return a value. It makes sure that a promise is returned and if it is not returned then JavaScript automatically wraps it in a promise which is resolved with its value.
+
+38.How does the await keyword work in JavaScript asynchronous functions?
+
+Await function is used to wait for the promise. It could be used within the async block only.
+It makes the code wait until the promise returns a result.
+
+Promises
+
+39.What is the purpose of a JavaScript Promise?
+
+Promises are used to handle asynchronous operations in JavaScript.
+
+40.How do you handle multiple promises concurrently in JavaScript?
+
+To handle multiple promises concurrently in JavaScript?
+
+Using Promise.all()
+Using Promise.allSettled()
+Using for-of-loop along with the async-await
+
+BOM (Browser Object Model)
+
+41.What is the primary role of the Browser Object Model (BOM) in web development?
+Browser Object Model (BOM) is a programming interface JavaScript tool for working with web browsers. This enables access & manipulation of the browser window and other browser-related objects by facilitating the JavaScript code. The BOM provides with objects that gives the web browser’s functionality.
+
+42. How can you open a new browser window using JavaScript and the BOM?
+
+The open() method opens a new browser window, or a new tab, depending on your browser settings and the parameter values.
+syntax:
+window.open(URL, name, specs, replace)

@@ -1,0 +1,831 @@
+Create Methods in C# Console Applications
+
+Write your first C# method
+
+How methods work
+
+The process of developing a method begins with creating a method signature. The method signature declares the method's return type, name, and input parameters. 
+e.g.
+void SayHello();
+
+Methods can accept multiple parameters of any data type.
+
+Before you can run a method, you need to add a definition. The method definition uses brackets {} to contain the code that executes when the method is called. 
+e.g.
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+
+Calling a method
+
+A method is called by using its name and including any required arguments.
+
+A method can be called before or after its definition. 
+
+SayHello();
+
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+
+int[] a = {1,2,3,4,5};
+
+Console.WriteLine("Contents of Array:");
+PrintArray();
+
+void PrintArray()
+{
+    foreach (int x in a)
+    {
+        Console.Write($"{x} ");
+    }
+    Console.WriteLine();
+}
+
+Method execution
+
+When you call a method, the code in the method body will be executed. This means execution control is passed from the method caller to the method. Control is returned to the caller after the method completes its execution.
+
+e.g.
+Console.WriteLine("Before calling a method");
+SayHello();
+Console.WriteLine("After calling a method");
+
+void SayHello() 
+{
+    Console.WriteLine("Hello World!");
+}
+
+Best practices
+
+When choosing a method name, it's important to keep the name concise and make it clear what task the method performs. Method names should be Pascal case and generally shouldn't start with digits. Names for parameters should describe what kind of information the parameter represents. 
+
+void ShowData(string a, int b, int c);
+void DisplayDate(string month, int day, int year);
+
+---------------------
+Exercise - Create your first method
+
+ In this exercise, you'll create a method that generates and displays five random numbers. 
+
+Console.WriteLine("Generating random numbers:");
+DisplayRandomNumbers();
+
+void DisplayRandomNumbers() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < 5; i++) 
+    {
+        Console.Write($"{random.Next(1, 100)} ");
+    }
+
+    Console.WriteLine();
+}
+
+-------------------------------------------------------
+
+Create reusable methods
+
+using System;
+
+int[] times = {800, 1200, 1600, 2000};
+int diff = 0;
+
+Console.WriteLine("Enter current GMT");
+int currentGMT = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Current Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    string time = val.ToString();
+    int len = time.Length;
+
+    if (len >= 3)
+    {
+        time = time.Insert(len - 2, ":");
+    }
+    else if (len == 2)
+    {
+        time = time.Insert(0, "0:");
+    }
+    else
+    {
+        time = time.Insert(0, "0:0");
+    }
+
+    Console.Write($"{time} ");
+}
+
+Console.WriteLine();
+
+Console.WriteLine("Enter new GMT");
+int newGMT = Convert.ToInt32(Console.ReadLine());
+
+if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+{
+    Console.WriteLine("Invalid GMT");
+}
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+}
+
+Console.WriteLine("New Medicine Schedule:");
+
+/* Format and display medicine times */
+foreach (int val in times)
+{
+    string time = val.ToString();
+    int len = time.Length;
+
+    if (len >= 3)
+    {
+        time = time.Insert(len - 2, ":");
+    }
+    else if (len == 2)
+    {
+        time = time.Insert(0, "0:");
+    }
+    else
+    {
+        time = time.Insert(0, "0:0");
+    }
+
+    Console.Write($"{time} ");
+}
+
+Console.WriteLine();
+
+----------------------------------------
+int[] times = {800, 1200, 1600, 2000};
+int diff = 0;
+
+Console.WriteLine("Enter current GMT");
+int currentGMT = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Current Medicine Schedule:");
+DisplayTimes();
+
+Console.WriteLine("Enter new GMT");
+int newGMT = Convert.ToInt32(Console.ReadLine());
+
+if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
+{
+    Console.WriteLine("Invalid GMT");
+}
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+    AdjustTimes();
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+    AdjustTimes();
+}
+
+Console.WriteLine("New Medicine Schedule:");
+DisplayTimes();
+
+void DisplayTimes()
+{
+    /* Format and display medicine times */
+    foreach (int val in times)
+    {
+        string time = val.ToString();
+        int len = time.Length;
+
+        if (len >= 3)
+        {
+            time = time.Insert(len - 2, ":");
+        }
+        else if (len == 2)
+        {
+            time = time.Insert(0, "0:");
+        }
+        else
+        {
+            time = time.Insert(0, "0:0");
+        }
+
+        Console.Write($"{time} ");
+    }
+    Console.WriteLine();
+}
+
+void AdjustTimes() 
+{
+    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+}
+----------------------------------------------------
+
+void ValidateRange() 
+{
+    string[] address = ipv4Input.Split(".");
+
+    foreach (string number in address) 
+    {
+        int value = int.Parse(number);
+        if (value < 0 || value > 255) 
+        {
+            validRange = false;
+            return;
+        }
+    }
+    validRange = true;
+}
+
+------------------------------
+string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
+string[] address;
+bool validLength = false;
+bool validZeroes = false;
+bool validRange = false;
+
+foreach (string ip in ipv4Input) 
+{
+    address = ip.Split(".", StringSplitOptions.RemoveEmptyEntries);
+
+    ValidateLength(); 
+    ValidateZeroes(); 
+    ValidateRange();
+
+    if (validLength && validZeroes && validRange) 
+    {
+        Console.WriteLine($"{ip} is a valid IPv4 address");
+    } 
+    else 
+    {
+        Console.WriteLine($"{ip} is an invalid IPv4 address");
+    }
+}
+
+void ValidateLength() 
+{
+    validLength = address.Length == 4;
+};
+
+void ValidateZeroes() 
+{
+    foreach (string number in address) 
+    {
+        if (number.Length > 1 && number.StartsWith("0")) 
+        {
+            validZeroes = false;
+            return;
+        }
+    }
+
+    validZeroes = true;
+}
+
+void ValidateRange() 
+{
+    foreach (string number in address) 
+    {
+        int value = int.Parse(number);
+        if (value < 0 || value > 255) 
+        {
+            validRange = false;
+            return;
+        }
+    }
+    validRange = true;
+}
+-------------------
+
+Methods can be used to quickly structure applications
+The return keyword can be used to terminate method execution
+Each step of a problem can often be translated into its own method
+Use methods to solve small problems to build up your solution
+
+------------
+
+Random random = new Random();
+int luck = random.Next(100);
+
+string[] text = {"You have much to", "Today is a day to", "Whatever work you do", "This is an ideal time to"};
+string[] good = {"look forward to.", "try new things!", "is likely to succeed.", "accomplish your dreams!"};
+string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes.", "re-evaluate your life."};
+string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
+
+Console.WriteLine("A fortune teller whispers the following words:");
+string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
+for (int i = 0; i < 4; i++) 
+{
+    Console.Write($"{text[i]} {fortune[i]} ");
+}
+
+-----------------
+Random random = new Random();
+int luck = random.Next(100);
+
+string[] text = {"You have much to", "Today is a day to", "Whatever work you do", "This is an ideal time to"};
+string[] good = {"look forward to.", "try new things!", "is likely to succeed.", "accomplish your dreams!"};
+string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes.", "re-evaluate your life."};
+string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
+
+TellFortune();
+luck = random.Next(100);
+TellFortune();
+
+void TellFortune() 
+{
+    Console.WriteLine("A fortune teller whispers the following words:");
+    string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
+    for (int i = 0; i < 4; i++) 
+    {
+        Console.Write($"{text[i]} {fortune[i]} ");
+    }
+}
+----------------------
+The return statement terminates execution of its method and returns control to the caller.
+
+Add parameters to methods
+
+Parameters in a method work similar to variables. A parameter is defined by specifying the data type followed by the name of the parameter. Parameters are declared in the method signature, and the values for the parameters are provided by the method caller instead of being initialized inside the method itself. 
+
+Information can be passed to methods in the form of parameters.
+Parameters are declared in the method signature.
+Multiple parameters are separated by commas.
+Methods can accept variable or literal arguments.
+
+------------------------
+Use value and reference type parameters
+
+In C#, variables can be categorized into two main types, value types and reference types. 
+
+Value types such as int, bool, float, double, and char directly contain values. Reference types such as string, array, and objects (such as instances of Random) don't store their values directly. Instead, reference types store an address where their value is being stored.
+---
+Parameters passed by value and passed by reference
+
+When an argument is passed to a method, value type variables have their values copied into the method. Each variable has its own copy of the value, so the original variable isn't modified.
+
+With reference types, the address of the value is passed into the method. The variable given to the method references the value at that address, so operations on that variable affect the value that is referenced by the other.
+
+---
+Test pass by value
+
+int a = 3;
+int b = 4;
+int c = 0;
+
+Multiply(a, b, c);
+Console.WriteLine($"global statement: {a} x {b} = {c}");
+
+void Multiply(int a, int b, int c) 
+{
+    c = a * b;
+    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}");
+}
+
+Test pass by reference
+
+int[] array = {1, 2, 3, 4, 5};
+
+PrintArray(array);
+Clear(array);
+PrintArray(array);
+
+void PrintArray(int[] array) 
+{
+    foreach (int a in array) 
+    {
+        Console.Write($"{a} ");
+    }
+    Console.WriteLine();
+}
+
+void Clear(int[] array) 
+{
+    for (int i = 0; i < array.Length; i++) 
+    {
+        array[i] = 0;
+    }
+}
+-------
+
+string status = "Healthy";
+
+Console.WriteLine($"Start: {status}");
+SetHealth(status, false);
+Console.WriteLine($"End: {status}");
+
+void SetHealth(string status, bool isHealthy) 
+{
+    status = (isHealthy ? "Healthy" : "Unhealthy");
+    Console.WriteLine($"Middle: {status}");
+}
+
+----------
+Recap
+
+Variables can be categorized as value types and reference types.
+Value types directly contain values, and reference types store the address of the value.
+Methods using value type arguments create their own copy of the values.
+Methods that perform changes on an array parameter affect the original input array.
+String is an immutable reference type.
+Methods that perform changes on a string parameter don't affect the original string.
+
+-------------
+Methods with optional parameters
+
+The C Sharp language allows the use of named and optional parameters. These types of parameters let you select which arguments you want to supply to the method, so you aren't restricted to the structure defined in the method signature.
+
+Named arguments allow you to specify the value for a parameter using its name rather than position. Optional parameters allow you to omit those arguments when calling the method.
+---
+Create an RSVP application
+
+string[] guestList = {"Rebecca", "Nadia", "Noor", "Jonte"};
+string[] rsvps = new string[10];
+int count = 0;
+
+void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
+{
+    if (inviteOnly)
+    {
+        // search guestList before adding rsvp
+    }
+
+    rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+    count++;
+}
+
+void ShowRSVPs()
+{
+    Console.WriteLine("\nTotal RSVPs:");
+    for (int i = 0; i < count; i++)
+    {
+        Console.WriteLine(rsvps[i]);
+    }
+}
+
+------
+Parameters are made optional by setting a default value in the method signature.
+Named arguments are specified with the parameter name, followed by a colon and the argument value.
+When combining named and positional arguments, you must use the correct order of parameters.
+
+------
+Complete the challenge to display email addresses
+
+string[,] corporate = 
+	{
+		{"Robert", "Bavin"}, {"Simon", "Bright"},
+		{"Kim", "Sinclair"}, {"Aashrita", "Kamath"},
+		{"Sarah", "Delucchi"}, {"Sinan", "Ali"}};
+
+	string[,] external = 
+	{
+		{"Vinnie", "Ashton"}, {"Cody", "Dysart"},
+		{"Shay", "Lawrence"}, {"Daren", "Valdes"}
+	};
+
+	string externalDomain = "hayworth.com";
+
+	for (int i = 0; i < corporate.GetLength(0); i++) 
+	{
+		DisplayEmail(first: corporate[i,0], last: corporate[i,1]);
+	}
+
+	for (int i = 0; i < external.GetLength(0); i++) 
+	{
+		DisplayEmail(first: external[i,0], last: external[i,1], domain: externalDomain);
+	}
+
+	void DisplayEmail(string first, string last, string domain = "contoso.com") 
+	{
+		string email = first.Substring(0, 2) + last;
+		email = email.ToLower();
+		Console.WriteLine($"{email}@{domain}");
+	}
+---------------------------
+
+Create C# Methods that Return Values
+
+double total = 0;
+double minimumSpend = 30.00;
+
+double[] items = {15.97, 3.50, 12.25, 22.99, 10.98};
+double[] discounts = {0.30, 0.00, 0.10, 0.20, 0.50};
+
+for (int i = 0; i < items.Length; i++)
+{
+    total += GetDiscountedPrice(i);
+}
+
+total -= TotalMeetsMinimum() ? 5.00 : 0.00;
+
+Console.WriteLine($"Total: ${FormatDecimal(total)}");
+
+double GetDiscountedPrice(int itemIndex)
+{
+    return items[itemIndex] * (1 - discounts[itemIndex]);
+}
+
+bool TotalMeetsMinimum()
+{
+    return total >= minimumSpend;
+}
+
+string FormatDecimal(double input)
+{
+    return input.ToString().Substring(0, 5);
+}
+
+----------
+
+Methods can return a value by specifying the return data type, or void for no return value
+The return keyword can be used with variables, literals, and expressions
+The value returned from a method must match the specified return type
+Data returned from methods can be captured and used by the caller of the method
+
+------
+reverse a word in a sentence
+
+string input = "there are snakes at the zoo";
+
+Console.WriteLine(input);
+Console.WriteLine(ReverseSentence(input));
+
+string ReverseSentence(string input) 
+{
+    string result = "";
+    string[] words = input.Split(" ");
+    foreach(string word in words) 
+    {
+        result += ReverseWord(word) + " ";
+    }
+    return result.Trim();
+}
+
+string ReverseWord(string word) 
+{
+    string result = "";
+    for (int i = word.Length - 1; i >= 0; i--) 
+    {
+        result += word[i];
+    }
+    return result;
+}
+
+-----------
+
+bool IsPalindrome(string word) 
+{
+    int start = 0;
+    int end = word.Length - 1;
+
+    while (start < end) 
+    {
+        if (word[start] != word[end]) 
+        {
+            return false;
+        }
+        start++;
+        end--;
+    }
+
+    return true;
+}
+---
+
+int target = 30;
+int[] coins = new int[] {5, 5, 50, 25, 25, 10, 5};
+int[,] result = TwoCoins(coins, target);
+
+if (result.Length == 0) 
+{
+    Console.WriteLine("No two coins make change");
+} 
+else 
+{
+    Console.WriteLine("Change found at positions:");
+    for (int i = 0; i < result.GetLength(0); i++) 
+    {
+        if (result[i,0] == -1) 
+        {
+            break;
+        }
+        Console.WriteLine($"{result[i,0]},{result[i,1]}");
+    }
+}
+
+int[,] TwoCoins(int[] coins, int target) 
+{
+    int[,] result = {{-1,-1},{-1,-1},{-1,-1},{-1,-1},{-1,-1}};
+    int count = 0;
+
+    for (int curr = 0; curr < coins.Length; curr++) 
+    {
+        for (int next = curr + 1; next < coins.Length; next++) 
+        {    
+            if (coins[curr] + coins[next] == target) 
+            {
+                result[count, 0] = curr;
+                result[count, 1] = next;
+                count++;
+            }
+            if (count == result.GetLength(0)) 
+            {
+                return result;
+            }
+        }
+    }
+    return (count == 0) ? new int[0,0] : result;
+}
+-----
+
+Random random = new Random();
+
+Console.WriteLine("Would you like to play? (Y/N)");
+if (ShouldPlay()) 
+{
+    PlayGame();
+}
+
+void PlayGame() 
+{
+    var play = true;
+
+    while (play) 
+    {
+        var target;
+        var roll;
+
+        Console.WriteLine($"Roll a number greater than {target} to win!");
+        Console.WriteLine($"You rolled a {roll}");
+        Console.WriteLine(WinOrLose());
+        Console.WriteLine("\nPlay again? (Y/N)");
+
+        play = ShouldPlay();
+    }
+}
+---------
+
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+RandomizeAnimals();
+// string[,] group = AssignGroup();
+Console.WriteLine("School A");
+// PrintGroup(group);
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+---------
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+RandomizeAnimals();
+string[,] group = AssignGroup();
+Console.WriteLine("School A");
+// PrintGroup(group);
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+    int start = 0;
+
+    for (int i = 0; i < groups; i++) 
+    {
+        for (int j = 0; j < result.GetLength(1); j++) 
+        {
+            result[i,j] = pettingZoo[start++];
+        }
+    }
+
+    return result;
+}
+----------
+
+using System;
+
+string[] pettingZoo = 
+{
+    "alpacas", "capybaras", "chickens", "ducks", "emus", "geese", 
+    "goats", "iguanas", "kangaroos", "lemurs", "llamas", "macaws", 
+    "ostriches", "pigs", "ponies", "rabbits", "sheep", "tortoises",
+};
+
+PlanSchoolVisit("School A");
+PlanSchoolVisit("School B", 3);
+PlanSchoolVisit("School C", 2);
+
+void PlanSchoolVisit(string schoolName, int groups = 6) 
+{
+    RandomizeAnimals(); 
+    string[,] group1 = AssignGroup(groups);
+    Console.WriteLine(schoolName);
+    PrintGroup(group1);
+}
+
+void RandomizeAnimals() 
+{
+    Random random = new Random();
+
+    for (int i = 0; i < pettingZoo.Length; i++) 
+    {
+        int r = random.Next(i, pettingZoo.Length);
+
+        string temp = pettingZoo[r];
+        pettingZoo[r] = pettingZoo[i];
+        pettingZoo[i] = temp;
+    }
+}
+
+string[,] AssignGroup(int groups = 6) 
+{
+    string[,] result = new string[groups, pettingZoo.Length/groups];
+    int start = 0;
+
+    for (int i = 0; i < groups; i++) 
+    {
+        for (int j = 0; j < result.GetLength(1); j++) 
+        {
+            result[i,j] = pettingZoo[start++];
+        }
+    }
+
+    return result;
+}
+
+void PrintGroup(string[,] groups) 
+{
+    for (int i = 0; i < groups.GetLength(0); i++) 
+    {
+        Console.Write($"Group {i + 1}: ");
+        for (int j = 0; j < groups.GetLength(1); j++) 
+        {
+            Console.Write($"{groups[i,j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+-----------------
+Create a mini-game
+-----------------
+Debug C# Console Applications

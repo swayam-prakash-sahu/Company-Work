@@ -1,0 +1,176 @@
+﻿@model FitKitWebApp.Models.UserCredential
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section Styles {
+    <link href="~/Content/Form.style.css" type="text/css" rel="stylesheet" />
+}
+
+@{
+    if (TempData["Login failed"] != null)
+    {
+        <script>
+            Swal.fire({
+            icon: "error",
+            title: "Account Not Found!",
+            text: "@TempData["Login failed"]",
+            });
+        </script>
+    }
+    else if (TempData["AccessDenied"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: "error",
+                title: "Access Denied!",
+                text: "@TempData["AccessDenied"]",
+            });
+        </script>
+    }
+}
+
+<div class="signup-page-container">
+    <div class="hero-container">
+        <div class="img-container">
+            <img src="~/images/undraw_indoor_bike_pwa4 (1).svg" alt="" />
+        </div>
+        <p>Already have an account? <a asp-area="" asp-controller="Login" asp-action="Index">Log in</a></p>
+        <p class="or">- OR -</p>
+        <div class="third-party-login">
+            <button type="button"><img src="~/images/Google.png" />Sign up with Google</button>
+            <button type="button"><img src="~/images/GitHub.png" />Sign up with GitHub</button>
+        </div>
+    </div>
+
+
+    <div class="content">
+        <h1>Create your Free Account</h1>
+        <form method="post" class="form-container" asp-action="Index">
+            <div class="input-container">
+                <label asp-for="FirstName" class="label"></label>
+                <input asp-for="FirstName" type="text" class="input-tag" placeholder="Enter your Firstname here" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="LastName" class="label"></label>
+                <input asp-for="LastName" type="text" class="input-tag" placeholder="Enter your Lastname here" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="UserName" class="label"></label>
+                <input asp-for="UserName" type="text" id="username" class="input-tag" placeholder="Enter your Username here" />
+                <span asp-validation-for="UserName"></span>
+                <span id="usernameError" class="field-validation-error" style="display:none;"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="UserEmail" class="label"></label>
+                <input asp-for="UserEmail" type="email" class="input-tag" placeholder="Enter your Email here" />
+                <span asp-validation-for="UserEmail"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="Password" class="label"></label>
+                <input asp-for="Password" id="password" type="password" class="input-tag" placeholder="Enter your Password here" />
+                <span asp-validation-for="Password"></span>
+                <span id="passwordError" class="field-validation-error"></span>
+            </div>
+
+            <div class="input-container">
+                <label asp-for="ConfirmPassword" class="label"></label>
+                <input asp-for="ConfirmPassword" type="password" class="input-tag" placeholder="Enter your Password here" />
+                <span asp-validation-for="ConfirmPassword"></span>
+            </div>
+
+            <input type="submit" class="create-btn" value="Create Account" />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        var usernameInput = document.getElementById('username');
+        var usernameError = document.getElementById('usernameError');
+
+        var passwordElement = document.querySelector(`input[type="password"]`);
+        var passwordErrorElement = document.getElementById("passwordError");
+
+
+        var checkPasswordStrength = () => {
+            passwordErrorElement.textContent = '';
+            var password = passwordElement.value;
+
+            if (password.length < 8) {
+                passwordErrorElement.textContent = 'Password should be at least 8 characters long.';
+                passwordElement.classList.add('error-animation');
+            }
+
+            
+            if (!(/[A-Z]/.test(password))) {
+                passwordErrorElement.textContent = 'Password should contain at least one uppercase letter.';
+                passwordElement.classList.add('error-animation');
+            }
+
+
+            if (!(/[a-z]/.test(password))) {
+                passwordErrorElement.textContent = 'Password should contain at least one lowercase letter.';
+                passwordElement.classList.add('error-animation');
+            }
+            
+            if (!(/\d/.test(password))) {
+                passwordErrorElement.textContent = 'Password should contain at least one digit.';
+                passwordElement.classList.add('error-animation');
+            }
+
+            
+            if (!(/[^A-Za-z0-9]/.test(password))) {
+                passwordErrorElement.textContent = 'Password should contain at least one special character.';
+                passwordElement.classList.add('error-animation');
+            }
+        }
+
+        passwordElement.addEventListener('blur', checkPasswordStrength);
+        passwordElement.addEventListener('focus', function () {
+            this.classList.remove("error-animation");
+        });
+
+        var validateUsername = async () => {
+            var username = usernameInput.value;
+
+            try {
+                var response = await fetch(`https://localhost:7051/api/CheckUsername?username=${username}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                var data = await response.json();
+                if (data.exists) {
+                    usernameError.textContent = 'Username already taken.';
+                    usernameError.style.display = 'block';
+                    usernameInput.classList.add("error-animation");
+
+                } else {
+                    usernameError.style.display = 'none';
+                    usernameInput.classList.remove("error-animation");
+
+                }
+
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        usernameInput.addEventListener('blur', validateUsername);
+        usernameInput.addEventListener('focus', function () {
+            this.classList.remove("error-animation");
+        });
+    </script>
+}

@@ -1,0 +1,787 @@
+Choose the correct data type in your C# code
+
+ value types and reference types.
+
+What is data?
+
+In software development, data is essentially a value that is stored in the computer's memory as a series of bits. A bit is a simple binary switch represented as a 0 or 1, or rather, "off" and "on." A single bit doesn't seem useful, however when you combine 8 bits together in a sequence, they form a byte. When used in a byte, each bit takes on a meaning in the sequence. In fact, you can represent 256 different combinations with just 8 bits if you use a binary (base-2) numeral system.
+
+----------------------
+public class Animal
+{
+    public static int NumberOfLegs;
+}
+ 
+public class Dog : Animal
+{
+    static Dog()
+    {
+        NumberOfLegs = 4;
+    }
+ 
+    public void PrintNumberOfLegs()
+    {
+        Console.WriteLine($"A dog has {NumberOfLegs} legs.");
+    }
+}
+ 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Dog dog = new Dog();
+        dog.PrintNumberOfLegs(); // Output: A dog has 4 legs.
+    }
+} what is wrong here, if static is inherited  , then why showing error ?
+
+-------------------
+grid box, combo box(single and multi select), format date time
+
+LINQ, Entity frameworks(), sql queries in c# is LINQ
+
+-----------------------
+
+How reference types are different from value types
+A value type variable stores its values directly in an area of storage called the stack. The stack is memory allocated to the code that is currently running on the CPU (also known as the stack frame, or activation frame). When the stack frame has finished executing, the values in the stack are removed.
+
+A reference type variable stores its values in a separate memory region called the heap. The heap is a memory area that is shared across many applications running on the operating system at the same time. 
+
+Define a reference type variable
+
+int[] data;
+data = new int[3];
+
+The new keyword informs .NET Runtime to create an instance of int array, and then coordinate with the operating system to store the array sized for three int values in memory. The .NET Runtime complies, and returns a memory address of the new int array. Finally, the memory address is stored in the variable data. The int array's elements default to the value 0, because that is the default value of an int.
+
+Modify the code example to perform both operations in a single line of code
+
+int[] data = new int[3];
+
+
+What's different about the C# string data type?
+
+The string data type is also a reference type.
+
+Recap
+Value types can hold smaller values and are stored in the stack. Reference types can hold large values, and a new instance of a reference type is created using the new operator. Reference type variables hold a reference (the memory address) to the actual value stored in the heap.
+Reference types include arrays, strings, and classes.
+
+The new operator is used to allocate memory on the heap for a reference type.
+---------------
+Convert data types using casting and conversion techniques in C#
+
+
+Use the casting operator to cast a value into a different data type.
+
+Use conversion methods to convert a value into a different data type.
+
+Guard against the loss of data when performing a cast or conversion operation.
+
+Use the TryParse() method to safely convert a string into a numeric data type.
+
+int myInt = 3;
+Console.WriteLine($"int: {myInt}");
+
+decimal myDecimal = myInt;
+Console.WriteLine($"decimal: {myDecimal}");
+
+-----
+
+Determine if your conversion is a "widening conversion" or a "narrowing conversion"
+
+
+The term narrowing conversion means that you're attempting to convert a value from a data type that can hold more information to a data type that can hold less information.
+
+
+When you know you're performing a narrowing conversion, you need to perform a cast. Casting is an instruction to the C# compiler that you know precision may be lost, but you're willing to accept it.
+
+
+For data conversions, there are three techniques you can use:
+
+Use a helper method on the variable
+Use a helper method on the data type
+Use the Convert class' methods
+
+
+Use ToString() to convert a number to a string
+
+int first = 5;
+int second = 7;
+string message = first.ToString() + second.ToString();
+Console.WriteLine(message);
+
+
+Convert a string to an int using the Parse() helper method
+
+Most of the numeric data types have a Parse() method, which converts a string into the given data type. In this case, you use the Parse() method to convert two strings into int values, then add them together.
+
+string first = "5";
+string second = "7";
+int sum = int.Parse(first) + int.Parse(second);
+Console.WriteLine(sum);
+
+
+Convert a string to a int using the Convert class
+
+The Convert class has many helper methods to convert a value from one type into another. In the following code example, you convert a couple of strings into values of type int.
+
+string value1 = "5";
+string value2 = "7";
+int result = Convert.ToInt32(value1) * Convert.ToInt32(value2);
+Console.WriteLine(result);
+
+So, when should you use the Convert class? The Convert class is best for converting fractional numbers into whole numbers (int) because it rounds up the way you would expect.
+
+Use the () cast operator and the data type to perform a cast (for example, (int)myDecimal)
+Use the Convert class when you want to perform a narrowing conversion, but want to perform rounding, not a truncation of information
+
+
+Examine the TryParse() method
+
+performing a conversion from a string into a numeric data type causes a runtime error.
+
+Use TryParse()
+The TryParse() method does several things simultaneously:
+
+It attempts to parse a string into the given numeric data type.
+If successful, it stores the converted value in an out parameter, explained in following section.
+It returns a bool to indicate whether the action succeeded or failed.
+
+
+Out parameters
+
+Methods can return a value or return "void" - meaning they return no value. Methods can also return values through out parameters, which are defined just like an input parameter, but include the out keyword.
+---------------------------------------------------------
+TryParse() a string into an int
+
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+-------------------------------------------------
+Use the parsed int later in code
+
+string value = "102";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+-----------------------------------------------------
+Modify the string variable to a value that can't be parsed
+
+string value = "bad";
+int result = 0;
+if (int.TryParse(value, out result))
+{
+   Console.WriteLine($"Measurement: {result}");
+}
+else
+{
+   Console.WriteLine("Unable to report the measurement.");
+}
+
+if (result > 0)
+   Console.WriteLine($"Measurement (w/ offset): {50 + result}");
+
+
+Recap
+The TryParse() method is a valuable tool. Here are few quick ideas to remember.
+
+Use TryParse() when converting a string into a numeric data type.
+TryParse() returns true if the conversion is successful, false if it's unsuccessful.
+Out parameters provide a secondary means of a method returning a value. In this case, the out parameter returns the converted value.
+Use the keyword out when passing in an argument to a method that has defined an out parameter.
+-------------
+
+
+combining string array values as strings and as integers challenge
+
+string[] values = { "12.3", "45", "ABC", "11", "DEF" };
+
+decimal total = 0m;
+string message = "";
+
+foreach (var value in values)
+{
+    decimal number; // stores the TryParse "out" value
+    if (decimal.TryParse(value, out number))
+    {
+        total += number;
+    } else
+    {
+        message += value;
+    }
+}
+
+Console.WriteLine($"Message: {message}");
+Console.WriteLine($"Total: {total}");
+
+--------------
+
+output math operations as specific number types
+
+int value1 = 12;
+decimal value2 = 6.2m;
+float value3 = 4.3f;
+
+// Your code here to set result1
+// Hint: You need to round the result to nearest integer (don't just truncate)
+Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+// Your code here to set result2
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+// Your code here to set result3
+Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
+
+---
+int value1 = 12;
+decimal value2 = 6.2m;
+float value3 = 4.3f;
+
+// The Convert class is best for converting the fractional decimal numbers into whole integer numbers
+// Convert.ToInt32() rounds up the way you would expect.
+int result1 = Convert.ToInt32(value1 / value2);
+Console.WriteLine($"Divide value1 by value2, display the result as an int: {result1}");
+
+decimal result2 = value2 / (decimal)value3;
+Console.WriteLine($"Divide value2 by value3, display the result as a decimal: {result2}");
+
+float result3 = value3 / value1;
+Console.WriteLine($"Divide value3 by value1, display the result as a float: {result3}");
+
+-------------------------------------------
+
+You used implicit conversion, relying on the C# compiler to perform widening conversions. When the compiler was unable to perform an implicit conversion, you used explicit conversions. You used the ToString() method to explicitly convert a numeric data type into a string.
+
+When you needed to perform narrowing conversions, you used several different techniques. You used the casting operator () when the conversion could be made safely and were willing to accept truncation of values after the decimal. And you used the Convert() method when you wanted to perform a conversion and use common rounding rules when performing a narrowing conversion.
+
+Finally, you used the TryParse() methods when the conversion from a string to a numeric data type could potentially result in a data type conversion exception.
+
+--------------------------
+
+Exercise - Discover Sort() and Reverse()
+
+The Array class contains methods that you can use to manipulate the content, arrangement, and size of an array.
+
+Create an array of pallets, then sort them
+
+string[] pallets = { "B14", "A11", "B12", "A13" };
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+--------------------------------
+The Array class has methods that can manipulate the size and contents of an array.
+Use the Sort() method to manipulate the order based on the given data type of the array.
+Use the Reverse() method to flip the order of the elements in the array.
+
+--------------------------------
+
+Clear() and Resize()
+
+Use array methods to clear and resize an array
+
+The Array.Clear() method allows you to remove the contents of specific elements in your array and replace it with the array default value. 
+
+For example, in a string array the element value cleared is replaced with null, when you clear a int array element the replacement is done with 0 (zero).
+
+The Array.Resize() method adds or removes elements from your array.
+
+
+string[] pallets = { "B14", "A11", "B12", "A13" };
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+
+Empty string versus null
+
+Access the value of a cleared element
+-----------------------------------------------
+
+Resize the array to remove elements
+
+remove array elements using Array.Resize()
+
+string[] pallets = { "B14", "A11", "B12", "A13" };
+Console.WriteLine("");
+
+Array.Clear(pallets, 0, 2);
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 6);
+Console.WriteLine($"Resizing 6 ... count: {pallets.Length}");
+
+pallets[4] = "C01";
+pallets[5] = "C02";
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Array.Resize(ref pallets, 3);
+Console.WriteLine($"Resizing 3 ... count: {pallets.Length}");
+
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+-----------------
+Array.Clear(pallets, 0, 2); removes 2 array elements starting from item 0.
+
+Correct. Clear is a method of arrays that removes (replaces with Null) specific elements in an array.
+
+Split() and Join()
+
+The variables of type string have many built-in methods that convert a single string into either an array of smaller strings, or an array of individual characters.
+
+Use the ToCharArray() to reverse a string
+
+Combine all of the chars into a new comma-separated-value string using Join()
+
+
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result);
+
+---------------------------------------------------
+Split() the comma-separated-value string into an array of strings
+
+string[] items = result.Split(',');
+foreach (string item in items)
+{
+    Console.WriteLine(item);
+}
+
+---------------------------------------------------
+string value = "abc123";
+char[] valueArray = value.ToCharArray();
+Array.Reverse(valueArray);
+// string result = new string(valueArray);
+string result = String.Join(",", valueArray);
+Console.WriteLine(result);
+
+string[] items = result.Split(',');
+foreach (string item in items)
+{
+    Console.WriteLine(item);
+}
+
+-------------------------------------
+Use methods like ToCharArray() and Split() to create an array
+
+Use methods like Join(), or create a new string passing in an array of char to turn the array back into a single string
+
+----------
+Write code to reverse each word in a message
+
+use of the Split(), ToCharArray(), Array.Reverse(), and String.Join(). 
+
+string pangram = "The quick brown fox jumps over the lazy dog";
+
+// Step 1
+string[] message = pangram.Split(' ');
+
+//Step 2
+string[] newMessage = new string[message.Length];
+
+// Step 3
+for (int i = 0; i < message.Length; i++)
+{
+    char[] letters = message[i].ToCharArray();
+    Array.Reverse(letters);
+    newMessage[i] = new string(letters);
+}
+
+//Step 4
+string result = String.Join(" ", newMessage);
+Console.WriteLine(result);
+
+--------------------------------------------------------
+
+string orderStream = "B123,C234,A345,C15,B177,G3003,C235,B179";
+string[] items = orderStream.Split(',');
+Array.Sort(items);
+
+foreach (var item in items)
+{
+    if (item.Length == 4)
+    {
+        Console.WriteLine(item);
+    }
+    else
+    {
+        Console.WriteLine(item + "\t- Error");
+    }
+}
+
+----------------------
+Format alphanumeric data for presentation in C#
+
+What is Composite Formatting?
+Composite formatting uses numbered placeholders within a string. At run time, everything inside the braces is resolved to a value that is also passed in based on their position.
+
+string first = "Hello";
+string second = "World";
+string result = string.Format("{0} {1}!", first, second);
+Console.WriteLine(result);
+
+----------------------------
+Data types and variables of a given data type have built-in "helper methods" to make certain tasks easy.
+The literal string "{0} {1}!" forms a template, parts of which are replaced at run time.
+The token {0} is replaced by the first argument after the string template, in other words, the value of the variable first.
+The token {1} is replaced by the second argument after the string template, in other words, the value of the variable second.
+
+-----------------
+
+What is string interpolation?
+String interpolation is a technique that simplifies composite formatting.
+
+string first = "Hello";
+string second = "World";
+Console.WriteLine($"{first} {second}!");
+Console.WriteLine($"{second} {first}!");
+Console.WriteLine($"{first} {first} {first}!");
+
+---------------------
+Formatting currency
+Composite formatting and string interpolation can be used to format values for display given a specific language and culture.
+
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+-----------------------
+Formatting numbers
+
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N} units");
+
+Formatting percentages
+
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}");
+
+---------------------
+With string interpolation, you use a string template containing the variable names you want replaced surrounded by curly braces. Use the $ directive before the string template to indicate you want the string to be interpolated.
+Format currency using a :C specifier.
+Format numbers using a :N specifier. Control the precision (number of values after the decimal point) using a number after the :N like {myNumber:N3}.
+Format percentages using the :P format specifier.
+Formatting currency and numbers depend on the end user's culture, a five character code that includes the user's country/region and language (per the settings on their computer).
+
+
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"   Shares: {productShares:N3} Product");
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+Console.WriteLine($"     Total Billed: {total:C}");
+--------------------------------
+Discover padding and alignment
+
+
+Methods that add blank spaces for formatting purposes (PadLeft(), PadRight())
+Methods that compare two strings or facilitate comparison (Trim(), TrimStart(), TrimEnd(), GetHashcode(), the Length property)
+Methods that help you determine what's inside of a string, or even retrieve just a part of the string (Contains(), StartsWith(), EndsWith(), Substring())
+Methods that change the content of the string by replacing, inserting, or removing parts (Replace(), Insert(), Remove())
+Methods that turn a string into an array of strings or characters (Split(), ToCharArray())
+
+PadLeft() method adds blank spaces to the left-hand side of the string so that the total number of characters equals the argument you send it.
+
+string input = "Pad this";
+Console.WriteLine(input.PadLeft(12));
+----------------------------------------------------
+What is an overloaded method?
+
+In C#, an overloaded method is another version of a method with different or extra arguments that modify the functionality of the method slightly, as is the case with the overloaded version of the PadLeft() method.
+--------------------------------------------------------
+
+string customerName = "Ms. Barros";
+
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+
+string newProduct = "Glorious Future";
+decimal newReturn = 0.13125m;
+decimal newProfit = 63000000.0m;
+
+// Your logic here
+
+Console.WriteLine("Here's a quick comparison:\n");
+
+string comparisonMessage = "";
+
+// Your logic here
+
+Console.WriteLine(comparisonMessage);
+----------------------------------------------
+string currentProduct = "Magic Yield";
+int currentShares = 2975000;
+decimal currentReturn = 0.1275m;
+decimal currentProfit = 55000000.0m;
+string comparisonMessage = "";
+
+comparisonMessage = currentProduct.PadRight(20);
+Console.WriteLine(comparisonMessage);
+
+comparisonMessage += String.Format("{0:P}", currentReturn).PadRight(10);
+Console.WriteLine(comparisonMessage);
+
+comparisonMessage += String.Format("{0:C}", currentProfit).PadRight(20);
+Console.WriteLine(comparisonMessage);
+-------------------------------------
+
+Modify the content of strings using built-in string data type methods in C#
+
+Use the string's IndexOf() and Substring() helper methods
+
+IndexOf() method to locate the position of one or more characters string inside a larger string.
+
+Substring() method to return the part of the larger string that follows the character positions you specify.
+
+You'll also use an overloaded version of the Substring() method to set the length of characters to return after a specified position in a string.
+
+Write code to find parenthesis pairs embedded in a string
+
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+Console.WriteLine(openingPosition);
+Console.WriteLine(closingPosition);
+-------------------
+Modify the starting position of the sub string
+
+string message = "Find what is (inside the parentheses)";
+
+int openingPosition = message.IndexOf('(');
+int closingPosition = message.IndexOf(')');
+
+openingPosition += 1;
+
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+---
+Avoid magic values
+
+Hardcoded strings like "<span>" in the previous code listing are known as "magic strings" and hardcoded numeric values like 6 are known as "magic numbers". These "Magic" values are undesirable for many reasons and you should try to avoid them if possible.
+---
+recap
+
+IndexOf() gives you the first position of a character or string inside of another string.
+IndexOf() returns -1 if it can't find a match.
+Substring() returns just the specified portion of a string, using a starting position and optional length.
+There's often more than one way to solve a problem. You used two separate techniques to find all instances of a given character or string.
+Avoid hardcoded magic values. Instead, define a const variable. A constant variable's value can't be changed after initialization.
+
+----------------------
+
+Use the string's IndexOfAny() and LastIndexOf() helper methods
+
+In this exercise, you use the IndexOfAny() method to find the first location of any of the string from selected array. You also use LastIndexOf() to find the final location of a string within another string.
+
+Retrieve the last occurrence of a sub string
+
+string message = "(What if) I am (only interested) in the last (set of parentheses)?";
+int openingPosition = message.LastIndexOf('(');
+
+openingPosition += 1;
+int closingPosition = message.LastIndexOf(')');
+int length = closingPosition - openingPosition;
+Console.WriteLine(message.Substring(openingPosition, length));
+
+--------------------------------
+Retrieve all instances of substrings inside parentheses
+
+string message = "(What if) there are (more than) one (set of parentheses)?";
+while (true)
+{
+    int openingPosition = message.IndexOf('(');
+    if (openingPosition == -1) break;
+
+    openingPosition += 1;
+    int closingPosition = message.IndexOf(')');
+    int length = closingPosition - openingPosition;
+    Console.WriteLine(message.Substring(openingPosition, length));
+
+    // Note the overload of the Substring to return only the remaining 
+    // unprocessed message:
+    message = message.Substring(closingPosition + 1);
+}
+
+------------
+
+string message = "Help (find) the {opening symbols}";
+Console.WriteLine($"Searching THIS Message: {message}");
+char[] openSymbols = { '[', '{', '(' };
+int startPosition = 5;
+int openingPosition = message.IndexOfAny(openSymbols);
+Console.WriteLine($"Found WITHOUT using startPosition: {message.Substring(openingPosition)}");
+
+openingPosition = message.IndexOfAny(openSymbols, startPosition);
+Console.WriteLine($"Found WITH using startPosition {startPosition}:  {message.Substring(openingPosition)}");
+---------------
+
+string message = "(What if) I have [different symbols] but every {open symbol} needs a [matching closing symbol]?";
+
+// The IndexOfAny() helper method requires a char array of characters. 
+// You want to look for:
+
+char[] openSymbols = { '[', '{', '(' };
+
+// You'll use a slightly different technique for iterating through 
+// the characters in the string. This time, use the closing 
+// position of the previous iteration as the starting index for the 
+//next open symbol. So, you need to initialize the closingPosition 
+// variable to zero:
+
+int closingPosition = 0;
+
+while (true)
+{
+    int openingPosition = message.IndexOfAny(openSymbols, closingPosition);
+
+    if (openingPosition == -1) break;
+
+    string currentSymbol = message.Substring(openingPosition, 1);
+
+    // Now  find the matching closing symbol
+    char matchingSymbol = ' ';
+
+    switch (currentSymbol)
+    {
+        case "[":
+            matchingSymbol = ']';
+            break;
+        case "{":
+            matchingSymbol = '}';
+            break;
+        case "(":
+            matchingSymbol = ')';
+            break;
+    }
+
+    // To find the closingPosition, use an overload of the IndexOf method to specify 
+    // that the search for the matchingSymbol should start at the openingPosition in the string. 
+
+    openingPosition += 1;
+    closingPosition = message.IndexOf(matchingSymbol, openingPosition);
+
+    // Finally, use the techniques you've already learned to display the sub-string:
+
+    int length = closingPosition - openingPosition;
+    Console.WriteLine(message.Substring(openingPosition, length));
+}
+---------
+LastIndexOf() returns the last position of a character or string inside of another string.
+
+IndexOfAny() returns the first position of an array of char that occurs inside of another string.
+-------
+Use the Remove() and Replace() methods
+
+string data = "12345John Smith          5000  3  ";
+string updatedData = data.Remove(5, 20);
+Console.WriteLine(updatedData);
+
+The Remove() method works similarly to the Substring() method. You supply a starting position and the length to remove those characters from the string.
+---
+Use the Replace() method
+The Replace() method is used when you need to replace one or more characters with a different character (or no character). The Replace() method is different from the other methods used so far, it replaces every instance of the given characters, not just the first or last instance.
+
+string message = "This--is--ex-amp-le--da-ta";
+message = message.Replace("--", " ");
+message = message.Replace("-", "");
+Console.WriteLine(message);
+
+----
+The Remove() method works like the Substring() method, except that it deletes the specified characters in the string.
+The Replace() method swaps all instances of a string with a new string.
+
+---
+Complete a challenge to extract, replace, and remove data from an input string
+
+
+const string input = "<div><h2>Widgets &trade;</h2><span>5000</span></div>";
+
+string quantity = "";
+string output = "";
+
+// Your work here
+
+// Extract the "quantity"
+const string openSpan = "<span>";
+const string closeSpan = "</span>";
+
+int quantityStart = input.IndexOf(openSpan) + openSpan.Length; // + length of <span> so index at end of <span> tag
+int quantityEnd= input.IndexOf(closeSpan);
+int quantityLength = quantityEnd - quantityStart;
+quantity = input.Substring(quantityStart, quantityLength);
+quantity = $"Quantity: {quantity}";
+
+// Set output to input, replacing the trademark symbol with the registered trademark symbol
+const string tradeSymbol = "&trade;";
+const string regSymbol = "&reg;";
+output = input.Replace(tradeSymbol, regSymbol);
+
+// Remove the opening <div> tag
+const string openDiv = "<div>";
+int divStart = output.IndexOf(openDiv);
+output = output.Remove(divStart, openDiv.Length);
+
+// Remove the closing </div> tag and add "Output:" to the beginning
+const string closeDiv = "</div>";
+int divCloseStart = output.IndexOf(closeDiv);
+output = "Output: " + output.Remove(divCloseStart, closeDiv.Length);
+
+Console.WriteLine(quantity);
+Console.WriteLine(output);
+---------
+Guided project - Work with variable data in C#
+
+Data validation with TryParse()
+
+To avoid an error trying to use an entry like twenty you need to use TryParse validation.
+
+TryParse() returns a bool if (true or false) indicating if a cast can be completed.

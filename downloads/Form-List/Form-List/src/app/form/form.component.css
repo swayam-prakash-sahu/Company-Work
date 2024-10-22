@@ -1,0 +1,57 @@
+.contact-container {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .background {
+     background-color: #e2b3b39c; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; 
+    
+  }
+
+  .card {
+    background-color: rgba(226, 208, 208, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .form-control {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-control:hover,
+  .form-control:focus {
+    border-color: #007bff;
+  }
+  .btn-primary {
+    background-color: #f1072e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #037e24;
+  }
+
+
+  .bold-input {
+    font-weight: bold;
+  }
+
+
+.ng-invalid.ng-touched{
+    border: red 2px solid;
+}

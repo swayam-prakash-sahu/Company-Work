@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DentalCareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointmenttable">
+    <Key>
+      <PropertyRef Name="AppId" />
+    </Key>
+    <Property Name="AppId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patient" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Treatment" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AppDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Patienttable">
+    <Key>
+      <PropertyRef Name="PatId" />
+    </Key>
+    <Property Name="PatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatPhone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PatDOB" Type="date" Nullable="false" />
+    <Property Name="PatGender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PatAllergies" Type="varchar" MaxLength="90" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prescriptiontable">
+    <Key>
+      <PropertyRef Name="PrescId" />
+    </Key>
+    <Property Name="PrescId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TreatmentCost" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Medicines" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MedQty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Treatmenttable">
+    <Key>
+      <PropertyRef Name="TreatmentId" />
+    </Key>
+    <Property Name="TreatmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TreatmentName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TreatmentCost" Type="int" Nullable="false" />
+    <Property Name="TreatmentDesc" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usertable">
+    <Key>
+      <PropertyRef Name="UId" />
+    </Key>
+    <Property Name="UId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__Prescript__PatNa__48CFD27E' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__Prescript__PatNa__48CFD27E" />-->
+  <EntityContainer Name="DentalCareModelStoreContainer">
+    <EntitySet Name="Appointmenttable" EntityType="Self.Appointmenttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patienttable" EntityType="Self.Patienttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescriptiontable" EntityType="Self.Prescriptiontable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treatmenttable" EntityType="Self.Treatmenttable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usertable" EntityType="Self.Usertable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

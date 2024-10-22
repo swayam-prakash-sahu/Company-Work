@@ -1,0 +1,446 @@
+when user hit the submit button , add all the details to the detail page. use routing to redirect from form page to details page.
+
+
+
+
+app.routes.ts
+
+
+import { Routes } from '@angular/router';
+import { FormComponent } from './form/form.component';
+import { DetailComponent } from './detail/detail.component';
+import { AppComponent } from './app.component';
+
+export const routes: Routes = [
+{ path: 'form', component: FormComponent },
+{ path: 'detail', component: DetailComponent }
+];
+
+
+
+app.component.ts
+
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FormComponent } from './form/form.component';
+
+@Component({
+selector: 'app-root',
+standalone: true,
+imports: [RouterOutlet,FormComponent],
+templateUrl: './app.component.html',
+styleUrl: './app.component.css'
+})
+export class AppComponent {
+title = 'Validate Form';
+}
+
+
+
+app.component.html
+
+
+<div>
+<app-form></app-form>
+<router-outlet></router-outlet>
+</div>
+
+
+form.component.ts
+
+
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+selector: 'app-form',
+standalone: true,
+imports: [FormsModule, CommonModule],
+templateUrl: './form.component.html',
+styleUrl: './form.component.css'
+})
+export class FormComponent {
+formData: any = {};
+submitted: boolean = false;
+records: any[] = [];
+nameWarning: string = '';
+emailWarning: string = '';
+phoneWarning: string = '';
+editMode: boolean = false;
+editedIndex: number = -1;
+
+submitForm(form: any) {
+this.nameWarning = '';
+this.emailWarning = '';
+this.phoneWarning = '';
+
+if (form.valid) {
+this.submitted = true;
+if (this.editMode) {
+// Update existing record
+this.records[this.editedIndex] = { ...form.value };
+this.editMode = false;
+} else {
+// Add new record
+this.records.push({ ...form.value });
+}
+this.resetForm(form);
+} else {
+if (form.controls['name'].hasError('required')) {
+this.nameWarning = 'Name is required.';
+}
+if (form.controls['email'].hasError('required')) {
+this.emailWarning = 'Email is required.';
+} else if (form.controls['email'].hasError('pattern')) {
+this.emailWarning = 'Invalid email format.';
+}
+if (form.controls['phone'].hasError('required')) {
+this.phoneWarning = 'Phone number is required.';
+} else if (form.controls['phone'].hasError('pattern')) {
+this.phoneWarning = 'Phone number must be 10 digits.';
+}
+}
+}
+
+resetForm(form: any) {
+form.resetForm();
+this.formData = {};
+}
+
+editRecord(index: number) {
+// this.formData = { ...this.records[index] };
+// this.records.splice(index, 1);
+this.editMode = true;
+this.editedIndex = index;
+this.formData = { ...this.records[index] };
+}
+
+deleteRecord(index: number) {
+this.records.splice(index, 1);
+}
+
+selectGender(gender: string) {
+this.formData.gender = gender;
+
+}
+// saveChanges() {
+// this.records.push({ ...this.formData });
+// this.formData = {};
+// }
+}
+
+
+form.component.html
+
+
+<body>
+<h1>Form Validation Project</h1>
+
+<!-- <div class="container d-flex justify-content-center mt-5"> -->
+<div class="container mt-5">
+<div class="form-container">
+<form #form="ngForm" (ngSubmit)="submitForm(form)">
+<div class="form-group">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" maxlength="30" ngModel required class="form-control">
+<div *ngIf="nameWarning" class="warning">{{ nameWarning }}</div>
+</div>
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" ngModel pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required class="form-control">
+<div *ngIf="emailWarning" class="warning">{{ emailWarning }}</div>
+</div>
+<div class="form-group">
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone" ngModel pattern="[0-9]{10}" required class="form-control">
+<div *ngIf="phoneWarning" class="warning">{{ phoneWarning }}</div>
+</div>
+
+<div class="form-group">
+<label for="gender">Gender:</label>
+<select id="gender" name="gender" ngModel required class="form-control">
+<option value="male">Male</option>
+<option value="female">Female</option>
+</select>
+</div>
+
+<!-- <div class="form-group">
+<label for="gender">Gender:</label>
+<div class="dropdown">
+<button class="btn btn-secondary dropdown-toggle" type="button" id="genderDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Select Gender
+</button>
+<div class="dropdown-menu" aria-labelledby="genderDropdown">
+<a class="dropdown-item" href="#" (click)="selectGender('male')">Male</a>
+<a class="dropdown-item" href="#" (click)="selectGender('female')">Female</a>
+</div>
+</div>
+</div> -->
+
+<div class="form-group">
+<label for="skills">Skills:</label>
+<input type="text" id="skills" name="skills" ngModel class="form-control">
+</div>
+<button type="submit" class="btn btn-primary">{{ editMode ? 'Save Changes' : 'Submit' }}</button>
+</form>
+</div>
+<div *ngIf="submitted && records.length > 0" class="mt-3">
+<h2>Submitted Information:</h2>
+<div *ngFor="let record of records; let i = index" class="border p-3 mb-3">
+<p><strong>Name:</strong> {{ record.name }}</p>
+<p><strong>Email:</strong> {{ record.email }}</p>
+<p><strong>Phone:</strong> {{ record.phone }}</p>
+<p><strong>Gender:</strong> {{record.gender}}</p>
+<p *ngIf="record.skills"><strong>Skills:</strong> {{record.skills}}</p>
+<button class="btn btn-secondary" (click)="editRecord(i)">Edit</button>
+<span class="mx-1"></span>
+<button class="btn btn-danger" (click)="deleteRecord(i)">Delete</button>
+</div>
+</div>
+<!-- </div> -->
+</div>
+</body>
+
+
+
+
+detail.component.ts
+
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-detail',
+standalone: true,
+imports: [],
+templateUrl: './detail.component.html',
+styleUrl: './detail.component.css'
+})
+export class DetailComponent {
+
+}
+
+
+
+detail.component.html
+
+
+<p>detail works!</p>
+
+
+
+
+=========================================
+
+
+Subject: Referral Request for Full Stack Engineer Internship
+
+Dear [Referral Name],
+
+I hope this email finds you well. I am writing to ask for your help in my job search. I am currently looking for an internship opportunity as a Full Stack Engineer, and I came across an opening at [Company Name] that I am very interested in.
+
+As a fresher, I am eager to learn and grow in this field, and I believe that this internship opportunity would be an excellent way to gain hands-on experience and develop my skills further. I have a strong foundation in HTML, CSS, JavaScript, TypeScript, React, Angular, SQL, and Python, and I am confident that I can contribute to the team and make a positive impact.
+
+I understand that you have experience working at [Company Name], and I would greatly appreciate it if you could refer me for this position. I believe that your recommendation would carry a lot of weight and help me stand out among other applicants.
+
+Thank you for considering my request. I have attached my resume for your reference, and I would be happy to provide any additional information you may need.
+
+Best regards, [Your Name]
+
+
+==========================================
+
+
+Subject: Referral Request for Full-Time Full Stack Engineer Position
+
+Dear [Referral Name],
+
+I hope this email finds you well. I am writing to ask for your help in my job search. I am currently completing an internship as a Full Stack Engineer, and I am excited to apply for full-time positions in this field.
+
+I came across an opening at [Company Name] that I am very interested in, and I believe that my skills and experience make me a strong candidate for the role. I have a solid foundation in HTML, CSS, JavaScript, TypeScript, React, Angular, SQL, and Python, and I am confident that I can contribute to the team and make a positive impact.
+
+Given your experience working at [Company Name], I would greatly appreciate it if you could refer me for this position. I believe that your recommendation would carry a lot of weight and help me stand out among other applicants.
+
+Thank you for considering my request. I have attached my resume for your reference, and I would be happy to provide any additional information you may need.
+
+Best regards, [Your Name]
+
+
+
+
+
+
+=============================================
+
+
+Hi [Name of Person],
+
+I hope you are doing good.
+
+Could you please give me a referral for {role} at {company name} having Job ID: {job_id}. It will help me to speed up the interview process.
+Job Link: { job_link}
+
+My name is Ujjwal Mittal and I am having 1+ years of experience as a Software Engineer at Intuit (in case of working professional) OR I am pursuing graduation from {college_name} (in case of fresher)
+
+Technical skills: I am skilled in { your skillset}. I have solved more than **** problems on LeetCode. I am * star coder at CodeChef, **** rating at CodeForces. (an achievement to stand out)
+{Leetcode Profile Link, Github Profile Link or Live Project}
+
+I've attached my resume below for your reference and I'll be happy to communicate and look forward to hearing from you.
+
+(Resume_Link}
+
+Thanks
+
+
+
+
+
+
+===================================
+
+
+Day 1:
+
+Introduction to Angular and its features
+Setting up the development environment
+Creating a new Angular project
+Understanding the project structure
+Introduction to components, templates, and data binding
+Day 2:
+
+Deep dive into components
+Creating and using components
+Component interaction
+Component lifecycle hooks
+Day 3:
+
+Introduction to services
+Creating and using services
+Dependency injection
+Http service and making API calls
+Day 4:
+
+Directives in Angular
+Built-in directives
+Creating and using custom directives
+Attribute directives
+Day 5:
+
+Routing in Angular
+Configuring routes
+Route guards
+Lazy loading modules
+Day 6:
+
+Forms in Angular
+Template-driven forms
+Reactive forms
+Validation
+Day 7:
+
+Pipes in Angular
+Built-in pipes
+Creating and using custom pipes
+Animations in Angular
+Important topics for interviews and projects:
+
+Components and services
+Dependency injection
+Routing and lazy loading
+Forms and validation
+Http service and API calls
+Directives and pipes
+Observables and RxJS
+State management with NgRx
+Unit testing and end-to-end testing
+
+
+===========================================================
+form.component.ts
+
+
+import { Component } from '@angular/core';
+
+@Component({
+selector: 'app-form',
+standalone: true,
+imports: [],
+templateUrl: './form.component.html',
+styleUrl: './form.component.css'
+})
+export class FormComponent {
+
+}
+
+
+
+form.component.html
+
+
+form.component.css
+
+
+build a table name it user management
+
+
+with columns having  S.No , Username, Email, Password, verification status and status
+
+
+in the last field that is status add a button verify the email
+
+
+give  hardcoded data inputs as
+
+
+1, admin, rahul@gmail.com , admin, verified,
+
+
+2, om, om@gmail.com , om, verified
+
+
+
+
+
+
+
+
+add all the codes in the respective files and give
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

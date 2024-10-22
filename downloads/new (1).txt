@@ -1,0 +1,94 @@
+The Document Object Model (DOM) is a programming interface implemented by browsers to make static websites functional.
+
+
+The DOM API can be used to change the document structure, style, and content.
+
+
+The API is so powerful that countless frontend frameworks (jQuery, React, Angular, etc.) have been developed around it to make dynamic websites even easier to develop.
+
+
+TypeScript is a typed superset of JavaScript, and it ships type definitions for the DOM API.
+
+
+Use babel for transpiling and tsc for type checking
+
+
+TypeScript is transpiled into JavaScript using a compiler.
+
+
+TypeScript will throw an error if data types do not match.
+
+
+TypeScript has special types that may not refer to any specific type of data.
+
+
+Type: any
+any is a type that disables type checking and effectively allows all types to be used.
+
+
+unknown is a similar, but safer alternative to any.
+
+
+Casting is when we use the "as" keyword to say property or variable is of the casted type.
+
+
+=======================================================================
+
+
+https://css-tricks.com/hottest-front-end-tools-in-2021/#aa-58-dopefolio
+
+
+https://github.com/abhisheknaiidu/awesome-github-profile-readme
+
+
+https://www.freecodecamp.org/news/learn-javascript-with-new-data-structures-and-algorithms-certification-projects/
+
+
+https://www.freecodecamp.org/news/front-end-developer-roadmap/
+
+
+https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures-v8/
+
+
+https://www.geeksforgeeks.org/best-portfolio-websites-sample/
+
+
+https://www.jessicahernandez.me/
+
+
+
+
+
+
+
+
+=========================
+
+
+Certainly! The `LIMIT` and `OFFSET` clauses are used together in SQL queries to retrieve a subset of rows from a result set.
+
+- **LIMIT**: The `LIMIT` clause is used to restrict the number of rows returned by a query. It specifies the maximum number of rows to return.
+
+- **OFFSET**: The `OFFSET` clause is used to skip a specified number of rows before starting to return rows from the query. It specifies the starting point within the result set.
+
+When used together, `LIMIT` and `OFFSET` allow you to retrieve a specific subset of rows from the result set. For example:
+
+- `LIMIT 1`: Returns only the first row from the result set.
+- `LIMIT 10`: Returns the first 10 rows from the result set.
+- `LIMIT 5 OFFSET 10`: Skips the first 10 rows and returns the next 5 rows from the result set.
+
+In the context of finding the second highest element:
+
+1. The result set is ordered in descending order (`ORDER BY column_name DESC`), so the highest value is at the top.
+2. `LIMIT 1` restricts the result set to just the first row, which contains the highest value.
+3. `OFFSET 1` skips the first row, so the result set starts from the second row, which effectively gives us the second highest value.
+
+Therefore, `LIMIT 1 OFFSET 1` retrieves the second highest element from the sorted result set.
+
+
+SELECT column_name
+FROM table_name
+ORDER BY column_name DESC
+LIMIT 1 OFFSET 1;
+
+

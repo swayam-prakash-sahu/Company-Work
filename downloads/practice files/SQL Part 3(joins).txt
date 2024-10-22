@@ -1,0 +1,231 @@
+GET Evaluation Week -3 - SQL Part 3
+
+Points:-/200
+
+SQL Joins
+
+Will be reviewed
+1.Explain the purpose of an INNER JOIN in SQL. Provide an example query demonstrating the use of INNER JOIN with two tables.
+INNER JOIN in SQL is to retrieve only the rows from both tables that satisfy the join condition. 
+It combines the rows of two or more tables based on the relation between them.
+
+
+SELECT employees.employee_id, employees.name, departments.department_name
+FROM employees INNER JOIN departments ON employees.department_id = departments.department_id;
+Will be reviewed
+2.Compare and contrast INNER JOIN with other types of joins, highlighting situations where INNER JOIN is most appropriate.
+INNER JOIN:
+Returns only rows with matching values in both the tables.
+Used when we only need matching records.
+
+LEFT JOIN:
+Returns all the rows from the left table and matching rows from the right table.
+It is used when we want all records from the left table.
+
+RIGHT JOIN:
+Returns all rows from the right table and matching rows from the left table.
+
+FULL OUTER JOIN/FULL JOIN:
+Returns all rows from both tables, with NULL for non-matching rows.
+Used when we want all the records from both tables.
+Will be reviewed
+3.Define LEFT JOIN and illustrate its application with an example query involving two tables. Explain the significance of the "left" side in a LEFT JOIN.
+it returns all the rows from the left table and the matched rows from the right table. If there is no match, NULL values are returned for columns from the right table.
+
+Example :
+SELECT interns.intern_id, customers.customer_name FROM orders LEFT JOIN customers ON interns.customer_id = customers.customer_id;
+Will be reviewed
+4.Discuss a scenario where using a LEFT JOIN would yield different results compared to an INNER JOIN. Provide an example to support your explanation.
+In a scenario where using LEFT JOIN would yield different results compared to INNER JOIN, 
+
+consider a situation where there are two tables: A and B. 
+
+If table A contains rows that don't have corresponding matches in table B
+based on the join condition, 
+
+a LEFT JOIN would include all rows from table A in the result set, along with NULL values for columns from table "B" for those unmatched rows. 
+
+On the other hand, an INNER JOIN would only include rows from table A that have matching records in table B, excluding the rows from table A that don't have matches in table B. 
+Will be reviewed
+5.Elaborate on the purpose and functionality of RIGHT JOIN in SQL. Include an example query showcasing the use of RIGHT JOIN with two tables.
+RIGHT JOIN is used to retrieve all records from the right table and only matching records from the left table.
+
+If there are no matches, NULL values are returned for the columns from the left table. 
+
+SELECT interns.intern_id, customers.customer_name FROM orders RIGHT JOIN customers ON interns.customer_id = customers.customer_id;
+Will be reviewed
+6.Compare RIGHT JOIN with LEFT JOIN and INNER JOIN, highlighting situations where RIGHT JOIN is preferable. Provide an example to reinforce your explanation.
+RIGHT JOIN returns all rows from the right table and matching rows from the left table, ensuring inclusion of all records from the right table. 
+
+It is preferable when ensuring all records from the right table are present, even if there are no matches in the left table.
+
+SELECT A.column_name, B.column_name
+FROM table_B AS B RIGHT JOIN table_A AS A ON A.key = B.key;
+
+SELECT A.column_name, B.column_name
+FROM table_A AS A LEFT JOIN table_B AS B ON A.key = B.key;
+
+SELECT A.column_name, B.column_name
+FROM table_A AS A INNER JOIN table_B AS B ON A.key = B.key;
+Will be reviewed
+7.Define FULL JOIN and describe its role in SQL. Use an example query involving two tables to demonstrate the output of a FULL JOIN.
+FULL JOIN or FULL OUTER JOIN is a type of SQL join that combines the results of both LEFT JOIN and RIGHT JOIN. 
+
+It returns all rows from both tables and fills in NULL values for missing matches on either side.
+
+SELECT A.column_name, B.column_name 
+FROM table_A AS A FULL JOIN table_B AS B ON A.key = B.key;
+Will be reviewed
+8.Discuss a scenario where using a FULL JOIN is necessary and provides more comprehensive results compared to other types of joins. Provide an example.
+In situations where we need to compare data between two tables , including all records from both tables regardless of matching conditions, a FULL JOIN becomes necessary.
+
+SELECT microsoft.EMPNAME, gyansys.DeptName
+FROM microsoft FULL JOIN gyansys ON microsoft.key = gyansys.key;
+Will be reviewed
+9.Explain the purpose of the BETWEEN operator in SQL. Provide an example query using the BETWEEN operator in a WHERE clause.
+The BETWEEN operator in sql is used to filter results based on a range of values. 
+It allows us to retrieve rows where a specified value comes within a specified range.
+
+SELECT * FROM employees WHERE salary BETWEEN 25000 AND 35000;
+SQL Operators
+Will be reviewed
+10.Discuss potential pitfalls or misconceptions related to the use of the BETWEEN operator and suggest best practices for its effective utilization.
+Best practices 
+
+BETWEEN includes both the starting and ending values. 
+
+pitfalls
+
+The BETWEEN operator does not handle NULL values
+Will be reviewed
+11.Define the IN operator and describe its function in SQL. Illustrate the use of the IN operator in a query with multiple values.
+The IN operator is used to check if a value matches any value in a list of specified values. 
+It functions similarly to multiple OR conditions combined into a single expression.
+
+SELECT * FROM products WHERE category IN ('Electronics', 'Clothing', 'Books');
+
+Will be reviewed
+12.Compare the IN operator with other operators like = (equals) and BETWEEN. Highlight scenarios where using IN is advantageous.
+The IN operator is advantageous in scenarios where we need to compare a column value against multiple specified values.
+
+Comparison with other operators:
+
+=  operator:
+
+Matches a column value exactly to a single specified value.
+IN operator is advantageous when comparing multiple values.
+
+BETWEEN operator:
+
+Matches a column value within a specified range.
+
+IN operator is advantageous when comparing values which are different from one another.
+
+ IN operator is useful for scenarios where we want to filter rows based on conditions.
+Will be reviewed
+13. Elaborate on the use of the LIKE operator in SQL for pattern matching. Provide an example demonstrating the application of the LIKE operator in a WHERE clause.
+The LIKE operator in SQL is used for pattern matching within character strings. It allows you to search for patterns rather than exact matches.
+
+SELECT * FROM employees WHERE last_name LIKE '%m%';
+
+Will be reviewed
+14.Discuss wildcard characters used with the LIKE operator and their impact on search patterns. Include an example that showcases the versatility of the LIKE operator.
+Wildcard characters used with the LIKE operator in SQL:
+
+'%' : Matches any sequence of zero or more characters.
+'_' (underscore): Matches any single character.
+
+SELECT *FROM products WHERE product_name LIKE 'A%';
+
+Will be reviewed
+15.Differentiate between the set operators INTERSECT, MINUS, UNION, and UNION ALL in SQL. Provide an example for each operator to illustrate their distinct functionalities.
+INTERSECT:
+Returns common rows between two queries, eliminating duplicate rows.
+
+SELECT product_id FROM table1
+INTERSECT
+SELECT product_id FROM table2;
+
+
+MINUS:
+Returns rows from the first query that are not present in the result of the second query, eliminating duplicate rows.
+
+SELECT product_id FROM table1
+MINUS
+SELECT product_id FROM table2;
+
+
+UNION:
+Combines the results of two queries into a single result set, eliminating duplicate rows.
+
+SELECT product_id FROM table1
+UNION
+SELECT product_id FROM table2;
+
+
+UNION ALL:
+Combines the results of two queries into a single result set, including all rows, even if they are duplicates.
+
+SELECT product_id FROM table1
+UNION ALL
+SELECT product_id FROM table2;
+
+
+All Require both queries to have the same number of columns and similar data types.
+
+Will be reviewed
+16.Discuss situations where using UNION ALL is preferable over UNION. Provide a practical scenario and an example query to support your explanation.
+UNION ALL is preferable over UNION in situations where you want to combine the results of two queries into a single result set without removing duplicate rows. This is useful when you want to retain all rows from both queries, including duplicates.
+
+Will be reviewed
+17.Explain the purpose of the DISTINCT keyword in SQL. Provide an example query using DISTINCT to retrieve unique values from a table.
+The DISTINCT keyword in SQL is used to retrieve unique values from a column in a table. It removes duplicate values from the result set, ensuring that each value appears only once.
+
+SELECT DISTINCT department_name FROM employees;
+Will be reviewed
+
+18.Discuss scenarios where using DISTINCT is necessary for result set refinement. Illustrate with an example where DISTINCT adds value to the query.
+Using DISTINCT is necessary in scenarios where we want to remove duplicate values from the result set to obtain a more concise and meaningful representation of the data. 
+
+SELECT DISTINCT customer_id FROM orders;
+
+In this scenario, using DISTINCT ensures that each unique age present in the "students" table is returned only once in the result set. This allows us to see the different ages represented among the students without any duplicates.
+
+Will be reviewed
+19.Define and differentiate between the ANY, SOME, and ALL operators in SQL. Provide an example query for each operator to showcase their specific functionalities.
+ANY:
+Returns true if the comparison is true for at least one of the values in the set.
+
+SELECT * FROM products
+WHERE price > ANY (SELECT price FROM competitors);
+
+SOME:
+Returns true if the comparison is true for at least one of the values in the set.
+
+SELECT * FROM products
+WHERE price > SOME (SELECT price FROM competitors);
+
+ALL:
+Returns true if the comparison is true for all values in the set.
+
+SELECT * FROM products
+WHERE price > ALL (SELECT price FROM competitors);
+
+
+Will be reviewed
+
+20.Discuss situations where using ANY, SOME, or ALL is appropriate and more advantageous than traditional comparison operators. Support your discussion with examples.
+ANY/SOME:
+Appropriate when we want to check if the comparison holds true for at least one value in the set.
+Useful for scenarios like finding products priced higher than any competitor's product.
+
+SELECT * FROM producers
+WHERE price > ANY (SELECT price FROM competitors);
+
+
+ALL:
+Appropriate when we want to ensure that the comparison holds true for all values in the set.
+Useful for scenarios like finding products priced higher than all competitor's products.
+
+SELECT * FROM producers
+WHERE price > ALL (SELECT price FROM competitors);

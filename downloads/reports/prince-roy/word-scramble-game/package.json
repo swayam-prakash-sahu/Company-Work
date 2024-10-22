@@ -1,0 +1,23 @@
+{
+  "name": "word-scramble-game",
+  "version": "1.0.0",
+  "description": "Word Scarnble Game using vanillaJS",
+  "source": "index.html",
+  "scripts": {
+    "start": "tsc && parcel index.html",
+    "build": "tsc && parcel build index.html"
+  },
+  "author": "Prince Roy",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "parcel": "^2.11.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.2",
+    "js-confetti": "^0.12.0",
+    "random-words": "^2.0.1",
+    "sass": "^1.71.0"
+  }
+}

@@ -1,0 +1,175 @@
+1.what is .NET CORE?
+
+Dot Net  Core is an open source and cross platform framework which is used for building several type of applications.
+
+Dot Net Core is supported by microsoft.
+
+2.where can we develop applications?
+
+windows, mac, linux, Docker(we can use dot net core image on docker also)
+
+3. what can we develop ?
+
+web - ASP.Net Core MVC , Web API, Razor Pages, Microservices
+Mobile
+Console
+Desktop
+
+Can also be used in 
+IOT (Internet of things)
+ML (Machine Learning)
+Gaming
+Cloud
+
+Features of Dot Net Core Applications
+
+Free(No Fees or license is required even for commercial applications also)
+Open Source
+Cross Platform
+Supported by Microsoft
+CLI support
+
+Language Support
+C# F# Visual Basic
+
+Package Management
+Nuget(Source of package management for dot net core applications)
+
+community - donet.microsoft.com
+
+-------------------------
+Setup machine for dot net core development
+
+tools required
+Machine(windows,mac,linux)
+Editor(Visual Studio, VS code)
+Dot Net Core SDK
+
+---------
+dot new
+
+dot new mvc --name First MVCApp
+
+
+how to create first Asp.Net MVC Core Project using Visual Studio
+How to create first Asp.Net MVC Core Project using dotnet CLI
+Run the project using Visual Studio & dotnet CLI
+
+
+-------------
+What is MVC pattern?
+
+MVC stands for Model View Controller
+
+MVC is an ARCHITECTURAL design pattern. It means this design pattern is used at the architecture level of an application.
+
+Model, View and Controller are the main components of mvc pattern
+
+Role of each component?
+
+Model is responsible for data
+View is responsible for UI(User Interface)
+Controller is responsible for the flow of application by accepting user input.
+
+How MVC pattern works on Asp.Net Core MVC
+
+Details about each Component
+
+Understanding Controller?
+
+A controller is a .cs(for c#) file which has some methods called action methods.
+
+when a request comes on controller, it actually hits an action method.
+
+Now everything depends on Action method what to return from it . It may return only view, only data or both of them.
+
+
+
+
+
+--------------
+links
+
+
+
+https://www.c-sharpcorner.com/article/how-to-create-asp-net-core-mvc-application/
+
+
+https://www.c-sharpcorner.com/article/how-to-create-asp-net-core-mvc-application/
+
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+https://www.youtube.com/watch?v=zBYxYgDWh4w
+
+
+---------------------
+
+NOT DONE
+
+guided-project-arrays-iteration-selection
+
+Challenge project - Develop foreach and if-elseif-else structures to process array data in C#
+
+----------------------
+
+Assignments:
+
+.NET Memory Management
+Value Types and Reference Types
+Arrays
+Multi-Dimensional Arrays
+Jagged Arrays
+Param Arrays
+ 
+
+Collections
+ArrayList
+Hashtable
+SortedList
+Stack
+Queue
+BitArray
+
+
+------------------------------------------------------------------------
+
+https://dotnettutorials.net/lesson/collections-csharp/
+
+
+fast api and rest api
+git commands
+linux commands
+
+-----------------------
+
+
+https://github.com/ssshekhawat/ASP.NET-Core-MVC-Example/tree/master/FirstCRUDApplication
+
+https://github.com/topics/asp-net-core-mvc?l=css
+
+https://www.c-sharpcorner.com/article/crud-operations-in-asp-net-core-mvc-net-5-0/
+
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+
+https://www.tutorialsteacher.com/mvc
+
+https://www.c-sharpcorner.com/article/how-to-create-asp-net-core-mvc-application/
+
+https://executecommands.com/asp-net-core-mvc-web-application/
+
+https://www.c-sharpcorner.com/article/pass-dynamically-added-html-table-records-list-to-controller/
+
+
+
+

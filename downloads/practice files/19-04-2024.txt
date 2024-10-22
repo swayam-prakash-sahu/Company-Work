@@ -1,0 +1,139 @@
+https://www.youtube.com/watch?v=jWnw9afYzTM
+
+https://www.youtube.com/results?search_query=employee+project+.net
+
+https://www.youtube.com/watch?v=nwj9Rf7qDDI
+
+https://www.youtube.com/watch?v=keQ40aihrq4
+
+https://www.youtube.com/watch?v=pFrUhAI6RW0
+
+https://www.youtube.com/watch?v=gGa7SLk1-0Q
+
+https://www.youtube.com/watch?v=keQ40aihrq4
+
+
+https://www.youtube.com/watch?v=ghzvSROMo_M
+
+
+https://www.youtube.com/watch?v=buSimkHFYmw
+
+
+https://www.youtube.com/watch?v=8_eMgS6UszY&list=PLIY8eNdw5tW_ZQawyxK0Dd1cZXwcNFWn8
+
+services and directives in angular
+
+==============
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import AddBlogForm from './AddBlogForm';
+import Modal from 'react-modal';
+import Navbar from './Navbar';
+import './styles.css'; // Import CSS file
+
+function Home() {
+  const [blogs, setBlogs] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedBlog, setSelectedBlog] = useState(null); // Track selected blog for editing
+  const [editTitle, setEditTitle] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get('http://localhost:5286/api/Blogs');
+        setBlogs(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchBlogs();
+  }, [blogs]);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5286/api/Blogs/${id}`);
+      setBlogs(blogs.filter(blog => blog.id !== id));
+    } catch (error) {
+      console.error('Error deleting blog:', error);
+    }
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const openEditModal = (blog) => {
+    setSelectedBlog(blog);
+    setEditTitle(blog.title);
+    setEditDescription(blog.description);
+    setModalIsOpen(true);
+  };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const updatedBlog = { ...selectedBlog, title: editTitle, description: editDescription };
+      await axios.put(`http://localhost:5286/api/Blogs/${selectedBlog.id}`, updatedBlog);
+      setModalIsOpen(false);
+      // Update the blogs state to reflect changes
+      const updatedBlogs = blogs.map(blog => (blog.id === selectedBlog.id ? updatedBlog : blog));
+      setBlogs(updatedBlogs);
+    } catch (error) {
+      console.error('Error editing blog:', error);
+    }
+  };
+
+  if (isLoading) return <p>Loading...</p>;
+
+  return (
+    <div className="container">
+      <Navbar />
+      <h1 className="title">Welcome to My Blog</h1>
+      <div className="blog-list">
+        {blogs.map(blog => (
+          <div className="blog-card" key={blog.id}>
+            <h2 className="blog-title">
+              <a href="#" onClick={() => openEditModal(blog)}>
+                {blog.title}
+              </a>
+            </h2>
+            <p className="blog-description">{blog.description.substring(0, 100)}</p>
+            <div className="btn-group">
+              <button className="edit-btn" onClick={() => openEditModal(blog)}>Edit</button>
+              <button className="delete-btn" onClick={() => handleDelete(blog.id)}>Delete</button>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Edit Blog Modal"
+      >
+        <h2>Edit Blog</h2>
+        <form onSubmit={handleEditSubmit}>
+          <input className="edit-input" type="text" value={editTitle} onChange={(e) => setEditTitle(e.target.value)} required />
+          <textarea className="edit-textarea" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} required />
+          <button type="submit">Save Changes</button>
+        </form>
+        <button type="ok" onClick={closeModal}>Close</button>
+      </Modal>
+    </div>
+  );
+}
+
+export default Home;
+
+
+=============================
+
+https://www.google.com/search?q=task+manager+angular+project&sca_esv=ffa6a5b912f672b6&sca_upv=1&source=hp&ei=wJwmZsq3Msu4vr0P_6e1kA4&iflsig=ANes7DEAAAAAZiaq0DCW_al7pteM_vTCZamFkYFQHDsS&oq=task+manager+angular+pro&gs_lp=Egdnd3Mtd2l6Ihh0YXNrIG1hbmFnZXIgYW5ndWxhciBwcm8qAggAMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRifBUjTalAAWONgcAF4AJABAJgBoQGgAYUSqgEEMjAuNbgBA8gBAPgBAZgCGqACzhLCAgsQABiABBixAxiDAcICERAuGIAEGLEDGNEDGIMBGMcBwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICCBAAGIAEGLEDwgIOEC4YgAQYsQMY0QMYxwHCAgsQLhiABBixAxiDAcICCBAuGIAEGLEDwgIREC4YgAQYsQMY0QMYxwEYigXCAgsQLhiABBjRAxjHAcICBRAuGIAEwgIEEAAYA8ICBxAuGIAEGArCAgYQABgWGB7CAggQABgWGB4YD8ICCxAAGIAEGIYDGIoFwgIHEAAYgAQYDcICCBAAGAgYDRgewgIIEAAYgAQYogSYAwCSBwQyMC42oAf3mAE&sclient=gws-wiz

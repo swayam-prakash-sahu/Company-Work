@@ -1,0 +1,22 @@
+@charset "UTF-8";
+﻿﻿form[b-w0i8mwvigx] {
+  width: min(55%, 600px);
+}
+
+input[b-w0i8mwvigx] {
+  width: 100%;
+  padding-inline: 0.8rem;
+  padding-block: 1rem;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  background-image: url("images/Search.svg");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  box-shadow: 0 1rem 1rem -1rem #E5E7EB;
+}
+input[b-w0i8mwvigx]::-webkit-input-placeholder {
+  color: #6C727F;
+}
+input:focus[b-w0i8mwvigx] {
+  outline: none;
+}

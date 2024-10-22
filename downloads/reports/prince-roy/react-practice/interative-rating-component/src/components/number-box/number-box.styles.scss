@@ -1,0 +1,19 @@
+@mixin btn-style() {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  background-color: hsl(213, 17%, 26%);
+}
+
+.btn-number {
+  @include btn-style;
+}
+
+.active {
+  @include btn-style;
+  color: hsl(216, 12%, 8%);
+  background-color: hsl(25, 97%, 53%);
+}

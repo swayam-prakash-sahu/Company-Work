@@ -1,0 +1,79 @@
+.profile-section[b-5vesizxcn0] {
+  background-color: #F4F5F5;
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+}
+
+.avatar-container[b-5vesizxcn0] {
+  display: flex;
+  gap: 1rem;
+}
+
+.avatar-details[b-5vesizxcn0] {
+  display: flex;
+  padding-block: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  justify-content: space-around;
+  font-weight: 500;
+  color: #9DACC1;
+  margin-block-start: 2rem;
+}
+.avatar-details span:first-child[b-5vesizxcn0] {
+  color: #191C32;
+  font-weight: 800;
+}
+.avatar-details span:last-child[b-5vesizxcn0] {
+  font-size: 0.9375rem;
+  display: block;
+}
+
+.goals-container[b-5vesizxcn0] {
+  margin-block-start: 2rem;
+}
+.goals-container > p[b-5vesizxcn0] {
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.goal[b-5vesizxcn0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  margin-block-start: 1rem;
+  border-radius: 8px;
+}
+.goal .goal-avatar[b-5vesizxcn0] {
+  background-color: #F3F6FB;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-inline: 0.2rem;
+  padding-block: 0.2rem;
+  display: grid;
+  place-items: center center;
+}
+.goal img[b-5vesizxcn0] {
+  width: 100%;
+}
+.goal .goal-stats p:first-child[b-5vesizxcn0] {
+  font-weight: 600;
+}
+.goal .goal-stats p:last-child[b-5vesizxcn0] {
+  color: #9DACC1;
+  font-size: 0.875rem;
+}
+
+.ring[b-5vesizxcn0] {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center center;
+  color: #191C32;
+  font-weight: 600;
+  background: radial-gradient(closest-side, white 80%, transparent 80% 100%), conic-gradient(hotpink 75%, grey 0);
+}

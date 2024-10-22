@@ -1,0 +1,39 @@
+﻿@model ASPDotNetCoreMVC.Models.User
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Login", "Home"))
+{
+    <div class="col-md-12 row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <table class="table table-sm table-borderless">
+                <tr>
+                    <td>User Name</td>
+                    <td>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-sm"})
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-sm"})
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Login" class="btn btn-sm btn-secondary">
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(m => m.ErrorMessage)*@
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+}

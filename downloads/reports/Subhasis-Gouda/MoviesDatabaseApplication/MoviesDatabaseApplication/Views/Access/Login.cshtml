@@ -1,0 +1,43 @@
+﻿@model MoviesDatabaseApplication.Models.AuthLogin
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<div class="text-center container d-flex justify-content-center ">
+    <div class="col-md-4">
+        <form asp-controller="Access" asp-action="Login" method="post">
+            <h2>Login.</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                <label asp-for="Email" class="form-label">Email</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                <label asp-for="Password" class="form-label">Password</label>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isloggedin" /> @Html.DisplayNameFor(model => model.isloggedin)
+                </label>
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="w-100 btn  btn-outline-dark">Log in</button>
+                <br/>
+            </div>
+            <div>
+                <a id="register" href="@Url.Action("Create", "Users")" class="w-100 btn  btn-outline-dark">Register</a>
+            </div>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <br />
+                <br />
+                <lable>@ViewData["ValidateMessage"]</lable>
+            }
+        </form>
+        <div />
+</div>
+

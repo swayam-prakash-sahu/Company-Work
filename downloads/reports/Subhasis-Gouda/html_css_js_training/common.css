@@ -1,0 +1,21 @@
+h1
+{
+       color:darkgoldenrod;
+       font-variant: small-caps;
+}
+h1:hover
+{
+    color: blue;
+    font-size: 48px;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+}
+@media screen and (max-width:425px)
+{
+    .flex{
+        display: flex;
+        color:blueviolet;
+    }
+}

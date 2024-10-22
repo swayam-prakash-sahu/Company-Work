@@ -1,0 +1,180 @@
+sql stands for structured query language. SQL is used to query and manipulate the underlying relational databases such as SQL server , Oracle, MySQL, PostgreSQL etc.
+
+SQL Syntax:
+
+Keywords : reserved and non-reserved words
+Identifiers : are the names of the database objects like table name, schema name etc
+Clauses: Clauses forms the components of SQL statements and queries such as WHERE , GROUP BY, HAVING, ORDER BY.
+Expression: produce either scalar values, or columns and rows of data.
+Boolean Conditions:  TRUE, FALSE
+Queries : retrieve data based on specific criteria 
+Statements : modify underlying database structure or data
+eg: INSERT, UPDATE, DROP, DELETE  
+
+classification : DDL, DML, TCL, DCL
+
+DDL : CREATE, ALTER, DROP, RENAME, TRUNCATE
+DML : SELECT, INSERT, UPDATE, DELETE, MERGE, LOCK TABLE
+TCL : COMMIT, ROLLBACK, SAVEPOINT, SET TRANSACTION
+DCL : GRANT, REVOKE, COMMENT, ANALYZE, AUDIT
+SCL : ALTER SESSION, SET ROLE
+
+CREATE TABLE table_name( colnm1 dtype [NULL|NOT NULL],
+colnm1 dtype [NULL|NOT NULL],...);
+
+WHERE CLAUSE
+
+SELECT column1, column2,...columnN 
+FROM table_name
+WHERE conditions
+
+
+
+GROUP BY CLAUSE
+
+SELECT column1, column2,...columnN FROM table_name
+[WHERE]
+[GROUP BY column1, column2...columnN]
+[HAVING]
+[ORDER BY]
+
+The GROUP BY clause is used to form the groups of records.
+The GROUP BY clause must come after the WHERE clause if present and before the HAVING clause.
+
+eg: SELECT DeptId, COUNT(EmpId) as 'Number of Employees' 
+FROM Employee
+GROUP BY DeptId;
+
+--following query will return same data as above
+SELECT DeptId, COUNT(*) as 'No of Employees' 
+FROM Employee
+GROUP BY DeptId;
+
+SELECT dept.Name as 'Department', count(emp.empid) as 'No of Employees'
+FROM Employee emp, Department dept
+WHERE emp.deptid = dept.DeptId
+GROUP by dept.Name
+
+HAVING CLAUSE
+
+The HAVING clause is used to filter out grouping records.
+The HAVING clause must come after the GROUP BY clause and before the ORDER BY clause.
+The HAVING clause can include one or more conditions.
+
+SELECT column1, column2,...columnN 
+FROM table_name
+[WHERE]
+[GROUP BY column1, column2...columnN]
+[HAVING conditions]
+[ORDER BY]
+
+eg: SELECT DeptId, COUNT(EmpId) as 'Number of Employees' 
+FROM Employee
+GROUP BY DeptId;
+HAVING COUNT(EmpId) > 2
+
+ORDER BY CLAUSE
+
+SELECT column1, column2,...columnN 
+FROM table_name
+[WHERE]
+[GROUP BY]
+[HAVING]
+[ORDER BY column(s) [ASC|DESC]]
+
+
+eg: SELECT dept.Name as 'Department', count(emp.empid) as 'No of Employees'
+FROM Employee emp, Department dept
+WHERE emp.deptid = dept.DeptId
+GROUP by dept.Name
+ORDER BY dept.Name DESC
+
+
+MERGE target_table USING source_table
+ON merge_condition
+WHEN MATCHED
+    THEN update_statement
+WHEN NOT MATCHED
+    THEN insert_statement
+WHEN NOT MATCHED BY SOURCE
+    THEN DELETE;
+
+================
+18-03-2024
+
+SQL Full Join
+
+creates a new table by joining two tables as a whole.
+
+MySQL does not support Full Outer Join. 
+
+Instead, you can imitate its working by performing union operation between the result-sets obtained from Left Join and Right Join.
+
+The purpose of Joins in SQL is to combine records of two or more tables based on common columns/fields. 
+
+SELF JOIN
+
+IS A TYPE OF JOIN THAT COMBINES TWO RECORDS OF A TABLE WITH ITSELF.
+
+SELF JOIN IS USED TO JOIN A TABLE TO ITSELF AS IF THE TABLE WERE TWO TABLES.
+
+IT IS A TYPE OF INNER JOIN.
+
+PERFORMED IN CASES WHERE THE COMPARISON BETWEEN TWO COLUMNS OF A SAME TABLE IS REQUIRED.
+
+A TABLE IS JOINED WITH ITSELF WHEN IT CONTAINS BOTH FOREIGN KEY AND PRIMARY KEY IN IT.
+
+SELECT COLUMN_NAME(S)
+FROM TABLE1 a, TABLE1 b
+WHERE a.common_field = b.common_field;
+
+SELECT column_name(s)
+FROM table1 a, table1 b
+WHERE a.common_field = b.common_field
+ORDER BY column_name;
+
+ 
+SQL DELETE... JOIN statement
+
+Simple deletion operation in SQL can be performed on a single record or multiple records of a table.
+
+SQL makes it easier by allowing the deletion operation to be performed on multiple tables simultaneously. This is achieved using Joins.
+
+DELETE table(s)
+FROM table1 JOIN table2
+ON table1.common_field = table2.common_field; 
+
+When we say JOIN here, we can use any type of Join: Regular Join, Natural Join, Inner Join, Outer Join, Left Join, Right Join, Full Join etc.
+
+
+
+https://www.tutorialspoint.com/sql/sql-delete-joins.htm
+
+https://www.w3resource.com/sql-exercises/adventureworks/adventureworks-exercises.php
+
+https://www.tutorialsteacher.com/sql/sql-orderby#:~:text=The%20ORDER%20BY%20clause%20is,if%20present%20in%20the%20query.
+
+
+polaris
+
+18
+
+SQL SELF PRACTICE(JOINS)
+ASP.NET CORE AND ASP.NET CORE MVC TRAINING BY SUMAN
+
+
+
+https://github.com/TwilioDevEd/employee-directory-csharp
+
+https://github.com/HoussemDellai/Employees-Directory-Aspnet-Mvc
+
+----------
+
+https://www.c-sharpcorner.com/article/crud-operation-with-asp-net-core-mvc-web-app-using-ado-net/
+
+
+https://www.dotnetspider.com/resources/44243-Employee-System-using-ASPnet-MVC-Entity-Framework.aspx
+
+https://www.javatpoint.com/asp-net-mvc-entity-framework
+
+

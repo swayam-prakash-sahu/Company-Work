@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SWAYAM JS</title>
+    <style>
+    *{
+        background-color: blanchedalmond;
+        box-sizing: border-box;
+    }
+    .pop{
+
+      color: brown;
+      padding: 10px;
+      width: fit-content;
+    }
+    #demo4{
+
+      background-color: aquamarine;
+      padding: 20px;
+      
+    }
+    </style>
+</head>
+<body>
+
+  <h2>JAVASCRIPT DOM METHODS IMPLEMENTATION</h2>
+
+<!-- inner html -->
+ <p id="demo1"></p>
+
+<!-- getelementbyid -->
+<p id="intro">Finding HTML Elements by Id</p>
+<p>This example demonstrates the <b>getElementsById</b> method.</p>
+<p id="demo2"></p>
+
+<!-- getelementbyTagName -->
+<p>Finding HTML Elements by Tag Name</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+<p id="demo3"></p>
+
+<!-- getelementbyClassName -->
+<p class="intro">Welcome To GyanSys!</p>
+<p class="intro">This example demonstrates the <b>getElementsByClassName</b> method.</p>
+
+<!-- Query Selector -->
+<div>Practice DOM METHODS</div>
+<div>Query Selector Implementation</div>
+
+<!-- Query Selector All-->
+<p>Finding HTML Elements by Query Selector</p>
+<p class="intro">Good Morning Everyone!.</p>
+<p class="intro">This example demonstrates the <b>querySelectorAll</b> method.</p>
+
+<!-- buttons -->
+<h3 id="myHeading">LEARNING JAVASCRIPT BY MAKING PROJECTS!</h3>
+  <p class="myParagraph">This is a paragraph.</p>
+
+  <button onclick="changeWebHeading()">Change Heading</button>
+
+  <p><button onclick="myFunction()">Click Me</button></p>
+  <div id="myDIV">Hello</div>
+
+
+
+<section class="pop">
+<button onclick="myStopFunction()">Stop!</button>
+<p id="demo4"></p>
+</section>
+
+
+<script>
+document.getElementById("demo1").innerHTML = "Welcome To Our Website";
+
+const element = document.getElementById("intro");
+
+ document.getElementById("demo2").innerHTML = 
+"The text from the intro paragraph is: " + element.innerHTML;
+
+const ele = document.getElementsByTagName("p");
+
+
+const x = document.getElementsByClassName("intro");
+
+document.querySelector("div").style.backgroundColor = "seagreen";
+
+const y= document.querySelectorAll("p.intro");
+
+// throung methods
+  
+  function changeWebHeading() {
+    var heading = document.getElementById("myHeading");
+    heading.innerHTML = "WELCOME TO GYANSYS!";
+  }
+//   swap texts
+  function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.innerHTML === "Hello") {
+    x.innerHTML = "Swapped text!";
+  } else {
+    x.innerHTML = "Hello";
+  }
+}  
+
+// Create a new button element
+    const button = document.createElement('button');
+    button.textContent = 'Click for alert';
+
+    // Add a click event listener to the button
+    button.addEventListener('click', () => {alert('Button clicked!') });
+      
+
+    // Append the button to the body element
+    document.body.appendChild(button);
+
+// setTimeout
+const myTimeout = setTimeout(myGreeting, 5000);
+
+function myGreeting() {
+  document.getElementById("demo4").innerHTML = "Happy Birthday!"
+}
+
+function myStopFunction() {
+  clearTimeout(myTimeout);
+}
+
+</script>
+
+</body>
+</html>

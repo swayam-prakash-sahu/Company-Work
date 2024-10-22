@@ -1,0 +1,27 @@
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+bin/
+Bin/
+obj/
+Obj/
+/obj/
+/Obj/
+/debug/
+/debug
+/obj
+obj
+
+# Visual Studio 2015 cache/options directory
+.vs/
+/wwwroot/dist/

@@ -1,0 +1,34 @@
+
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="form-container">
+        <h2>Login</h2>
+        <div class="image-container">
+        <img src="../../assets/memphis-biometric-authentication-and-account-login.gif" width="250" height="200">
+        </div>
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" class="form-control" required [(ngModel)]="username">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" class="form-control" required [(ngModel)]="password">
+          </div>
+          <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+          <div class="row justify-content-center mt-3">
+            <div class="col-md-6">
+              <div class="text-center">
+                <a routerLink="/register" routerLinkActive="active">New User? Register Here</a>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

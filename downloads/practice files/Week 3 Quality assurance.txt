@@ -1,0 +1,272 @@
+
+
+GET Evaluation Week -3 - Quality assurance
+
+Points
+
+167/180
+
+Jira Ticketing Tool  Azure Ticket Tool
+
+Incorrect
+910 Points
+
+1.Explain the purpose of a Jira ticket in the software development process.
+Jira is a widely used project management tool. Jira ticket in software unit testing process is used for fixing the bugs in the project, tasks and product life cycle. Tickets are raised by users who are facing issues and can identify any faultdefect in the product.
+
+Tickets are then created in Jira as -
+Epic - user story - tasks - subtask
+
+ ownership - collaboration - integration
+
+Creation When a new task, bug, or user story is identified, a Jira ticket is created to track it.
+
+Prioritiztion the product backlog is prioritized based on business value and customer needs
+
+Estimation Before starting work on a ticket, the team estimates the effort required to complete it. 
+
+Assignment Once prioritized and estimated, Jira tickets are assigned to individual team members. 
+
+Progress Tracking team members update the status of Jira tickets to reflect their progress. 
+
+Collaboration Jira facilitates collaboration among team members by providing features such as comments, attachments etc.
+
+Integration Jira integrates with various development tools and version control systems, such as Git, GitHub.
+Incorrect
+910 Points
+2.How can you link two Jira tickets to show a relationship between them
+Main task - add link - buguser storytask sub task featureepic.
+
+Two Jira tickets can be linked by creating a Main task within that we will add our links to the tasks
+have to be performed. 
+
+Then we create sub tasks and it gets link to the main task automatically.
+Correct
+1010 Points
+3.Distinguish between severity and priority in the context of software testing.
+Priority It is important for fixing bugs, based on the bug priority the bugs are fixed.
+
+1.High  - high priority tickets when raised, has to be solved immediately within 2 hours. 
+2.Medium - Medium priority tickets when raised, has to be solved within 24 hours. 
+3.Low - Low  priority tickets when raised, has to be solved  within the end of sprint. 
+
+
+Severity The impact of bug on the application is called severity. How much our product is affected due to the occurrence of bug is handled here. 
+
+1. Blocker
+2. Critical
+3. Major 
+4. Minor
+Correct
+1010 Points
+4.Give an example of a situation where a defect has high severity but low priority.
+An example of a defect with high severity but low priority could be a cosmetic issue in a non-critical part of a user interface. 
+
+For example a minor spelling mistake in an error message that does not affect the functionality of the software would be considered a defect with high severity, as it impacts the user experience. 
+
+However, if the error message is rarely encountered or if there are more pressing issues affecting core functionality, it may be deemed a low priority for immediate resolution.
+Correct
+1010 Points
+5.What is a sprint in Agile methodology, and how does it contribute to the development process
+Sprint in Agile Methodology refers to the time frame that a project will go through during its whole development process during its software development lifecycle.
+
+Sprints can have time frames depending on the  projectproduct we are building and generally have time period of 2 weeks to 4 weeks. Sprints in agile are the tasks our requirements that needs to be fulfilled within that cycle. They give us a time frame which helps in productproject completion faster and be more productive.
+Incorrect
+910 Points
+6.How does Agile methodology address changing requirements during the development process
+In Agile methodology, address changes in unit testing typically involves adapting the unit tests to accommodate the changes made to the codebase. 
+
+steps to address change in unit testing 
+
+This includes understanding the requirements, user stories, or bug fixes that led to the changes.
+
+Review the existing unit tests related to the code that has been modified.
+
+Ensure that the unit tests cover the updated functionality and edge cases introduced by the changes.
+
+Refactoring helps maintain the quality and maintainability of the test suite.
+
+Running tests locally helps catch any errors or issues early in the development process.
+
+Conduct peer reviews of both the code changes and the updated unit tests. 
+
+Monitor the performance of the unit tests. 
+Incorrect
+510 Points
+7.Outline the typical stages in the defect life cycle.
+Stages of defect life cycle are
+
+1. to do
+2. in review
+3. in progress
+4. done
+
+Incorrect
+810 Points
+8.How does a defect's life cycle impact project timelines and quality
+The defect life cycle impacts both project timelines and quality in software development. 
+
+Project Timelines
+
+Defect identification and reporting can occur at any stage of the project. 
+
+The earlier a defect is identified, the less impact it typically has on project timelines.
+
+The time taken to fix defects can vary depending on their complexity and severity.
+
+Defects with high severity or critical impact often require immediate attention.
+
+Quality
+
+Defects directly impact the quality of the software product and customer satisfaction. 
+
+Unresolved defects or issues in the released software can lead to user dissatisfaction, negative reviews, and reputational damage for the organization.
+
+The presence of unresolved defects can lead to the reliability of the software.
+
+Frequent crashes and errors can prevent user trust and confidence in the product.
+
+The defect life cycle influences the overall quality of the software product.
+Incorrect
+910 Points
+9.Briefly describe the stages of the Software Development Life Cycle (SDLC).
+Plan
+The planning phase includes tasks like cost analysis and resource estimation.
+
+The document sets expectations and goals for project planning. 
+
+Requirement Analysis and Gathering data
+The team estimates costs, creates a schedule, and has a detailed plan to achieve their goals.
+
+Design
+In the design phase, software engineers analyze requirements and identify the best solutions to create the software. UIUX is taken care by the team.
+
+Implement
+the development team codes the product.
+
+Test
+The development team combines automation and manual testing to check the software for bugs. 
+
+Deploy
+The deployment phase includes several tasks to move the latest build of the product to deploy it and make it live.
+
+Maintain
+the team fixes bugs, resolves customer issues, and manages software changes. 
+Correct
+1010 Points
+10.Why is the testing phase a critical part of the SDLC
+Testing phase is a critical part of the SDLC process because tests are conducted to identify errors and bugs in the product or project.
+ 
+Correct
+1010 Points
+11.What is API testing, and why is it essential in the context of software development
+API testing is used for testing the correctness and reliability of API code
+
+we can check API is fetching the correct data, whether it is retrieving the data or not .
+
+We can see status codes like 200(ok), 201(created), 404 etc and HTTP methods like GET, POST, PUT POST AND PATCH and verify the correctness of the API.
+
+Essential to check correct working of product and project.
+Correct
+1010 Points
+12.Name two common types of API testing and briefly explain each.
+Functional API Testing
+
+Functional API testing verifies that the functions or operations of an API behave as expected in response to different types of inputs.
+
+Test cases are designed to validate the correctness of API responses based on specified inputs, such as parameters. Testers verify that the API returns the expected output for different scenarios,
+
+Tools commonly used for functional API testing include Postman etc.
+
+Load and Performance API Testing
+
+Load and performance API testing evaluates the performance, scalability, and reliability of an API under various load conditions. 
+
+It tests how the API performs when subjected to a high volume of requests or concurrent users.
+
+Test scenarios are designed to simulate realistic load conditions and analyzed to identify performance, scalability issues, and areas for optimization.
+Correct
+1010 Points
+13.What is the difference between verification and validation in the software testing process
+Verification
+
+Verification ensures that the software meets its specified requirements and adheres to its intended design without necessarily involving actual execution or testing of the software.
+
+It focuses on confirming that the software is being developed correctly according to its specifications and design documents.
+
+It includes reviews, inspections, and analysis. 
+
+examine the software units 
+
+e.g., design documents and code to check for completeness and correctness.
+
+Validation
+
+Validation ensures that the software meets the needs and expectations of the end-users by testing the actual software product against its requirements and user expectations.
+
+It focuses on confirming that the software fulfills its purpose and delivers the expected value to users.
+
+validation include dynamic testing, user acceptance testing (UAT), and functional testing. 
+
+Example Performing end-to-end testing of a web application to verify that all features work as expected and meet user needs.
+Correct
+1010 Points
+14.How can automated tools contribute to the verification process
+Automated tools contribute to the verification process by facilitating the analysis and review of software units, such as requirements, design documents, and code. 
+
+These tools automate tasks like code analysis, syntax and semantics checking, etc ensuring that the software meets its requirements and adheres to standards and guidelines. 
+
+By automating these verification activities, such tools help identify defects, inconsistencies, and potential issues early in the development process.
+
+Improves the overall software quality and reducing the occurrence of errors in the final product.
+Incorrect
+910 Points
+15.Define unit testing and explain its primary objectives.
+Unit testing is a software testing technique where individual units or components of a software application are tested to ensure that they function correctly and meet their intended behavior. 
+
+The units correspond to the smallest testable parts of the code, such as functions, methods, or classes.
+
+Primary Objectives of Unit Testing
+
+Unit testing isolates each unit of code for testing, allowing defects to be identified and fixed without affecting other parts of the system.
+
+Unit tests verify that individual units of code behave as expected according to their specifications and requirements, ensuring correctness and reliability.
+
+Errors can be detected early in the development process.
+
+Reduces the cost and effort required for debugging and fixing issues.
+
+Provides a clear understanding of how each component should function and what inputs should produce what outputs.
+Incorrect
+910 Points
+16.What is a test double in the context of unit testing
+Test doubles are objects that look and act as components in our application but they are created in our test to provide a specific data. 
+
+The advantage of using is that they make our tests faster and simpler.
+Correct
+1010 Points
+17.Explain the concept of whitebox testing and provide an example.
+White-box testing, involves examining the internal structure, code, and logic of the software being tested. 
+
+Testers use their understanding of the internal workings of the application to design test cases that thoroughly examines different code logics, conditions, and branches.
+
+Example
+Suppose we are testing a function that calculates the square root of a given number. 
+
+In white-box testing, we would analyze the function's source code to identify various code paths and conditions. We might design test cases to ensure the function behaves correctly under different scenarios, such as
+
+Testing with positive numbers.
+Testing with negative numbers .
+Testing with very large numbers.
+Testing with edge cases such 
+Correct
+1010 Points
+18.How does whitebox testing differ from blackbox testing
+White-box testing focuses on testing the internal structure, logic, and code of the software, using knowledge of its internal workings. 
+it is done by developers
+
+Black-box testing tests the software's functionality without knowledge of its internal implementation, focusing on the inputs and outputs.
+Microsoft 365
+This content is created by the owner of the form. The data you submit will be sent to the form owner. Microsoft is not responsible for the privacy or security practices of its customers, including those of this form owner. Never give out your password.
+Microsoft Forms  AI-Powered surveys, quizzes and pollsCreate my own form
+Privacy and cookies  Terms of use
